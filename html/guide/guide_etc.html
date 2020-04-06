@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+
+<meta name="title" content="농협카드 모바일">
+<meta name="description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
+<meta property="og:title" content="농협카드 모바일">
+<meta property="og:url" content="https://card.nonghyup.com">
+<!-- <meta property="og:image" content="https://card.nonghyup.com../../static/images/logo_1200x1200.png"> -->
+<meta property="og:image" content="http://localhost:8080../../static/images/logo_1200x1200.png">
+<meta property="og:description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
+<meta name="format-detection" content="telephone=no">
+
+<title>농협카드 모바일</title>
+<meta name="apple-mobile-web-app-title" content="농협카드 모바일">
+<link rel="apple-touch-startup-image" href="../../static/images/icons/touch-icon-iphone-retina.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="shortcut icon" type="image/x-icon" href="../../static/images/favicon.png"><!-- 196x196-->
+<link rel="apple-touch-icon" href="../../static/images/icons/touch-icon-iphone.png"><!-- 120x120-->
+<link rel="apple-touch-icon" sizes="152x152" href="../../static/images/icons/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/images/icons/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="167x167" href="../../static/images/icons/touch-icon-ipad-retina.png">
+<link rel="manifest" href="../../static/manifest.json">
+
+<link rel="stylesheet" href="../../static/css/common.css">
+<link rel="stylesheet" href="../../static/css/contents.css">
+
+<script src="../../static/js/jquery-3.3.1.min.js"></script>
+<script src="../../static/js/jquery-ui-1.12.1.min.js"></script>
+<script src="../../static/js/ui_plugins.js"></script>
+<script src="../../static/js/ui_common.js"></script>
+</head>
+<body>
+<article id="wrap">
+	<div data-include-html="/html/include/top.html"></div>
+	<div data-include-html="/html/include/gnb.html"></div>
+	<div id="container">
+		<section id="contents">
+			<div data-include-html="inc_guide_navi.html"></div>
+			<div class="section">
+
+				<div class="form_item inp">
+					<label for="mail1" class="fm_lb">이메일</label>
+					<div class="fm_cont email_form"><!-- 에러날때 error 클래스 -->
+						<div class="tbl">
+							<div class="td w40"><input type="text" id="mail1" class="input" title="이메일 아이디 입력"></div>
+							<div class="td dash t2">@</div>
+							<div class="td w60 email_sel">
+								<div class="sel_wrap">
+									<select class="select" title="이메일 도메인 선택" id="mailSelect">
+										<option value="" selected="selected">이메일계정선택</option>
+										<option value="naver.com">naver.com</option>
+										<option value="hanmail.net">hanmail.net</option>
+										<option value="nate.com">nate.com</option>
+										<option value="gmail.com">gmail.com</option>
+										<option value="yahoo.com">yahoo.com</option>
+										<option value="empal.com">empal.com</option>
+										<option value="freechal.com">freechal.com</option>
+										<option value="chol.com">chol.com</option>
+										<option value="dreamwiz.com">dreamwiz.com</option>
+										<option value="hanmir.com">hanmir.com</option>
+										<option value="hotmail.com">hotmail.com</option>
+										<option value="korea.com">korea.com</option>
+										<option value="lycos.com">lycos.com</option>
+										<option value="msn.com">msn.com</option>
+										<option value="paran.com">paran.com</option>
+										<option value="me.com">me.com</option>
+										<option value="etc">직접입력</option>
+									</select>
+								</div>
+							</div>
+							<div class="td w60 email_inp" style="display:none;">
+								<input type="text" class="input" title="이메일 도메인 직접입력" placeholder="직접입력">
+								<a href="#" class="btn_sel"><span class="blind">이메일 도메인 직접입력 취소</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이메일를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+				</div>
+			</div>
+		</section>
+	</div>
+	<div data-include-html="/html/include/footer.html"></div>
+</article>
+</body>
+</html>
