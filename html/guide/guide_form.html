@@ -69,14 +69,14 @@
 						<label for="chk1_1" class="lbl">체크박스</label>
 					</span>
 				</div>
-				<div class="form_item">
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<div class="checkbox">
 						<input type="checkbox" id="chk1_2"><i aria-hidden="true"></i>
 						<label for="chk1_2" class="lbl">체크박스</label>
 					</div>
 					<div class="help_txt">도움말 도움말 도움말 도움말</div>
 				</div>
-				<div class="form_item">
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<div class="checkbox">
 						<input type="checkbox" id="chk1_3" disabled><i aria-hidden="true"></i>
 						<label for="chk1_3" class="lbl">체크박스 disabled</label>
@@ -110,14 +110,14 @@
 						<label for="rdo1_1" class="lbl">라디오</label>
 					</span>
 				</div>
-				<div class="form_item">
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<div class="radio">
 						<input type="radio" id="rdo1_2" name="rdo1_1"><i aria-hidden="true"></i>
 						<label for="rdo1_2" class="lbl">라디오</label>
 					</div>
 					<div class="help_txt">도움말 도움말 도움말 도움말</div>
 				</div>
-				<div class="form_item">
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<span class="radio">
 						<input type="radio" id="rdo1_3" name="rdo1_1" disabled><i aria-hidden="true"></i>
 						<label for="rdo1_2" class="lbl">라디오 disabled</label>
@@ -307,16 +307,33 @@
 				</ul>
 
 				<h3 class="gd__h2">ui-tab-rdo</h3>
-				<ul class="btn_toggle grid col2 ui-tab-rdo" data-targets="#mailTogCont,#faxTogCont,#etcTogCont">
+				<ul class="btn_toggle grid col2 ui-tab-rdo" data-hide="#mailTogCont,#faxTogCont,#etcTogCont">
 					<li>
-						<input type="radio" id="togWay1" name="togWay" data-target="#mailTogCont,#etcTogCont">
+						<input type="radio" id="togWay1" name="togWay" data-show="#mailTogCont,#etcTogCont">
 						<label for="togWay1">이메일</label>
 					</li>
 					<li>
-						<input type="radio" id="togWay2" name="togWay" data-target="#faxTogCont,#etcTogCont">
+						<input type="radio" id="togWay2" name="togWay" data-show="#faxTogCont,#etcTogCont">
 						<label for="togWay2">팩스</label>
 					</li>
 				</ul>
+
+				<h3 class="gd__h2">체크박스</h3>
+				<ul class="btn_toggle grid col3">
+					<li>
+						<input type="checkbox" id="togChk1" name="togChk" value="2" checked>
+						<label for="togChk1"><span>모바일</span></label>
+					</li>
+					<li>
+						<input type="checkbox" id="togChk2" name="togChk" value="3">
+						<label for="togChk2"><span>이메일</span></label>
+					</li>
+					<li>
+						<input type="checkbox" id="togChk3" name="togChk" value="4">
+						<label for="togChk3"><span>팩스</span></label>
+					</li> 
+				</ul>
+
 				<br>
 				<div id="mailTogCont" class="tab_rdo_panel">메일입력</div>
 				<div id="faxTogCont" class="tab_rdo_panel">FAX입력</div>
@@ -345,6 +362,149 @@
 				</div>
 
 				<h2 class="gd__h1">form_item</h2>
+				<h3 class="gd__h2">text</h3>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<div class="fm_lb">이름</div>
+					<div class="fm_val">홍길동</div>
+				</div>
+
+				<h3 class="gd__h2">input</h3>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inputText" class="fm_lb">input:text</label>
+					<div class="fm_cont">
+						<div class="inp_wrap">
+							<input type="text" id="inputText" class="input" placeholder="내용을 입력하세요">
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inputText2" class="fm_lb">input:text[readonly] - 읽기전용</label>
+					<div class="fm_cont">
+						<div class="inp_wrap">
+							<input type="text" id="inputText2" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." readonly>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inputText3" class="fm_lb">input:text[disabled]  - 비활성화</label>
+					<div class="fm_cont">
+						<div class="inp_wrap">
+							<input type="text" id="inputText3" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." disabled>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+
+				<h3 class="gd__h2">select</h3>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inpSel1" class="fm_lb">select</label>
+					<div class="fm_cont">
+						<div class="sel_wrap">
+							<select class="select" id="inpSel1" title="날짜 선택">
+								<option value="">날짜 선택</option>
+								<option value="1">1일</option>
+								<option value="2">2일</option>
+								<option value="3">3일</option>
+							</select>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inpSel2" class="fm_lb">select[disabled] - 비활성화</label>
+					<div class="fm_cont">
+						<div class="sel_wrap">
+							<select class="select" id="inpSel2" title="날짜 선택" disabled>
+								<option value="">날짜 선택</option>
+								<option value="1">1일</option>
+								<option value="2" selected>2일</option>
+								<option value="3">3일</option>
+							</select>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<h3 class="gd__h2">textarea</h3>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="textarea" class="fm_lb">textaresa</label>
+					<div class="fm_cont">
+						<div class="textarea">
+							<textarea id="textarea" maxlength="300"></textarea>
+							<div class="byte"><strong>0</strong>/300</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="textarea2" class="fm_lb">textaresa[readonly] - 읽기전용</label>
+					<div class="fm_cont">
+						<div class="textarea">
+							<textarea id="textarea2" maxlength="300" readonly>읽기전용 + 입력된 내용</textarea>
+							<div class="byte"><strong>10</strong>/300</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="textarea3" class="fm_lb">textaresa[disabled] - 비활성화</label>
+					<div class="fm_cont">
+						<div class="textarea">
+							<textarea id="textarea3" maxlength="300" disabled>비활성화 + 입력된 내용</textarea>
+							<div class="byte"><strong>10</strong>/300</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="textarea4" class="fm_lb">다른높이</label>
+					<div class="fm_cont">
+						<div class="textarea large">
+							<textarea id="textarea4" maxlength="5000" placeholder="로그인 후 접수하신 경우 [ 마이페이지 > 상담내역 ] 에서 접수내역을 확인하실 수 있습니다."></textarea>
+							<div class="byte"><strong>0</strong>/5,000</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+
+				<h3 class="gd__h2">switch</h3>
+				<h4 class="gd__h3">전체영역 선택가능</h4>
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
+					<div class="tbl">
+						<div class="td lb"><label for="switchChk2" class="block">현금 IC카드 거래 알림</label></div>
+						<div class="td swt">
+							<div class="btn_switch">
+								<input type="checkbox" id="switchChk2">
+								<div class="lbl"><span class="blind">설정해제</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h4 class="gd__h3">토글영역만 선택가능</h4>
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
+					<div class="tbl">
+						<div class="td lb">앱캐시 거래 알림</div>
+						<div class="td swt">
+							<div class="btn_switch">
+								<input type="checkbox" id="switchChk">
+								<label for="switchChk" class="lbl"><span class="blind">앱캐시 거래 알림 설정해제</span></label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h3 class="gd__h2">조합</h3>
+				<h4 class="gd__h3">기간입력</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="birthDate" class="fm_lb">생년월일 <i class="require"><span class="blind">필수입력항목</span></i></label>
+					<div class="fm_cont">
+						<div class="inp_wrap">
+							<input type="tel" id="birthDate" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">생년월일을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="startDate" class="fm_lb">시작일자</label>
 					<div class="fm_cont">
@@ -355,7 +515,7 @@
 							<div class="td time">00시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">시작일자를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">시작일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="help_txt">변경시작일은 내일부터 선택 가능합니다.</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -368,10 +528,10 @@
 							<div class="td time">24시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">종료일자를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">종료일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="help_txt">변경시작일은 내일부터 선택 가능합니다.</div>
 				</div>
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="date1" class="fm_lb">기간</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -384,9 +544,9 @@
 							<div class="td ut">분</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="date2" class="fm_lb">기간</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -397,74 +557,42 @@
 							<div class="td ut t2">시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<label for="textarea" class="fm_lb">내용</label>
-					<div class="fm_cont">
-						<div class="textarea">
-							<textarea id="textarea" maxlength="300"></textarea>
-							<div class="byte"><strong>0</strong>/300</div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="textarea2" class="fm_lb">내용</label>
-					<div class="fm_cont">
-						<div class="textarea large">
-							<textarea id="textarea2" maxlength="5000" placeholder="로그인 후 접수하신 경우 [ 마이페이지 > 상담내역 ] 에서 접수내역을 확인하실 수 있습니다."></textarea>
-							<div class="byte"><strong>0</strong>/5,000</div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">사고내용을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<div class="fm_lb">운전자 범위</div>
-					<div class="fm_val">누구나 운전</div>
-				</div>
-				<div class="form_item inp">
-					<div class="fm_lb">운전자 연령</div>
-					<div class="fm_val">연령제한없이 운전</div>
-				</div>
-				<div class="form_item inp">
-					<div class="fm_lb">결제방법</div>
-					<div class="fm_cont">
-						<ul class="btn_toggle grid col2">
-							<li>
-								<input type="radio" id="payRdo1" name="payRdo">
-								<label for="payRdo1">실시간 출금</label>
-							</li>
-							<li>
-								<input type="radio" id="payRdo2" name="payRdo">
-								<label for="payRdo2">신용카드</label>
-							</li>
-						</ul>
-					</div>
-					<div class="error_txt" style="display:none">결제방법을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="cardNum1" class="fm_lb">카드번호</label>
+
+				<h4 class="gd__h3">주민번호</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="jumin1" class="fm_lb">주민등록번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td w25"><input type="tel" id="cardNum1" class="input no_del t_center" maxlength="4" title="카드번호 첫번째 4자리 입력"></div>
+							<div class="td"><input type="tel" id="jumin1" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
 							<div class="td dash">-</div>
-							<div class="td w25"><input type="password" id="cardNum2" class="input no_del t_center" maxlength="4" title="카드번호 두번째 4자리 입력"></div>
-							<div class="td dash">-</div>
-							<div class="td w25"><input type="tel" id="cardNum3" class="input no_del t_center" maxlength="4" title="카드번호 세번째 4자리 입력"></div>
-							<div class="td dash">-</div>
-							<div class="td w25"><input type="password" id="cardNum4" class="input no_del t_center" maxlength="4" title="카드번호 네번째 4자리 입력"></div>
+							<div class="td"><input type="password" id="jumin2" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리  입력" placeholder="(뒤7자리)"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">카드번호를 정확하게 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="jumin3" class="fm_lb">주민등록번호</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td"><input type="tel" id="jumin3" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
+							<div class="td dash">-</div>
+							<div class="td w_70"><input type="tel" id="jumin4" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리 중 첫번째자리 입력" placeholder="앞 1자리"></div>
+							<div class="td w_110">●●●●●●</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				
+				<h4 class="gd__h3">연락처</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="phoneNum1_1" class="fm_lb">휴대폰번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w20">
 								<div class="sel_wrap">
-									<select class="select" id="phoneNum1_1" title="휴대폰번호 식별번호 선택" disabled>
+									<select class="select" id="phoneNum1_1" title="휴대폰번호 식별번호 선택">
 										<option value="010" selected="selected">010</option>
 										<option value="012">012</option>
 										<option value="013">013</option>
@@ -475,10 +603,10 @@
 							<div class="td"><input type="tel" id="phoneNum1_2" class="input" maxlength="8" title="휴대폰번호 나머지 7~8자리 입력" placeholder="숫자만 입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">휴대폰번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">휴대폰번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<label for="phoneNum2_1" class="fm_lb">연락처</label>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="phoneNum2_1" class="fm_lb">휴대폰번호</label>
 					<div class="fm_cont phone inp_btn"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
 							<div class="td w20">
@@ -494,13 +622,220 @@
 							<div class="td"><input type="tel" id="phoneNum2_2" class="input" title="연락처 나머지 7~8자리 숫자만 입력" placeholder="숫자만 입력"></div>
 							<div class="td btn w_100">
 								<a href="#" class="button line block h32">인증번호 발송</a>
-								<!-- <a href="#" class="button line block">인증번호 재발송</a> -->
+								<!-- <a href="#" class="button line block h32">인증번호 재발송</a> -->
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">연락처를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">연락처를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="phoneNum2_3" class="fm_lb">인증번호 입력</label>
+					<div class="fm_cont phone inp_btn"><!-- 에러날때 error 클래스 -->
+						<div class="tbl">
+							<div class="td">
+								<input type="tel" id="phoneNum2_3" class="input" title="인증번호 숫자만 입력" placeholder="숫자만 입력">
+							</div>
+							<div class="td w_50 t_right">
+								<span class="fc_blue fz_11">01:45</span>
+							</div>
+							<div class="td w_150">
+								<a href="#" class="button line h32">확인</a>
+								<a href="#" class="button line h32">시간연장</a>
+							</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">인증번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+
+				<h4 class="gd__h3">이메일</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="mail1" class="fm_lb">이메일</label>
+					<div class="fm_cont email_form"><!-- 에러날때 error 클래스 -->
+						<div class="tbl">
+							<div class="td w40"><input type="text" id="mail1" class="input" title="이메일 아이디 입력"></div>
+							<div class="td dash t2">@</div>
+							<div class="td w60 email_sel">
+								<div class="sel_wrap">
+									<select class="select" title="이메일 도메인 선택">
+										<option value="" selected="selected">이메일계정선택</option>
+										<option value="naver.com">naver.com</option>
+										<option value="hanmail.net">hanmail.net</option>
+										<option value="nate.com">nate.com</option>
+										<option value="gmail.com">gmail.com</option>
+										<option value="yahoo.com">yahoo.com</option>
+										<option value="empal.com">empal.com</option>
+										<option value="freechal.com">freechal.com</option>
+										<option value="chol.com">chol.com</option>
+										<option value="dreamwiz.com">dreamwiz.com</option>
+										<option value="hanmir.com">hanmir.com</option>
+										<option value="hotmail.com">hotmail.com</option>
+										<option value="korea.com">korea.com</option>
+										<option value="lycos.com">lycos.com</option>
+										<option value="msn.com">msn.com</option>
+										<option value="paran.com">paran.com</option>
+										<option value="me.com">me.com</option>
+										<option value="etc">직접입력</option>
+									</select>
+								</div>
+							</div>
+							<div class="td w60 email_inp" style="display:none;">
+								<input type="text" class="input" title="이메일 도메인 직접입력" placeholder="직접입력">
+								<a href="#" class="btn_sel"><span class="blind">이메일 도메인 직접입력 취소</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이메일를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+
+				<h4 class="gd__h3">카드관련</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<div class="fm_lb">결제방법</div>
+					<div class="fm_cont">
+						<ul class="btn_toggle grid col2">
+							<li>
+								<input type="radio" id="payRdo1" name="payRdo">
+								<label for="payRdo1">실시간 출금</label>
+							</li>
+							<li>
+								<input type="radio" id="payRdo2" name="payRdo">
+								<label for="payRdo2">신용카드</label>
+							</li>
+						</ul>
+					</div>
+					<div class="error_txt" style="display:none">결제방법을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="cardNum1" class="fm_lb">카드번호</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td w25"><input type="tel" id="cardNum1" class="input no_del t_center" maxlength="4" title="카드번호 첫번째 4자리 입력"></div>
+							<div class="td dash">-</div>
+							<div class="td w25"><input type="password" id="cardNum2" class="input no_del t_center" maxlength="4" title="카드번호 두번째 4자리 입력"></div>
+							<div class="td dash">-</div>
+							<div class="td w25"><input type="tel" id="cardNum3" class="input no_del t_center" maxlength="4" title="카드번호 세번째 4자리 입력"></div>
+							<div class="td dash">-</div>
+							<div class="td w25"><input type="password" id="cardNum4" class="input no_del t_center" maxlength="4" title="카드번호 네번째 4자리 입력"></div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">카드번호를 정확하게 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="validity1" class="fm_lb">유효기간</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td"><input type="tel" id="validity1" class="input" maxlength="2" placeholder="월2자리" title="유효기간 월2자리 입력"></div>
+							<div class="td dash">/</div>
+							<div class="td"><input type="tel" id="validity2" class="input" maxlength="4" placeholder="년4자리" title="유효기간 년4자리 입력"></div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">유효기간을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="validity3" class="fm_lb">유효기간 (선택 ver.)</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td">
+								<div class="sel_wrap">
+									<select class="select" id="validity3" title="월2자리 선택">
+										<option value="">월 2자리</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+									</select>
+								</div>
+							</div>
+							<div class="td dash">/</div>
+							<div class="td">
+								<div class="sel_wrap">
+									<select class="select" id="validity4" title="년4자리 선택">
+										<option value="">년 4자리</option>
+										<option value="2020">2020</option>
+										<option value="2019">2019</option>
+										<option value="2018">2018</option>
+										<option value="2017">2017</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">유효기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="cardPW" class="fm_lb">카드 비밀번호</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td"><input type="password" id="cardPW" class="input" placeholder="앞 2자리" title="카드 비밀번호 앞 2자리 입력"></div>
+							<div class="td">●●</div>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">비밀번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="installmentPeriod" class="fm_lb">할부기간</label>
+					<div class="fm_cont">
+						<div class="sel_wrap">
+							<select class="select" id="installmentPeriod" title="할부기간 선택">
+								<option value="" selected="selected">할부기간 선택</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+							</select>
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">할부기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="help_txt">2개월~12개월 선택</div>
+				</div>
+
+				<h4 class="gd__h3">계좌관련</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="bankChkSel2" class="fm_lb">계좌 선택</label>
+					<!-- 계좌선택 -->
+					<div class="bank_wrap">
+						<div class="fm_cont">
+							<div class="tbl">
+								<div class="td">
+									<div class="sel_wrap">
+										<select class="select" id="bankChkSel1" title="출금 계좌 선택">
+											<option value="" selected>계좌선택</option>
+											<option value="1">KB국민은행 / 7137********</option>
+											<option value="2">카카오뱅크 / 2852002****</option>
+											<option value="3">기업은행 / 2852002****</option>
+										</select>
+									</div>
+								</div>
+								<span class="td w_90">
+									<a href="#" class="button line h32 block btn_inp_change">직접입력</a>
+								</span>
+							</div>
+							<div class="error_txt" style="display:none">계좌를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+						</div>
+					</div>
+					<!-- 직접입력영역 -->
+					<div class="bank_wrap" style="display:none;">
+						<div class="fm_cont">
+							<div class="tbl">
+								<div class="td w_120">
+									<div class="sel_wrap">
+										<select class="select" id="bankChkSel2" title="은행 선택">
+											<option value="">은행선택</option>
+											<option value="1">국민은행</option>
+											<option value="2">우리은행</option>
+											<option value="3">기업은행</option>
+										</select>
+									</div>
+								</div>
+								<div class="td"><input type="tel" id="frm2" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+								<div class="td w_90">
+									<a href="#" class="button line h32 block btn_inp_change">계좌선택</a>
+								</div>
+							</div>
+						</div>
+						<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					</div>
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="frm1" class="fm_lb">은행/계좌번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -539,125 +874,24 @@
 							<span class="td"><input type="tel" id="frm2_1" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></span>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<label for="validity1" class="fm_lb">유효기간</label>
-					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td"><input type="tel" id="validity1" class="input" maxlength="2" placeholder="월2자리" title="유효기간 월2자리 입력"></div>
-							<div class="td dash">/</div>
-							<div class="td"><input type="tel" id="validity2" class="input" maxlength="4" placeholder="년4자리" title="유효기간 년4자리 입력"></div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">유효기간을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="validity3" class="fm_lb">유효기간 (선택 ver.)</label>
+
+				<h4 class="gd__h3">금액관련</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inpPrice" class="fm_lb">금액 <i class="require"><span class="blind">필수입력항목</span></i></label>
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="validity3" title="월2자리 선택">
-										<option value="">월 2자리</option>
-										<option value="01">01</option>
-										<option value="02">02</option>
-										<option value="03">03</option>
-										<option value="04">04</option>
-									</select>
-								</div>
+								<input type="tel" id="inpPrice" class="input t_right">
 							</div>
-							<div class="td dash">/</div>
-							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="validity4" title="년4자리 선택">
-										<option value="">년 4자리</option>
-										<option value="2020">2020</option>
-										<option value="2019">2019</option>
-										<option value="2018">2018</option>
-										<option value="2017">2017</option>
-									</select>
-								</div>
-							</div>
+							<div class="td ut t2">만원</div>
 						</div>
+						<div class="error_txt" style="display:none">금액을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
-					<div class="error_txt" style="display:none">유효기간을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
 				</div>
-				<div class="form_item inp">
-					<label for="cardPW" class="fm_lb">카드 비밀번호</label>
-					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td"><input type="password" id="cardPW" class="input" placeholder="앞 2자리" title="카드 비밀번호 앞 2자리 입력"></div>
-							<div class="td">●●</div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">비밀번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="jumin1" class="fm_lb">주민등록번호</label>
-					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td"><input type="tel" id="jumin1" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
-							<div class="td dash">-</div>
-							<div class="td"><input type="tel" id="jumin2" class="input" maxlength="7" title="주민등록번호 뒤7자리 입력" placeholder="(뒤7자리)" value="2●●●●●●"></div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">주민등록번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="mail1" class="fm_lb">이메일</label>
-					<div class="fm_cont email_form"><!-- 에러날때 error 클래스 -->
-						<div class="tbl">
-							<div class="td w40"><input type="text" id="mail1" class="input" title="이메일 아이디 입력"></div>
-							<div class="td dash t2">@</div>
-							<div class="td w60 email_sel">
-								<div class="sel_wrap">
-									<select class="select" title="이메일 도메인 선택">
-										<option value="" selected="selected">이메일계정선택</option>
-										<option value="naver.com">naver.com</option>
-										<option value="hanmail.net">hanmail.net</option>
-										<option value="nate.com">nate.com</option>
-										<option value="gmail.com">gmail.com</option>
-										<option value="yahoo.com">yahoo.com</option>
-										<option value="empal.com">empal.com</option>
-										<option value="freechal.com">freechal.com</option>
-										<option value="chol.com">chol.com</option>
-										<option value="dreamwiz.com">dreamwiz.com</option>
-										<option value="hanmir.com">hanmir.com</option>
-										<option value="hotmail.com">hotmail.com</option>
-										<option value="korea.com">korea.com</option>
-										<option value="lycos.com">lycos.com</option>
-										<option value="msn.com">msn.com</option>
-										<option value="paran.com">paran.com</option>
-										<option value="me.com">me.com</option>
-										<option value="etc">직접입력</option>
-									</select>
-								</div>
-							</div>
-							<div class="td w60 email_inp" style="display:none;">
-								<input type="text" class="input" title="이메일 도메인 직접입력" placeholder="직접입력">
-								<a href="#" class="btn_sel"><span class="blind">이메일 도메인 직접입력 취소</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">이메일를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="installmentPeriod" class="fm_lb">할부기간</label>
-					<div class="fm_cont">
-						<div class="sel_wrap">
-							<select class="select" id="installmentPeriod" title="할부기간 선택">
-								<option value="" selected="selected">할부기간 선택</option>
-								<option value="01">01</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-							</select>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">할부기간을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-					<div class="help_txt">2개월~12개월 선택</div>
-				</div>
+
+				<h4 class="gd__h3">주소</h4>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="address" class="fm_lb">주소</label>
 					<div class="fm_cont">
@@ -670,10 +904,54 @@
 						<div class="mt5"><input type="text" class="input" title="기본주소 입력" placeholder="기본주소" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
 						<div class="mt5"><input type="text" class="input" title="상세주소 입력" placeholder="상세주소"></div>
 					</div>
-					<div class="error_txt" style="display:none">주소를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">주소를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
-				<div class="form_item inp">
+				<h4 class="gd__h3">range</h4>
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
+					<div class="fm_lb">기간선택</div>
+					<div class="fm_cont">
+						<div class="range_slider">
+							<div class="slider" data-min="0" data-max="5" data-step="1" data-value="1" aria-hidden="true"></div>
+							<div class="list" title="기간을 선택해주세요" data-unit="년"></div>
+							<input type="hidden" title="선택한 기간">
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">대출기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+
+				<h4 class="gd__h3">기타</h4>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="inpName2" class="fm_lb">이름</label>
+					<div class="fm_cont">
+						<div class="inp_wrap">
+							<input type="text" id="inpName2" class="input" placeholder="이름입력">
+						</div>
+					</div>
+					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="tbl mt10 mb10">
+						<div class="td">
+							<div class="checkbox">
+								<input type="checkbox" id="chk2_1"><i aria-hidden="true"></i>
+								<label for="chk2_1" class="lbl">위와 동일</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<div class="fm_lb"><label for="inpName3">이름</label> / <label for="inpAge">나이</label></div>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td"><input type="text" id="inpName3" class="input" title="이름" placeholder="이름"></div>
+							<div class="td sp" aria-hidden="true"></div>
+							<div class="td ut">약</div>
+							<div class="td w20"><input type="tel" id="inpAge" class="input" title="나이입력"></div>
+							<div class="td ut">세</div>
+						</div>
+						<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					</div>
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="sel_wrap" class="fm_lb">구비서류</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -692,56 +970,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">구비서류를 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">구비서류를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<label for="bankChkSel2" class="fm_lb">계좌 선택</label>
-					<!-- 계좌선택 -->
-					<div class="bank_wrap">
-						<div class="fm_cont">
-							<div class="tbl">
-								<div class="td">
-									<div class="sel_wrap">
-										<select class="select" id="bankChkSel1" title="출금 계좌 선택">
-											<option value="" selected>계좌선택</option>
-											<option value="1">KB국민은행 / 7137********</option>
-											<option value="2">카카오뱅크 / 2852002****</option>
-											<option value="3">기업은행 / 2852002****</option>
-										</select>
-									</div>
-								</div>
-								<span class="td w_90">
-									<a href="#" class="button line h32 block btn_inp_change">직접입력</a>
-								</span>
-							</div>
-							<div class="error_txt" style="display:none">계좌를 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-						</div>
-					</div>
-					<!-- 직접입력영역 -->
-					<div class="bank_wrap" style="display:none;">
-						<div class="fm_cont">
-							<div class="tbl">
-								<div class="td w_120">
-									<div class="sel_wrap">
-										<select class="select" id="bankChkSel2" title="은행 선택">
-											<option value="">은행선택</option>
-											<option value="1">국민은행</option>
-											<option value="2">우리은행</option>
-											<option value="3">기업은행</option>
-										</select>
-									</div>
-								</div>
-								<div class="td"><input type="tel" id="frm2" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
-								<div class="td w_90">
-									<a href="#" class="button line h32 block btn_inp_change">계좌선택</a>
-								</div>
-							</div>
-						</div>
-						<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-					</div>
-				</div>
+				
 
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="local1" class="fm_lb">지역</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -767,51 +1000,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">상지역을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">상지역을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item">
-					<div class="fm_lb">기간선택</div>
-					<div class="fm_cont">
-						<div class="range_slider">
-							<div class="slider" data-min="0" data-max="5" data-step="1" data-value="1" aria-hidden="true"></div>
-							<div class="list" title="기간을 선택해주세요" data-unit="년"></div>
-							<input type="hidden" title="선택한 기간">
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">대출기간을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="inpConnect1" class="fm_lb">관계</label>
-					<div class="fm_cont">
-						<div class="sel_wrap">
-							<select class="select" id="inpConnect1">
-								<option value="">선택</option>
-								<option value="1">본인</option>
-								<option value="2">아들</option>
-							</select>
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">피보험자 관계를 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="inpName1" class="fm_lb">이름</label>
-					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inpName1" class="input" placeholder="이름입력">
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
-					<label for="birthDate" class="fm_lb">생년월일 <i class="require"><span class="blind">필수입력항목</span></i></label>
-					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="tel" id="birthDate" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">생년월일을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-				</div>
-				<div class="form_item inp">
+				
+				
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<div class="fm_lb">성별</div>
 					<div class="fm_cont">
 						<ul class="btn_toggle grid col2">
@@ -825,38 +1018,10 @@
 							</li>
 						</ul>
 					</div>
-					<div class="error_txt" style="display:none">성별을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">성별을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<label for="inpName2" class="fm_lb">이름</label>
-					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inpName2" class="input" placeholder="이름입력">
-						</div>
-					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-					<div class="tbl mt10 mb10">
-						<div class="td">
-							<div class="checkbox">
-								<input type="checkbox" id="chk2_1"><i aria-hidden="true"></i>
-								<label for="chk2_1" class="lbl">추가운전자와 동일</label>
-							</div>
-						</div>
-						<div class="td">
-							<div class="checkbox">
-								<input type="checkbox" id="chk2_2"><i aria-hidden="true"></i>
-								<div class="lbl">
-									<label for="chk2_2">지정인입력</label>
-									<span class="tooltip_wrap">
-										<a href="#" class="tooltip_btn">자세한 내용 확인</a>
-										<span class="tooltip_cont">내용무</span>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form_item">
+				
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<div class="fm_lb">파일첨부
 						<div class="tooltip_wrap">
 							<a href="#" class="tooltip_btn">자세한 내용 확인</a>
@@ -891,7 +1056,7 @@
 					</div>
 				</div>
 
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inpJob1" class="fm_lb">직업</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -920,34 +1085,11 @@
 							<div class="td"><input type="text" id="inpJob2" class="input" title="직업 상세정보" placeholder="직업 상세입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+					<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
-				<div class="form_item inp">
-					<div class="fm_lb"><label for="inpName3">이름</label> / <label for="inpAge">나이</label></div>
-					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td"><input type="text" id="inpName3" class="input" title="이름" placeholder="이름"></div>
-							<div class="td sp" aria-hidden="true"></div>
-							<div class="td ut">약</div>
-							<div class="td w20"><input type="tel" id="inpAge" class="input" title="나이입력"></div>
-							<div class="td ut">세</div>
-						</div>
-						<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-					</div>
-				</div>
-				<div class="form_item inp">
-					<label for="inpPrice" class="fm_lb">금액 <i class="require"><span class="blind">필수입력항목</span></i></label>
-					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td">
-								<input type="tel" id="inpPrice" class="input">
-							</div>
-							<div class="td ut">만원</div>
-						</div>
-						<div class="error_txt" style="display:none">추정손해액을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
-					</div>
-				</div>
-				<div class="form_item">
+				
+				
+				<div class="form_item"><!-- 에러날때 error 클래스 -->
 					<label for="inpCompany1" class="fm_lb">구분</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -971,7 +1113,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="error_txt" style="display:none">관련 보험사를 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
+						<div class="error_txt" style="display:none">관련 보험사를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 						<div class="help_txt">서비스를 원하시는 날 3일 전까지 신청하시면 됩니다.</div>
 					</div>
 					<div class="sel_item_wrap">
@@ -984,7 +1126,7 @@
 					</div>
 				</div>
 
-				<div class="form_item inp">
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label class="sizePyeong">건물면적</label>
 					<div class="fm_cont"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
@@ -1077,29 +1219,6 @@
 							</div>
 						</div>
 						<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
-					</div>
-				</div>
-				<h3 class="gd__h1">버튼 스위치</h3>
-				<div class="form_item">
-					<div class="tbl">
-						<div class="td lb">앱캐시 거래 알림</div>
-						<div class="td swt">
-							<div class="btn_switch">
-								<input type="checkbox" id="switchChk">
-								<label for="switchChk" class="lbl"><span class="blind">앱캐시 거래 알림 설정해제</span></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form_item">
-					<div class="tbl">
-						<div class="td lb"><label for="switchChk2" class="block">현금 IC카드 거래 알림</label></div>
-						<div class="td swt">
-							<div class="btn_switch">
-								<input type="checkbox" id="switchChk2">
-								<div class="lbl"><span class="blind">설정해제</span></div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

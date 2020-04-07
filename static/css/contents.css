@@ -61,7 +61,7 @@
 .form_item.chk>.radio>.lbl{padding:20px 20px 20px 49px;margin-left:0;}
 .form_item .lb{color:#666;font-size:1.8rem;}
 .form_item .fm_lb{display:block;font-weight:bold;font-size:1.2rem;color:#666;line-height:1;padding-bottom:5px;cursor:default;}
-.form_item .fm_val{display:block;height:40px;line-height:40px;font-size:1.6rem;color:#111;}
+.form_item .fm_val{display:block;height:40px;line-height:40px;font-size:1.8rem;color:#111;}
 .form_item .fm_cont{position:relative;}
 .form_item .fm_cont>.btn_toggle:first-child{margin-top:10px;}
 .form_item .fm_cont>.btn_toggle:last-child{margin-bottom:-1px;z-index:1;}

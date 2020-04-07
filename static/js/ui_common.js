@@ -584,7 +584,7 @@ var common = {
 		}
 	},
 	fixed:function(target){
-	//고정(fixed)
+		//고정(fixed)
 		var $target = $(target),
 			isHeader = false;
 		if($target.attr('id') == 'header')isHeader = true;
@@ -596,6 +596,7 @@ var common = {
 				if($thisH < $childH)$(this).css('height',$childH);
 			});
 			$(window).on('scroll',function(){
+				if($('html').hasClass('lock'))return false;
 				var $scrollTop = $(this).scrollTop();
 				$target.each(function(){
 					var $thisH = $(this).data('height'),
@@ -688,7 +689,7 @@ var common = {
 		common.footer();
 		common.skipNavi();
 
-		common.fixed('#header');
+		//common.fixed('#header');
 		if($('.tab_nav_wrap.add_fixed').length){
 			$('.tab_nav_wrap.add_fixed').each(function(){
 				//if(!$(this).closest('.popup').length)
@@ -949,7 +950,7 @@ var Layer = {
 				$btnTxt = $(this).text();
 			$(this).parent().addClass('selected').closest('li').siblings().find('.selected').removeClass('selected');
 			$target.val($btnVal).change();
-			$target.siblings('.ui-select-open').removeClass('off').find('.val').text($btnTxt);
+			$target.siblings('.ui-select-open').removeClass('off').find('.val').text($btnTxt).removeAttr('aria-hidden').next().text('입니다.');
 			Layer.close('#'+$popId);
 		});
 	},
@@ -1757,21 +1758,21 @@ var tabUI = function(){
 
 	//radio tab
 	$(document).on('change','.ui-tab-rdo input',function(e){
-		var $target = $(this).data('target'),
-			$targets = $(this).closest('.ui-tab-rdo').data('targets');
+		var $show = $(this).data('show'),
+			$hide = $(this).closest('.ui-tab-rdo').data('hide');
 
-		$($targets).removeClass('active');
-		$($target).addClass('active');
+		$($hide).removeClass('active');
+		$($show).addClass('active');
 		
-		if($($target).closest('.step_swipe.slick-initialized').length){
-			$($target).closest('.step_swipe').slick('refresh');
+		if($($show).closest('.step_swipe.slick-initialized').length){
+			$($show).closest('.step_swipe').slick('refresh');
 		}
 	});
 	if($('.ui-tab-rdo').length){
 		$('.ui-tab-rdo').each(function(){
 			var tarAry = [];
 			$(this).find('input[type=radio]').each(function(){
-				var $tar = $(this).data('target');
+				var $tar = $(this).data('show');
 				if(tarAry.indexOf($tar) < 0 && !!$tar)tarAry.push($tar);
 				if($(this).is(':checked')){
 					$($tar).addClass('active');
@@ -1781,7 +1782,7 @@ var tabUI = function(){
 					}
 				}
 			});
-			$(this).data('targets',tarAry.join(','));
+			$(this).data('hide',tarAry.join(','));
 		});
 	}
 };
@@ -2019,8 +2020,9 @@ var formUI = {
 					var $sel = $this.find('select'),
 						$selId = $sel.attr('id'),
 						$val = $sel.val(),
-						$title = $sel.attr('title'),
-						$btnTitle = '팝업으로 '+$title,
+						$title = $sel.attr('title');
+					if($title != undefined)$title = '선택';
+					var $btnTitle = '팝업으로 '+$title,
 						$btnHtml = '<a href="#'+$selId+'" class="select ui-select-open" title="'+$btnTitle+'"><span class="blind">현재 선택한 항목은</span><span class="val"></span><span class="blind">입니다.</span></a>';
 					
 					if(!$this.find('a.select').length){
@@ -2034,7 +2036,12 @@ var formUI = {
 					}
 					var $selectTxt = $sel.find(':selected').text();
 					$this.find('a.select .val').text($selectTxt);
-					if($val == '')$this.find('a.select').addClass('off');
+					if($val == ''){
+						$this.find('a.select').addClass('off');
+						$this.find('a.select .val').attr('aria-hidden',true).next().text('없습니다.');
+					}else{
+						$this.find('a.select .val').removeAttr('aria-hidden').next().text('입니다.');
+					}
 				}
 			});
 		}
