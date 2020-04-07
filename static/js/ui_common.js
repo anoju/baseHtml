@@ -3524,180 +3524,30 @@ var slickUI = {
 	},
 	item: function(){
 		//일반 slick
-		if ($('.ui-slick').length > 0){
-			$('.ui-slick').each(function(){
-				var $this = $(this);
-				var $swipeIdx = $uiSwipers.length+1;
-				if($this.closest('.company_main_interview').length){
-					$this.addClass('is_slick');
-				}
-				if($this.children().length == 1){
-					$this.closest('.ui-slick-wrap').addClass('only');
-				}else if($this.children().length > 1){
-					$this.closest('.ui-slick-wrap').removeClass('only');
-					if(!$this.hasClass('is_slick')){
-						//swipe
-						if(!$this.hasClass('swiper-container-initialized')){
-							$this.children('.item').addClass('swiper-slide');
-							$this.wrapInner('<div class="swiper-wrapper"></div>');
-							$this.addClass('swipe-container').append('<div class="swiper-pagination"></div>');
-							var $activeClass = '.swiper-slide-active';
-							if($(window).width() >= 760)$activeClass = '.swiper-slide-active, .swiper-slide-next';
-							if($this.closest('.section_box_in').length && $this.closest('.section_box_in').prev('.loading_dimmed').length)$activeClass = '';
-
-							//focus 제어
-							var focusAria = function(){
-								if($activeClass != '')$this.find($activeClass).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');
-								$this.find('.swiper-slide').not($activeClass).attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
-							};
-
-							var $option = {
-								slidesPerView: 'auto',
-								slideClass:'item',
-								resizeReInit:true,
-								pagination:{
-									el: '.swiper-pagination',
-									clickable:true,
-									renderBullet:function(index, className) {
-										return '<button type="button" class="'+className+'">'+(index+1)+'번째 슬라이드</button>';
-									}
-								},
-								on:{
-									init:function(){
-										setTimeout(function(){
-											if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
-												$this.closest('.ui-slick-wrap').addClass('double');
-											}else{
-												$this.closest('.ui-slick-wrap').removeClass('double');
-											}
-
-											focusAria();
-										},10);
-									},
-									resize:function(){
-										if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
-											$this.closest('.ui-slick-wrap').addClass('double');
-										}else{
-											$this.closest('.ui-slick-wrap').removeClass('double');
-											$swiper.slideTo(0);
-										}
-
-										if($(window).width() >= 760){
-											$activeClass = '.swiper-slide-active, .swiper-slide-next';
-										}else{
-											$activeClass = '.swiper-slide-active';
-										}
-										if($this.closest('.section_box_in').length && $this.closest('.section_box_in').prev('.loading_dimmed').length)$activeClass = '';
-										focusAria();
-									},
-									transitionEnd:function(e){
-										focusAria();
-									}
-								}
-							};
-
-							$this.data('idx',$swipeIdx);
-							var $swiper = new Swiper($this,$option);
-							$uiSwipers.push($swiper);
-						}
-					}else{
-						//slick
-						if(!$(this).hasClass('slick-initialized')){
-							$this.slick({
-								dots: true,
-								adaptiveHeight: true,
-								arrows: false,
-								infinite: false,
-								slidesToShow: 2,
-								responsive:[{
-									breakpoint: 760,
-									settings:{
-										slidesToShow: 1
-									}
-								}],
-								customPaging: function(slider, i) {
-									return '<button type="button">'+(i+1)+'번째 슬라이드</button>';
-								}
-							});
-						}
-						$this.on('afterChange',function(event, slick){
-							var $scrollTop = $(window).scrollTop(),
-								$headH = $('#header').height(),
-								$offsetTop = $this.offset().top - 10;
-							if($this.hasClass('scroll_top') && $this.closest('dialog').length == 0){
-								if($scrollTop>$offsetTop){
-									//$(window).scrollTop($offsetTop-$headH);
-									$('html,body').stop(true,false).animate({'scrollTop':$offsetTop-$headH},200);
-								}
-							}
-							
-							//focus
-							if($this.find('.slick-slide').not('.slick-active').find(':focus').length){
-								$this.find('.slick-active').focus();
-							}
-						});
-					}
-				}
-			});
-		}
-
-		if ($('.ben_service_box.same_h').length > 0){
-			$('.ben_service_box.same_h').sameHeight('.inner');
-		}
-	},
-	info: function(){
-		//이용가이드
-		if ($('.guide_info_swipe').length > 0){
-			$('.guide_info_swipe').slick({
-				dots: true,
-				//adaptiveHeight: true,
-				arrows: false,
-				infinite: false,
-				customPaging: function(slider, i) {
-					return '<button type="button">'+(i+1)+'번째 슬라이드</button>';
-				}
-			});
-			$('.guide_info_swipe').on('beforeChange',function(event,slick,currentSlide,nextSlide){
-				var i = nextSlide;
-				$(this).siblings('.guide_info_img').find('.img').eq(i).addClass('on').siblings().removeClass('on');
-			});
-		}
-	},
-	etc: function(){
-		//고객정보
-		if ($('.client_info_swipe').length > 0){
-			$('.client_info_swipe').each(function(){
+		if ($('.ui-swipe').length > 0){
+			$('.ui-swipe').each(function(){
 				var $this = $(this),
-					$itemLength = $this.find('.client_info_item').length;
-				if($this.find('.in').length)$(this).sameHeight('.in');
+					$swipeIdx = $uiSwipers.length+1,
+					$itemLength = $this.children().length;
 				if($itemLength == 1){
-					$this.addClass('only');
+					$this.closest('.ui-swipe-wrap').addClass('only');
 				}else if($itemLength > 1){
-					$this.removeClass('only');
-					// $this.slick({
-					//	dots: true,
-					//	adaptiveHeight: true,
-					//	arrows: false,
-					//	variableWidth: true,
-					//	infinite: false,
-					//	customPaging: function(slider, i) {
-					//		return '<button type="button">'+(i+1)+'번째 슬라이드</button>';
-					//	}
-					// });
+					$this.closest('.ui-swipe-wrap').removeClass('only');
+					//swipe
 					if(!$this.hasClass('swiper-container-initialized')){
-						$this.find('.client_info_item').addClass('swiper-slide');
+						$this.children('.item').addClass('swiper-slide');
 						$this.wrapInner('<div class="swiper-wrapper"></div>');
 						$this.addClass('swipe-container').append('<div class="swiper-pagination"></div>');
 
 						//focus 제어
 						var focusAria = function(first,last){
 							$this.find('.swiper-slide').attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
-							$this.find('.swiper-slide').slice(first,first+last+1).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');							
+							$this.find('.swiper-slide').slice(first,first+last+1).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');
 						};
 
-						var $clientInfoSwipe = new Swiper($this,{
+						var $option = {
 							slidesPerView: 'auto',
-							slideClass:'client_info_item',
+							slideClass:'item',
 							resizeReInit:true,
 							pagination:{
 								el: '.swiper-pagination',
@@ -3709,31 +3559,55 @@ var slickUI = {
 							on:{
 								init:function(){
 									setTimeout(function(){
-										var $length = $clientInfoSwipe.pagination.bullets.length;
-										focusAria($clientInfoSwipe.snapIndex,$itemLength-$length);
+										if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
+											$this.closest('.ui-swipe-wrap').addClass('double');
+										}else{
+											$this.closest('.ui-swipe-wrap').removeClass('double');
+										}
+										var $length = $swiper.pagination.bullets.length;
+										focusAria($swiper.snapIndex,$itemLength-$length);
 									},10);
 								},
 								resize:function(){
-									var $length = $clientInfoSwipe.pagination.bullets.length;
-									focusAria($clientInfoSwipe.snapIndex,$itemLength-$length);
+									if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
+										$this.closest('.ui-swipe-wrap').addClass('double');
+									}else{
+										$this.closest('.ui-swipe-wrap').removeClass('double');
+										$swiper.slideTo(0);
+									}
+
+									if($(window).width() >= 760){
+										$activeClass = '.swiper-slide-active, .swiper-slide-next';
+									}else{
+										$activeClass = '.swiper-slide-active';
+									}
+									if($this.closest('.section_box_in').length && $this.closest('.section_box_in').prev('.loading_dimmed').length)$activeClass = '';
+									var $length = $swiper.pagination.bullets.length;
+									focusAria($swiper.snapIndex,$itemLength-$length);
 								},
-								transitionEnd:function(){
-									var $length = $clientInfoSwipe.pagination.bullets.length;
-									focusAria($clientInfoSwipe.snapIndex,$itemLength-$length);
+								transitionEnd:function(e){
+									var $length = $swiper.pagination.bullets.length;
+									focusAria($swiper.snapIndex,$itemLength-$length);
 								}
 							}
-						});
+						};
+
+						$this.data('idx',$swipeIdx);
+						var $swiper = new Swiper($this,$option);
+						$uiSwipers.push($swiper);
 					}
 				}
 			});
 		}
+	},
+	etc: function(){
+		
 	},
 	init:function(){
 		slickUI.step();
 		slickUI.rule();
 		slickUI.img();
 		slickUI.item();
-		slickUI.info();
 		slickUI.etc();
 
 		if($('.ui-swiper').length > 0)multiSwiper('.ui-swiper');
@@ -4232,9 +4106,9 @@ var chartUI = function(target,speed){
 						//$total.find('span').animateNumber($totalNum,$speed,true);
 					break;
 					case 'slickBar':
-						var $slick = $target.closest('.ui-slick');
+						var $slick = $target.closest('.ui-swipe');
 
-						if($target.closest('.ui-slick-wrap').hasClass('only')){
+						if($target.closest('.ui-swipe-wrap').hasClass('only')){
 							barInit();
 						}else{
 							if($slick.hasClass('is_slick')){
@@ -4253,7 +4127,7 @@ var chartUI = function(target,speed){
 								var $idx = $slick.data('idx');
 								$uiSwipers[$idx-1].on('transitionEnd',function(){
 									var $closestIdx = $target.closest('.swiper-slide').index(),
-										$paginationIdx = $target.closest('.ui-slick').find('.swiper-pagination-bullet-active').index();
+										$paginationIdx = $target.closest('.ui-swipe').find('.swiper-pagination-bullet-active').index();
 									if($(window).width() < 760){
 										if($closestIdx == $paginationIdx){
 											barInit();
