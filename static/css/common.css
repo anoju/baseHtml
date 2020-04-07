@@ -870,7 +870,6 @@ html.mobile .tbl_scroll::-webkit-scrollbar{display:none;}
 
 /* scl_datepicker */
 .scl_cal_wrap{display:none;position:relative;border-top:1px solid #ddd;margin:0 -20px;overflow:hidden;}
-.scl_calrender.expend .scl_cal_wrap{display:block;}
 .scl_cal_btn{position:relative;}
 .scl_cal_btn .input{padding-right:60px;}
 .scl_cal_btn .inp_del{right:35px;}
@@ -888,7 +887,10 @@ html.mobile .tbl_scroll::-webkit-scrollbar{display:none;}
 .scl_cal_group .scl_cal_item.active{font-weight:bold;color:#111;background:#f1f1f1;}
 .scl_cal_close{display:none;position:absolute;right:0;top:0;overflow:hidden;}
 .scl_cal_close a{display:block;width:30px;height:40px;font-size:3px;color:transparent;}
-.scl_calrender.expend .scl_cal_close{display:block;}
+/*.scl_calrender.expend{position:relative;z-index:200;}
+.scl_calrender.expend:before{content:'';display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);}
+.scl_calrender.expend .scl_cal_btn,
+.scl_calrender.expend .scl_cal_wrap{z-index:1;}*/
 
 /*accordion*/
 .accordion_list{margin:0 -20px;border-bottom:1px solid #ddd;font-size:1.4rem;}
