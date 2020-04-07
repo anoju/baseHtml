@@ -376,7 +376,7 @@
 							<input type="text" id="inputText" class="input" placeholder="내용을 입력하세요">
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inputText2" class="fm_lb">input:text[readonly] - 읽기전용</label>
@@ -385,7 +385,7 @@
 							<input type="text" id="inputText2" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." readonly>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inputText3" class="fm_lb">input:text[disabled]  - 비활성화</label>
@@ -394,7 +394,7 @@
 							<input type="text" id="inputText3" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." disabled>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h3 class="gd__h2">select</h3>
@@ -410,7 +410,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inpSel2" class="fm_lb">select[disabled] - 비활성화</label>
@@ -424,7 +424,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">날짜를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<h3 class="gd__h2">textarea</h3>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -435,7 +435,7 @@
 							<div class="byte"><strong>0</strong>/300</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="textarea2" class="fm_lb">textaresa[readonly] - 읽기전용</label>
@@ -445,7 +445,7 @@
 							<div class="byte"><strong>10</strong>/300</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="textarea3" class="fm_lb">textaresa[disabled] - 비활성화</label>
@@ -455,7 +455,7 @@
 							<div class="byte"><strong>10</strong>/300</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="textarea4" class="fm_lb">다른높이</label>
@@ -465,7 +465,7 @@
 							<div class="byte"><strong>0</strong>/5,000</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h3 class="gd__h2">switch</h3>
@@ -503,19 +503,19 @@
 							<input type="tel" id="birthDate" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">생년월일을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">생년월일을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="startDate" class="fm_lb">시작일자</label>
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td date">
-								<input type="tel" id="startDate" class="input datepicker" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<input type="tel" id="startDate" class="input datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
 							</div>
 							<div class="td time">00시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">시작일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">시작일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="help_txt">변경시작일은 내일부터 선택 가능합니다.</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -523,12 +523,12 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<input type="tel" id="endDate" class="input datepicker" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<input type="tel" id="endDate" class="input datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
 							</div>
 							<div class="td time">24시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">종료일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">종료일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="help_txt">변경시작일은 내일부터 선택 가능합니다.</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -544,7 +544,7 @@
 							<div class="td ut">분</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="date2" class="fm_lb">기간</label>
@@ -557,7 +557,7 @@
 							<div class="td ut t2">시</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">주민번호</h4>
@@ -570,7 +570,7 @@
 							<div class="td"><input type="password" id="jumin2" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리  입력" placeholder="(뒤7자리)"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="jumin3" class="fm_lb">주민등록번호</label>
@@ -578,11 +578,32 @@
 						<div class="tbl">
 							<div class="td"><input type="tel" id="jumin3" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
 							<div class="td dash">-</div>
-							<div class="td w_70"><input type="tel" id="jumin4" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리 중 첫번째자리 입력" placeholder="앞 1자리"></div>
-							<div class="td w_110">●●●●●●</div>
+							<div class="td w_60"><input type="tel" id="jumin4" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리 중 첫번째자리 입력" placeholder="1자리"></div>
+							<div class="td w_100 pl0">●●●●●●</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+				</div>
+				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
+					<label for="juminBirth" class="fm_lb">주민번호 생년월일</label>
+					<div class="fm_cont">
+						<div class="tbl">
+							<div class="td"><input type="tel" id="juminBirth" class="input" maxlength="6" title="주민번호 생년월일 8자리 입력" placeholder="예)19901225"></div>
+							<div class="td w40">
+								<ul class="btn_toggle ty2 grid col3">
+									<li>
+										<input type="radio" id="juminMan" name="juminGender" value="1">
+										<label for="juminMan"><span>남</span></label>
+									</li>
+									<li>
+										<input type="radio" id="juminWoman" name="juminGender" value="2">
+										<label for="juminWoman"><span>여</span></label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="error_txt">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				
 				<h4 class="gd__h3">연락처</h4>
@@ -603,7 +624,7 @@
 							<div class="td"><input type="tel" id="phoneNum1_2" class="input" maxlength="8" title="휴대폰번호 나머지 7~8자리 입력" placeholder="숫자만 입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">휴대폰번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">휴대폰번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="phoneNum2_1" class="fm_lb">휴대폰번호</label>
@@ -626,7 +647,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">연락처를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">연락처를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="phoneNum2_3" class="fm_lb">인증번호 입력</label>
@@ -644,7 +665,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">인증번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">인증번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">이메일</h4>
@@ -684,7 +705,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">이메일를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">이메일를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">카드관련</h4>
@@ -702,7 +723,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="error_txt" style="display:none">결제방법을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">결제방법을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="cardNum1" class="fm_lb">카드번호</label>
@@ -717,7 +738,7 @@
 							<div class="td w25"><input type="password" id="cardNum4" class="input no_del t_center" maxlength="4" title="카드번호 네번째 4자리 입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">카드번호를 정확하게 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">카드번호를 정확하게 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="validity1" class="fm_lb">유효기간</label>
@@ -728,7 +749,7 @@
 							<div class="td"><input type="tel" id="validity2" class="input" maxlength="4" placeholder="년4자리" title="유효기간 년4자리 입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">유효기간을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">유효기간을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="validity3" class="fm_lb">유효기간 (선택 ver.)</label>
@@ -759,7 +780,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">유효기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">유효기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="cardPW" class="fm_lb">카드 비밀번호</label>
@@ -769,7 +790,7 @@
 							<div class="td">●●</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">비밀번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">비밀번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="installmentPeriod" class="fm_lb">할부기간</label>
@@ -784,7 +805,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">할부기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">할부기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="help_txt">2개월~12개월 선택</div>
 				</div>
 
@@ -809,7 +830,7 @@
 									<a href="#" class="button line h32 block btn_inp_change">직접입력</a>
 								</span>
 							</div>
-							<div class="error_txt" style="display:none">계좌를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+							<div class="error_txt">계좌를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 						</div>
 					</div>
 					<!-- 직접입력영역 -->
@@ -832,7 +853,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+						<div class="error_txt">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -874,7 +895,7 @@
 							<span class="td"><input type="tel" id="frm2_1" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></span>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">금액관련</h4>
@@ -887,7 +908,7 @@
 							</div>
 							<div class="td ut t2">만원</div>
 						</div>
-						<div class="error_txt" style="display:none">금액을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+						<div class="error_txt">금액을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
 				</div>
 
@@ -904,7 +925,7 @@
 						<div class="mt5"><input type="text" class="input" title="기본주소 입력" placeholder="기본주소" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
 						<div class="mt5"><input type="text" class="input" title="상세주소 입력" placeholder="상세주소"></div>
 					</div>
-					<div class="error_txt" style="display:none">주소를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">주소를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">range</h4>
@@ -917,7 +938,7 @@
 							<input type="hidden" title="선택한 기간">
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">대출기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">대출기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 
 				<h4 class="gd__h3">기타</h4>
@@ -928,7 +949,7 @@
 							<input type="text" id="inpName2" class="input" placeholder="이름입력">
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="tbl mt10 mb10">
 						<div class="td">
 							<div class="checkbox">
@@ -948,7 +969,7 @@
 							<div class="td w20"><input type="tel" id="inpAge" class="input" title="나이입력"></div>
 							<div class="td ut">세</div>
 						</div>
-						<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+						<div class="error_txt">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
@@ -970,7 +991,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">구비서류를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">구비서류를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				
 
@@ -1000,7 +1021,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">상지역을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">상지역을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				
 				
@@ -1018,7 +1039,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="error_txt" style="display:none">성별을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">성별을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				
 				<div class="form_item"><!-- 에러날때 error 클래스 -->
@@ -1085,7 +1106,7 @@
 							<div class="td"><input type="text" id="inpJob2" class="input" title="직업 상세정보" placeholder="직업 상세입력"></div>
 						</div>
 					</div>
-					<div class="error_txt" style="display:none">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
+					<div class="error_txt">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
 				
 				
@@ -1113,7 +1134,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="error_txt" style="display:none">관련 보험사를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+						<div class="error_txt">관련 보험사를 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 						<div class="help_txt">서비스를 원하시는 날 3일 전까지 신청하시면 됩니다.</div>
 					</div>
 					<div class="sel_item_wrap">

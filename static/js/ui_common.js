@@ -78,7 +78,7 @@ var htmlnclude = function(){
 						//$('.gd__navi').find('.tab').eq($atvIdx-1).addClass('active');
 						$('.gd__navi').find('.tab').each(function(){
 							var $href = $(this).find('a').attr('href');
-							if($href == $fileName)$(this).addClass('active')
+							if($href == $fileName)$(this).addClass('active');
 						});
 						common.fixed('.gd__navi');
 						tabNavi();
@@ -407,7 +407,7 @@ var common = {
 		if(typeof _isDevice != 'undefined'){
 			if(_isDevice == 'A')$('html').addClass('isApp');
 		}else{
-			console.log('_isDevice 없음')
+			console.log('_isDevice 없음');
 		}
 	},
 	winLoad:function(){
@@ -625,7 +625,7 @@ var common = {
 					$('.floating_btn').each(function(){
 						var $this = $(this);
 						$naviBar.find('.ft_wrap').append($this);
-					})
+					});
 				}
 			}
 
@@ -649,12 +649,12 @@ var common = {
 			e.preventDefault();
 			if($menu.hasClass('show')){
 				Body.unlock();
-				$menu.removeClass('show')
+				$menu.removeClass('show');
 			}else{
 				Body.lock();
-				$menu.addClass('show')
+				$menu.addClass('show');
 			}
-		})
+		});
 
 		/* fixed Button Check */
 		var $content = $('#contents'),
@@ -694,7 +694,7 @@ var common = {
 			$('.tab_nav_wrap.add_fixed').each(function(){
 				//if(!$(this).closest('.popup').length)
 				common.fixed(this);
-			})
+			});
 		}
 		
 		//버튼없는 헤더 쓸때(타이틀만 있는 헤더:완전판매모니터링 메뉴)
@@ -923,7 +923,7 @@ var Layer = {
 			$('#'+$popId+' .select_item_wrap.bank>li').each(function(){
 				if($(this).hasClass('ty2')){
 					isType2 = true;
-					var $wrap = $(this).closest('.tab_panel').next().find('.select_item_wrap')
+					var $wrap = $(this).closest('.tab_panel').next().find('.select_item_wrap');
 					//if($wrap.find('.none').length)$wrap.find('.none').remove();
 					$(this).appendTo($wrap);
 				}
@@ -1054,7 +1054,7 @@ var Layer = {
 		//열릴때 플루팅 버튼
 		if($('.floating_btn').is(':visible') && $(tar).hasClass('t3')){
 			$('.floating_btn').hide();
-			if($('.floating_btn').hasClass('is_fixed_btn'))$(tar).addClass('is_fixed_btn')
+			if($('.floating_btn').hasClass('is_fixed_btn'))$(tar).addClass('is_fixed_btn');
 		}
 		if(isAppChk() && !$('#floatingBar').hasClass('off')){
 			$(tar).addClass('is_floating');
@@ -1256,7 +1256,7 @@ var Layer = {
 		if($(tar).data('focusMove') == true)return false;
 		$(tar).data('focusMove',true);
 		var $tar = $(tar),
-			$focusaEl = '[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"])'
+			$focusaEl = '[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"])';
 			$focusaEls = $tar.find($focusaEl);
 
 		//약관 개별팝업 시
@@ -1278,16 +1278,16 @@ var Layer = {
 					if(!e.shiftKey){
 						$firstFocus.focus();
 						e.preventDefault();
-					};
-				};
+					}
+				}
 			}else if($index == 0){	//first
 				if($keyCode == 9){
 					if(e.shiftKey){
 						$isFirstBackTab = true;
 						$lastFocus.focus();
 						e.preventDefault();
-					};
-				};
+					}
+				}
 			}
 		});
 
@@ -1300,7 +1300,7 @@ var Layer = {
 				if(e.shiftKey){
 					$lastFocus.focus();
 					e.preventDefault();
-				};
+				}
 			}
 		});
 
@@ -1408,7 +1408,7 @@ var winPopCenter = {
 	left: function(num){
 		var $num = Math.min(window.outerWidth,parseInt(num)),
 			result = window.screenX + (window.outerWidth/2) - ($num/2);
-		console.log(window.screenX,window.outerWidth,$num,num)
+		//console.log(window.screenX,window.outerWidth,$num,num);
 		return result;
 	}
 };
@@ -1654,7 +1654,7 @@ var tabUI = function(){
 			}
 
 			if($target == undefined){
-				$($href).addClass('active').attr('aria-expanded',true).siblings('.tab_panel').attr('aria-expanded',false).removeClass('active');;
+				$($href).addClass('active').attr('aria-expanded',true).siblings('.tab_panel').attr('aria-expanded',false).removeClass('active');
 			}else{
 				$($target).attr('aria-expanded',false).removeClass('active');
 				$($href).addClass('active').attr('aria-expanded',true);
@@ -1689,7 +1689,7 @@ var tabUI = function(){
 		}else{
 			console.error('대상 지정 오류! href값에 해당 id값을 넣어 주세요~');
 		}
-		var $arr = $closest.children('.arr')
+		var $arr = $closest.children('.arr');
 		if($arr.length){
 			var $liLength = $closest.find('>ul>li').length,
 				$liWidth = 100/$liLength,
@@ -1841,8 +1841,7 @@ var tabNavi = function(){
 			}else{
 				$tabNavis[i].slideTo(0,speed);
 			}
-
-		}
+		};
 
 		var $activeCheckNum = 0;
 		var $activeCheck = setInterval(function(e){
@@ -1876,11 +1875,11 @@ var tabNavi = function(){
 			if($jstab.length){
 				e.preventDefault();
 				var $liIdx = Math.max($(this).closest('li').index());
-				activeMove($liIdx)
+				activeMove($liIdx);
 			}
 		});
 	});
-}
+};
 
 //스크롤 관련
 var scrollUI = {
@@ -1955,7 +1954,7 @@ var scrollUI = {
 		$(window).scroll(function(){
 			$('.loading_area').each(function(){
 				var $this = $(this),
-					$href = $this.data('href')
+					$href = $this.data('href');
 				if(isScreenIn(this)){
 					$this.load($href,function(res,sta,xhr){
 						if(sta == "success"){
@@ -2119,7 +2118,7 @@ var formUI = {
 				if($this.next('.inp_del').length){
 					setTimeout(function(){
 						$this.next('.inp_del').remove();
-					},10)
+					},10);
 				}
 			}
 		});
@@ -2234,7 +2233,7 @@ var formUI = {
 		var prevYrBtn = $('<button type="button" class="ui-datepicker-prev-y" title="이전년도"><span>이전년도</span></button>');
 		var nextYrBtn = $('<button type="button" class="ui-datepicker-next-y" title="다음년도"><span>다음년도</span></button>');
 		var calendarOpen = function(target,ob){
-			var $calendar = '#'+ob.dpDiv[0].id;
+			var $calendar = '#'+ob.dpDiv[0].id,
 				$header = $($calendar).find('.ui-datepicker-header'),
 				$min = $.datepicker._getMinMaxDate(target.data('datepicker'),'min'),
 				$minY = $min.getFullYear(),
@@ -2503,13 +2502,13 @@ var formUI = {
 		var $focusEl = 'input:not(:checkbox):not(:radio):not(:hidden),select, textarea';
 		formUI.focusChk($focusEl);
 	}
-}
+};
 $.fn.errorTxt = function(text){
 	var $this = $(this),
 		$closest = $this.closest('.form_item');
 	if($closest.length){
 		$closest.addClass('error');
-		$closest.find('.error_txt').show()
+		$closest.find('.error_txt').show();
 		if(!!text && text != '')$closest.find('.error_txt').text(text);
 	}else{
 		$this.addClass('error');
@@ -3141,7 +3140,7 @@ var accordion = {
 				$(list).find('.'+addClass).each(function(){
 					$(this).find(btn).attr('aria-expanded',true);
 					$(this).find(panel).attr('aria-hidden',false).show();
-				})
+				});
 			}
 		}
 	},
@@ -3457,7 +3456,7 @@ var slickUI = {
 					var $dataTit = '';
 					if($title.length){
 						$dataTit = $this.find('.rule_section.slick-active').data('title');
-						if($dataTit == undefined)$dataTit = '약관확인'
+						if($dataTit == undefined)$dataTit = '약관확인';
 					}
 					$title.text($dataTit);
 
@@ -3466,7 +3465,7 @@ var slickUI = {
 						if($page.length)$page.text('('+i+'/'+slick.slideCount+')');
 						if($title.length){
 							$dataTit = $this.find('.rule_section.slick-active').data('title');
-							if($dataTit == undefined)$dataTit = '약관확인'
+							if($dataTit == undefined)$dataTit = '약관확인';
 						}
 						$title.text($dataTit);
 						
@@ -3545,6 +3544,13 @@ var slickUI = {
 							var $activeClass = '.swiper-slide-active';
 							if($(window).width() >= 760)$activeClass = '.swiper-slide-active, .swiper-slide-next';
 							if($this.closest('.section_box_in').length && $this.closest('.section_box_in').prev('.loading_dimmed').length)$activeClass = '';
+
+							//focus 제어
+							var focusAria = function(){
+								if($activeClass != '')$this.find($activeClass).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');
+								$this.find('.swiper-slide').not($activeClass).attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
+							};
+
 							var $option = {
 								slidesPerView: 'auto',
 								slideClass:'item',
@@ -3566,7 +3572,7 @@ var slickUI = {
 											}
 
 											focusAria();
-										},10)
+										},10);
 									},
 									resize:function(){
 										if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
@@ -3593,12 +3599,6 @@ var slickUI = {
 							$this.data('idx',$swipeIdx);
 							var $swiper = new Swiper($this,$option);
 							$uiSwipers.push($swiper);
-
-							//focus 제어
-							function focusAria(){
-								if($activeClass != '')$this.find($activeClass).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');
-								$this.find('.swiper-slide').not($activeClass).attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
-							}
 						}
 					}else{
 						//slick
@@ -3688,6 +3688,13 @@ var slickUI = {
 						$this.find('.client_info_item').addClass('swiper-slide');
 						$this.wrapInner('<div class="swiper-wrapper"></div>');
 						$this.addClass('swipe-container').append('<div class="swiper-pagination"></div>');
+
+						//focus 제어
+						var focusAria = function(first,last){
+							$this.find('.swiper-slide').attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
+							$this.find('.swiper-slide').slice(first,first+last+1).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');							
+						};
+
 						var $clientInfoSwipe = new Swiper($this,{
 							slidesPerView: 'auto',
 							slideClass:'client_info_item',
@@ -3704,7 +3711,7 @@ var slickUI = {
 									setTimeout(function(){
 										var $length = $clientInfoSwipe.pagination.bullets.length;
 										focusAria($clientInfoSwipe.snapIndex,$itemLength-$length);
-									},10)
+									},10);
 								},
 								resize:function(){
 									var $length = $clientInfoSwipe.pagination.bullets.length;
@@ -3716,12 +3723,6 @@ var slickUI = {
 								}
 							}
 						});
-
-						//focus 제어
-						function focusAria(first,last){
-							$this.find('.swiper-slide').attr('aria-hidden','true').find(':focusable').attr('tabindex',-1);
-							$this.find('.swiper-slide').slice(first,first+last+1).removeAttr('aria-hidden').find(':focusable').removeAttr('tabindex');							
-						}
 					}
 				}
 			});
@@ -3737,7 +3738,7 @@ var slickUI = {
 
 		if($('.ui-swiper').length > 0)multiSwiper('.ui-swiper');
 	}
-}
+};
 
 //다중 swiper
 var $swipers = [];
@@ -3922,7 +3923,7 @@ var totalSearchUI = function(){
 			$($contClass).hide();
 			$target.show();
 		}
-	}
+	};
 
 	$($searchWrap).find($closeClass).on('click',function(e){
 		$($contClass).hide();
@@ -3958,11 +3959,11 @@ var totalSearchUI = function(){
 
 //스크린안에 있는지 확인
 var isScreenIn = function(target){
-	var $window = $(window);
+	var $window = $(window),
 		$wHeight = $window.height(),
 		$scrollTop = $window.scrollTop(),
-		$winBottom = ($scrollTop + $wHeight);
-	var $el = $(target),
+		$winBottom = ($scrollTop + $wHeight),
+		$el = $(target),
 		$elHeight = $($el).outerHeight(),
 		$elTop = $($el).offset().top,
 		$elCenter = $elTop + ($elHeight/2),
@@ -3973,25 +3974,25 @@ var isScreenIn = function(target){
 	}else{
 		return false;
 	}
-}
+};
 
 //ie에서 startsWith,endsWith 작동되게
 if(isPC.msie()){
 	String.prototype.startsWith = function(str){
 		if(this.length < str.length) return false;
 		return this.indexOf(str) == 0;
-	}
+	};
 	String.prototype.endsWith = function(str){
 		if(this.length < str.length) return false;
 		return this.lastIndexOf(str) + str.length == this.length;
-	}
+	};
 }
 
 /*** 애니메이션 ***/
 //data-animation
 var scrollItem ={
 	checkInView: function(target){
-		var $window = $(window);
+		var $window = $(window),
 			$wHeight = $window.height(),
 			$scrollTop = $window.scrollTop(),
 			$winBottom = ($scrollTop + $wHeight);
@@ -4073,7 +4074,7 @@ var scrollItem ={
 					$Start = $el.parent().offset().top - $el.parent().outerHeight();
 				break;
 				default:
-					$Start = parseInt($Start)
+					$Start = parseInt($Start);
 				break;
 			}
 
@@ -4238,7 +4239,7 @@ var chartUI = function(target,speed){
 						}else{
 							if($slick.hasClass('is_slick')){
 								//슬릭 안에 막대 차트
-								var $slick = $target.closest('.slick-slider');
+								$slick = $target.closest('.slick-slider');
 								$slick.on('init, afterChange',function(event, slick){
 									if($target.closest('.slick-slide').hasClass('slick-active')){
 										barInit();
@@ -4300,7 +4301,7 @@ var chartUI = function(target,speed){
 		var barInit = function(){
 			$barTotal = $target.find('.total').not('.clone');
 			if($target.hasClass('type2')){
-				if(!$mark.find('.perc').length){$mark.append('<strong class="perc">('+$perc+'%)</strong>')}
+				if(!$mark.find('.perc').length){$mark.append('<strong class="perc">('+$perc+'%)</strong>');}
 				if($perc >= 60)$target.addClass('is_good');
 			}
 			if($bar.width() == 0){
@@ -4323,8 +4324,8 @@ var chartUI = function(target,speed){
 					$target.find('.total strong').animateNumber($totalNum,$speed,true);
 				}
 			}
-		}
-	})
+		};
+	});
 };
 
 
@@ -4453,7 +4454,7 @@ var autoPhoneFormet = function(str,mark){
 		$phoneAry.push($phone.substr(7));
 	}
 	return $phoneAry.join(mark);
-}
+};
 
 //Input date
 var autoDateFormet = function(str,mark){
@@ -4471,7 +4472,7 @@ var autoDateFormet = function(str,mark){
 		$dateAry.push($date.substr(6));
 	}
 	return $dateAry.join(mark);
-}
+};
 var autoTimeFormet = function(str,mark){
 	var $time = str.replace(/[^0-9]/g, ''),
 		$timeAry = [];
@@ -4488,7 +4489,7 @@ var autoTimeFormet = function(str,mark){
 		if(str.length > 4)$timeAry.push($time.substr(4));
 	}
 	return $timeAry.join(mark);
-}
+};
 
 //파라미터 값 갖고오기
 var getUnlParams = function(){

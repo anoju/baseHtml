@@ -32,6 +32,8 @@
 .help_txt+.help_txt{margin-top:15px;}
 .error_txt{color:#ff4019}
 .error_txt.on{color:#046fd9;}
+.form_item .error_txt{display:none;}
+.form_item.error .error_txt{display:block;}
 .form_item .error_txt:last-child,
 .form_item .help_txt:last-child{margin-bottom:-10px;}
 .form_item.inp .error_txt:last-child,
