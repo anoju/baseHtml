@@ -184,6 +184,9 @@ body{font-size:14px;}
 .g_board table tbody .complete td{background-color:#fff;color:#666;}
 .g_board table tbody .modify td{background-color:#fcf7f6;color:#ca4c07;}
 .g_board table tbody .modify td a{color:#ca4c07;}
+.g_board table tbody .red td{
+	color:#ff0000;}
+.g_board table tbody .red td a{color:#ff0000;}
 .g_board table tbody tr.del td,
 .g_board table tbody tr.del td a{text-decoration:line-through;color:#bbb !important;}
 .g_board_scroll{display:none;position:fixed;left:230px;right:30px;bottom:0;background:#fff;z-index:1;opacity:0.6;}

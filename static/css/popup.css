@@ -17,7 +17,7 @@
 .loading_dimmed .txt,
 .loading_box .txt{margin-top:30px;}
 .loading_dimmed .btn{color:#fff;height:50px;line-height:48px;font-size:1.7rem;border:1px solid #fff;border-radius:25px;padding:0 18px;}
-.ui_slick .loading_box{margin:0 20px;}
+.ui-slick .loading_box{margin:0 20px;}
 .product_list .loading_box{height:200px;border-radius:10px}
 .ld_img{position:relative;width:80px;height:53px;margin:0 auto;overflow:hidden;background:url(../images/common/loading_img.png) center 0 no-repeat;-webkit-background-size:80px auto;background-size:80px auto;-webkit-animation:loadingImg 2s steps(23) infinite;animation:loadingImg 2s steps(23) infinite;}
 @-webkit-keyframes loadingImg{

@@ -866,7 +866,7 @@ var Layer = {
 			$popHtml += '<div class="'+Layer.wrapClass+'">';
 				$popHtml += '<div class="'+Layer.headClass+'">';
 					$popHtml += '<h1>'+$title+'</h1>';
-					$popHtml += '<a href="#" class="pop_close ui_pop_close" role="button"><span class="blind">팝업창 닫기</span></a>';
+					$popHtml += '<a href="#" class="pop_close ui-pop-close" role="button"><span class="blind">팝업창 닫기</span></a>';
 				$popHtml += '</div>';
 				$popHtml += '<div class="'+Layer.contClass+'">';
 					if($isBank){
@@ -949,7 +949,7 @@ var Layer = {
 				$btnTxt = $(this).text();
 			$(this).parent().addClass('selected').closest('li').siblings().find('.selected').removeClass('selected');
 			$target.val($btnVal).change();
-			$target.siblings('.ui_select_open').removeClass('off').find('.val').text($btnTxt);
+			$target.siblings('.ui-select-open').removeClass('off').find('.val').text($btnTxt);
 			Layer.close('#'+$popId);
 		});
 	},
@@ -962,7 +962,7 @@ var Layer = {
 			$(this).prev('select').removeClass('focus');
 		});
 
-		$(document).on('click','.ui_select_open',function(e){
+		$(document).on('click','.ui-select-open',function(e){
 			e.preventDefault();
 			var $select = $(this).siblings('select');
 			var $txtLengthArry = [];
@@ -991,10 +991,10 @@ var Layer = {
 				$($pop).data('returnFocus',$currentTarget);
 			});
 		});
-		$(document).on('click','.ui_select_lbl',function(e){
+		$(document).on('click','.ui-select-lbl',function(e){
 			e.preventDefault();
 			var $tar = $(this).is('a') ? $(this).attr('href') : '#'+$(this).attr('for');
-			$($tar).next('.ui_select_open').focus().click();
+			$($tar).next('.ui-select-open').focus().click();
 		});
 
 
@@ -1043,7 +1043,7 @@ var Layer = {
 		var $idx = $(tar).index('.popup'),
 			$show = $('.Layer.show').length,
 			$id = $(tar).attr('id'),
-			$lastCloseBtn = '<a href="#" class="pop_close last_focus ui_pop_close" role="button"><span class="blind">팝업창 닫기</span></a>';
+			$lastCloseBtn = '<a href="#" class="pop_close last_focus ui-pop-close" role="button"><span class="blind">팝업창 닫기</span></a>';
 		if($show > 0)$(tar).css('z-index','+='+$show);
 		if($id == undefined){
 			$id = Layer.id+$idx;
@@ -1324,7 +1324,7 @@ var Layer = {
 		});
 
 		//열기
-		$(document).on('click','.ui_pop_open',function(e){
+		$(document).on('click','.ui-pop-open',function(e){
 			e.preventDefault();
 			var $pop = $(this).attr('href'),
 				$currentTarget = $(e.currentTarget);
@@ -1334,7 +1334,7 @@ var Layer = {
 		});
 
 		//닫기
-		$(document).on('click', '.ui_pop_close',function(e){
+		$(document).on('click', '.ui-pop-close',function(e){
 			e.preventDefault();
 			if(!$('#wrap').length && !$('.popup').length && $('.pop_wrap').length==1){
 				//윈도우팝업
@@ -2021,15 +2021,15 @@ var formUI = {
 						$val = $sel.val(),
 						$title = $sel.attr('title'),
 						$btnTitle = '팝업으로 '+$title,
-						$btnHtml = '<a href="#'+$selId+'" class="select ui_select_open" title="'+$btnTitle+'"><span class="blind">현재 선택한 항목은</span><span class="val"></span><span class="blind">입니다.</span></a>';
+						$btnHtml = '<a href="#'+$selId+'" class="select ui-select-open" title="'+$btnTitle+'"><span class="blind">현재 선택한 항목은</span><span class="val"></span><span class="blind">입니다.</span></a>';
 					
 					if(!$this.find('a.select').length){
 						$sel.hide();
 						$this.append($btnHtml);
 						var $forLbl = $('label[for="'+$selId+'"]');
 						if($forLbl.length){
-							$forLbl.addClass('ui_select_lbl').attr('title',$btnTitle);
-							//$forLbl.replaceWith('<a href="#'+$selId+'" class="'+$forLbl.attr('class')+' ui_select_lbl" title="'+$btnTitle+'">'+$forLbl.html()+'</a>');
+							$forLbl.addClass('ui-select-lbl').attr('title',$btnTitle);
+							//$forLbl.replaceWith('<a href="#'+$selId+'" class="'+$forLbl.attr('class')+' ui-select-lbl" title="'+$btnTitle+'">'+$forLbl.html()+'</a>');
 						}
 					}
 					var $selectTxt = $sel.find(':selected').text();
@@ -2408,7 +2408,7 @@ var formUI = {
 			$closest.emailForm(false);
 			$emlSel.find('option').eq(0).prop('selected',true);
 			//$emlSel.change().focus();
-			$emlSel.next('.ui_select_open').focus().click();
+			$emlSel.next('.ui-select-open').focus().click();
 		});
 		$(document).on('keyup', '.email_form .email_inp .input', function(e){
 			var $keyCode = (e.keyCode?e.keyCode:e.which),
@@ -2855,13 +2855,16 @@ var sclCalendar = {
 			if($type == 'full')$todayDate = $todayDate + ' '+autoTimeFormet($nowDateOnlyTime.toString(),sclCalendar.timeMark);
 			if($type == 'time')$todayDate = autoTimeFormet($nowDateOnlyTime.toString(),sclCalendar.timeMark);
 			if($this.hasClass('on')){
-				//$wrap.removeClass('expend');
+				$wrap.removeClass('expend');
+				Body.unlock();
 				$wrap.find('.scl_cal_wrap').stop(true,false).slideUp(200);
 				$this.removeClass('on');
 			}else{
-				//$wrap.addClass('expend');
+				$wrap.addClass('expend');
 				$wrap.find('.scl_cal_wrap').stop(true,false).slideDown(200,function(){
-					accordion.scroll($this,this);
+					accordion.scroll($this,this,function(){
+						Body.lock();
+					});
 				});
 				$this.addClass('on');
 				if($input.val() == ''){
@@ -2880,7 +2883,8 @@ var sclCalendar = {
 			e.preventDefault();
 			var $wrap = $(this).closest('.scl_calrender'),
 				$btn = $wrap.find('.ui-date-open');
-			//$wrap.removeClass('expend');
+			$wrap.removeClass('expend');
+			Body.unlock();
 			$wrap.find('.scl_cal_wrap').stop(true,false).slideUp(200);
 			$btn.removeClass('on');
 			if($(this).closest('.scl_cal_close').length)$btn.focus();
@@ -3027,7 +3031,7 @@ var listUI = {
 	winLoad:function(){
 		//토글실행
 		accordion.list('.ui-accordion','.tit a','.panel');
-		accordion.btn('.ui_toggle_btn');
+		accordion.btn('.ui-toggle-btn');
 
 		//테이블 스크롤 가이드 실행
 		if($('.tbl_scroll').length){
@@ -3179,7 +3183,7 @@ var accordion = {
 			});
 		}
 	},
-	scroll:function(btn,panel){
+	scroll:function(btn,panel,callback){
 		//아코디언 열릴때 스크롤 함수
 		var $scrollTop = $(window).scrollTop(),
 			$winHeight = $(window).height();
@@ -3191,7 +3195,11 @@ var accordion = {
 			$thisEnd = $thisTop+$thisHeight,
 			$scroll = Math.min($btnTop,$thisEnd-$winHeight);
 		if($winEnd < $thisEnd){
-			$('html,body').animate({'scrollTop':$scroll},200);
+			$('html,body').animate({'scrollTop':$scroll},200,function(){
+				if(!!callback)callback();
+			});
+		}else{
+			if(!!callback)callback();
 		}
 	}
 };
@@ -3510,17 +3518,17 @@ var slickUI = {
 	},
 	item: function(){
 		//일반 slick
-		if ($('.ui_slick').length > 0){
-			$('.ui_slick').each(function(){
+		if ($('.ui-slick').length > 0){
+			$('.ui-slick').each(function(){
 				var $this = $(this);
 				var $swipeIdx = $uiSwipers.length+1;
 				if($this.closest('.company_main_interview').length){
 					$this.addClass('is_slick');
 				}
 				if($this.children().length == 1){
-					$this.closest('.ui_slick_wrap').addClass('only');
+					$this.closest('.ui-slick-wrap').addClass('only');
 				}else if($this.children().length > 1){
-					$this.closest('.ui_slick_wrap').removeClass('only');
+					$this.closest('.ui-slick-wrap').removeClass('only');
 					if(!$this.hasClass('is_slick')){
 						//swipe
 						if(!$this.hasClass('swiper-container-initialized')){
@@ -3545,9 +3553,9 @@ var slickUI = {
 									init:function(){
 										setTimeout(function(){
 											if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
-												$this.closest('.ui_slick_wrap').addClass('double');
+												$this.closest('.ui-slick-wrap').addClass('double');
 											}else{
-												$this.closest('.ui_slick_wrap').removeClass('double');
+												$this.closest('.ui-slick-wrap').removeClass('double');
 											}
 
 											focusAria();
@@ -3555,9 +3563,9 @@ var slickUI = {
 									},
 									resize:function(){
 										if($swiper.pagination.bullets.length == 1 && $swiper.slides.length == 2){
-											$this.closest('.ui_slick_wrap').addClass('double');
+											$this.closest('.ui-slick-wrap').addClass('double');
 										}else{
-											$this.closest('.ui_slick_wrap').removeClass('double');
+											$this.closest('.ui-slick-wrap').removeClass('double');
 											$swiper.slideTo(0);
 										}
 
@@ -3826,7 +3834,7 @@ var todayPop ={
 		}
 
 		//닫기
-		$(target).on('click','.ui_pop_close',function(e){
+		$(target).on('click','.ui-pop-close',function(e){
 			todayPop.close(target,isRemove);
 		});
 	},
@@ -4216,9 +4224,9 @@ var chartUI = function(target,speed){
 						//$total.find('span').animateNumber($totalNum,$speed,true);
 					break;
 					case 'slickBar':
-						var $slick = $target.closest('.ui_slick');
+						var $slick = $target.closest('.ui-slick');
 
-						if($target.closest('.ui_slick_wrap').hasClass('only')){
+						if($target.closest('.ui-slick-wrap').hasClass('only')){
 							barInit();
 						}else{
 							if($slick.hasClass('is_slick')){
@@ -4237,7 +4245,7 @@ var chartUI = function(target,speed){
 								var $idx = $slick.data('idx');
 								$uiSwipers[$idx-1].on('transitionEnd',function(){
 									var $closestIdx = $target.closest('.swiper-slide').index(),
-										$paginationIdx = $target.closest('.ui_slick').find('.swiper-pagination-bullet-active').index();
+										$paginationIdx = $target.closest('.ui-slick').find('.swiper-pagination-bullet-active').index();
 									if($(window).width() < 760){
 										if($closestIdx == $paginationIdx){
 											barInit();
