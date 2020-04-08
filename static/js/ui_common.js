@@ -758,9 +758,9 @@ var Layer = {
 					$html += '<div class="pop_btn">';
 						$html += '<div class="flex">';
 							if(type === 'confirm' || type === 'prompt'){
-							$html += '<button type="button" id="'+btnCancelId+'" class="button gray">취소</button>';
+							$html += '<button type="button" id="'+btnCancelId+'" class="button h48 gray">취소</button>';
 							}
-							$html += '<button type="button" id="'+btnActionId+'" class="button">확인</button>';
+							$html += '<button type="button" id="'+btnActionId+'" class="button h48">확인</button>';
 						$html += '</div>';
 					$html += '</div>';
 				$html += '</div>';
