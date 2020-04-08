@@ -102,11 +102,13 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w_120">
-								<div class="sel_wrap">
-									<select class="select" id="bank_nm" name="bank_nm" title="은행 선택" tabindex="-1" aria-hidden="true"><option value="">선택해주세요.</option><option value="002">산업은행</option><option value="003">기업은행</option><option value="004">국민은행</option><option value="081">KEB하나은행(구외환)</option><option value="007">수협중앙회</option><option value="011">농협</option><option value="020">우리은행</option><option value="023">SC제일은행</option><option value="027">씨티은행</option><option value="031">대구은행</option><option value="032">부산은행</option><option value="034">광주은행</option><option value="035">제주은행</option><option value="037">전북은행</option><option value="039">경남은행</option><option value="045">새마을금고</option><option value="048">신협</option><option value="050">상호저축은행</option><option value="071">우체국</option><option value="089">케이뱅크</option><option value="054">HSBC은행</option><option value="055">도이치은행</option><option value="057">JP모건체이스은행</option><option value="064">산림조합중앙회</option><option value="088">신한은행</option><option value="026">신한은행(구신한)</option><option value="209">유안타증권</option><option value="218">KB증권(구현대)</option><option value="230">미래에셋증권</option><option value="238">대우증권</option><option value="240">삼성증권</option><option value="243">한국투자증권</option><option value="247">NH투자증권(구우리투자)</option><option value="261">교보증권</option><option value="262">하이투자</option><option value="263">HMC증권</option><option value="265">이베스트투자증권(구이트레이드)</option><option value="266">SK증권</option><option value="267">대신증권</option><option value="268">메리츠종금증권(구아이엠투자)</option><option value="269">한화투자증권</option><option value="270">하나금융투자</option><option value="278">신한금융투자</option><option value="279">DB금융투자(구동부)</option><option value="280">유진투자증권</option><option value="287">메리츠종금증권</option><option value="289">NH농협증권</option><option value="290">부국증권</option><option value="291">신영증권</option><option value="292">케이프투자증권(구엘아이지)</option><option value="090">카카오뱅크</option></select>
+								<div class="select">
+									<select id="bank_nm" name="bank_nm" title="은행 선택" tabindex="-1" aria-hidden="true"><option value="">선택해주세요.</option><option value="002">산업은행</option><option value="003">기업은행</option><option value="004">국민은행</option><option value="081">KEB하나은행(구외환)</option><option value="007">수협중앙회</option><option value="011">농협</option><option value="020">우리은행</option><option value="023">SC제일은행</option><option value="027">씨티은행</option><option value="031">대구은행</option><option value="032">부산은행</option><option value="034">광주은행</option><option value="035">제주은행</option><option value="037">전북은행</option><option value="039">경남은행</option><option value="045">새마을금고</option><option value="048">신협</option><option value="050">상호저축은행</option><option value="071">우체국</option><option value="089">케이뱅크</option><option value="054">HSBC은행</option><option value="055">도이치은행</option><option value="057">JP모건체이스은행</option><option value="064">산림조합중앙회</option><option value="088">신한은행</option><option value="026">신한은행(구신한)</option><option value="209">유안타증권</option><option value="218">KB증권(구현대)</option><option value="230">미래에셋증권</option><option value="238">대우증권</option><option value="240">삼성증권</option><option value="243">한국투자증권</option><option value="247">NH투자증권(구우리투자)</option><option value="261">교보증권</option><option value="262">하이투자</option><option value="263">HMC증권</option><option value="265">이베스트투자증권(구이트레이드)</option><option value="266">SK증권</option><option value="267">대신증권</option><option value="268">메리츠종금증권(구아이엠투자)</option><option value="269">한화투자증권</option><option value="270">하나금융투자</option><option value="278">신한금융투자</option><option value="279">DB금융투자(구동부)</option><option value="280">유진투자증권</option><option value="287">메리츠종금증권</option><option value="289">NH농협증권</option><option value="290">부국증권</option><option value="291">신영증권</option><option value="292">케이프투자증권(구엘아이지)</option><option value="090">카카오뱅크</option></select>
 								</div>
 							</div>
-							<div class="td"><input type="tel" id="frm2_1" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="frm2_1" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
@@ -194,7 +196,7 @@
 					<div class="form_item inp">
 						<label for="inpName1" class="fm_lb">이름</label>
 						<div class="fm_cont">
-							<input type="text" id="inpName1" class="input" placeholder="이름입력">
+							<div class="input"><input type="text" id="inpName1" placeholder="이름입력"></div>
 						</div>
 						<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
 					</div>

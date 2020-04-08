@@ -43,14 +43,15 @@
 .input[readonly]+.inp_del,
 .input:disabled+.inp_del{display:none;}
 
-.form_item{position:relative;background:#fff;padding:20px 19px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;}
+/*.form_item{position:relative;background:#fff;padding:20px 19px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;}
 .form_item.no_line{border-color:transparent;}
 .form_item.error{border-color:#ff4019;z-index:1;}
 .form_item+.form_item{margin-top:-1px;}
 .section .form_item{margin-left:-20px;margin-right:-20px;}
 .form_item.inp{padding-bottom:0;}
 .form_item.inp .input,
-.form_item.inp .select{border-width:0;}
+.form_item.inp .select select,
+.form_item.inp .btn_select{border-width:0;}
 .form_item.inp .textarea{border-width:0;padding:0;}
 .form_item.chk{padding:0;}
 .form_item.chk>.checkbox,
@@ -61,9 +62,11 @@
 .form_item.chk>.radio>i{left:20px;top:20px;}
 .form_item.chk>.checkbox>.lbl,
 .form_item.chk>.radio>.lbl{padding:20px 20px 20px 49px;margin-left:0;}
-.form_item .lb{color:#666;font-size:1.8rem;}
-.form_item .fm_lb{display:block;font-weight:bold;font-size:1.2rem;color:#666;line-height:1;padding-bottom:5px;cursor:default;}
-.form_item .fm_val{display:block;height:40px;line-height:40px;font-size:1.8rem;color:#111;}
+.form_item .lb{color:#666;font-size:1.8rem;}*/
+
+.form_item{position:relative;margin-top:35px;}
+.form_item .fm_lb{display:block;font-weight:500;font-size:1.4rem;padding-bottom:10px;cursor:default;}
+.form_item .fm_val{display:block;height:40px;line-height:39px;font-size:1.8rem;color:#111;border-bottom:1px solid #ddd;}
 .form_item .fm_cont{position:relative;}
 .form_item .fm_cont>.btn_toggle:first-child{margin-top:10px;}
 .form_item .fm_cont>.btn_toggle:last-child{margin-bottom:-1px;z-index:1;}
@@ -103,7 +106,8 @@
 .search_box>div{position:relative;}
 .search_box>div>div{padding-right:40px;}
 .search_box .input{border-bottom-width:0;padding-right:65px;}
-.search_box .select{border-bottom-width:0;}
+.search_box .select select,
+.search_box .select .btn_select{border-bottom-width:0;}
 .search_box .input:focus{color:#046fd9;}
 /* .search_box .inp_del{width:40px;height:40px;top:0;background-color:#fff;} */
 .search_box .inp_del{right:45px;}

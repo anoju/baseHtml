@@ -47,11 +47,11 @@
 					<label for="mail1" class="fm_lb">이메일</label>
 					<div class="fm_cont email_form"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
-							<div class="td w40"><input type="text" id="mail1" class="input" title="이메일 아이디 입력"></div>
+							<div class="td w40"><div class="input"><input type="text" id="mail1" title="이메일 아이디 입력"></div></div>
 							<div class="td dash t2">@</div>
 							<div class="td w60 email_sel">
-								<div class="sel_wrap">
-									<select class="select" title="이메일 도메인 선택" id="mailSelect">
+								<div class="select">
+									<select title="이메일 도메인 선택" id="mailSelect">
 										<option value="" selected="selected">이메일계정선택</option>
 										<option value="naver.com">naver.com</option>
 										<option value="hanmail.net">hanmail.net</option>
@@ -74,7 +74,7 @@
 								</div>
 							</div>
 							<div class="td w60 email_inp" style="display:none;">
-								<input type="text" class="input" title="이메일 도메인 직접입력" placeholder="직접입력">
+								<div class="input"><input type="text" title="이메일 도메인 직접입력" placeholder="직접입력"></div>
 								<a href="#" class="btn_sel"><span class="blind">이메일 도메인 직접입력 취소</span></a>
 							</div>
 						</div>

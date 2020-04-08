@@ -372,8 +372,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inputText" class="fm_lb">input:text</label>
 					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inputText" class="input" placeholder="내용을 입력하세요">
+						<div class="input">
+							<input type="text" id="inputText" placeholder="내용을 입력하세요">
 						</div>
 					</div>
 					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -381,8 +381,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inputText2" class="fm_lb">input:text[readonly] - 읽기전용</label>
 					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inputText2" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." readonly>
+						<div class="input">
+							<input type="text" id="inputText2" placeholder="내용을 입력하세요" value="입력된 내용입니다." readonly>
 						</div>
 					</div>
 					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -390,8 +390,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inputText3" class="fm_lb">input:text[disabled]  - 비활성화</label>
 					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inputText3" class="input" placeholder="내용을 입력하세요" value="입력된 내용입니다." disabled>
+						<div class="input">
+							<input type="text" id="inputText3" placeholder="내용을 입력하세요" value="입력된 내용입니다." disabled>
 						</div>
 					</div>
 					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -401,8 +401,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inpSel1" class="fm_lb">select</label>
 					<div class="fm_cont">
-						<div class="sel_wrap">
-							<select class="select" id="inpSel1" title="날짜 선택">
+						<div class="select">
+							<select id="inpSel1" title="날짜 선택">
 								<option value="">날짜 선택</option>
 								<option value="1">1일</option>
 								<option value="2">2일</option>
@@ -415,8 +415,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inpSel2" class="fm_lb">select[disabled] - 비활성화</label>
 					<div class="fm_cont">
-						<div class="sel_wrap">
-							<select class="select" id="inpSel2" title="날짜 선택" disabled>
+						<div class="select">
+							<select id="inpSel2" title="날짜 선택" disabled>
 								<option value="">날짜 선택</option>
 								<option value="1">1일</option>
 								<option value="2" selected>2일</option>
@@ -499,9 +499,7 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="birthDate" class="fm_lb">생년월일 <i class="require"><span class="blind">필수입력항목</span></i></label>
 					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="tel" id="birthDate" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
-						</div>
+						<div class="input"><input type="tel" id="birthDate" class="datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 					</div>
 					<div class="error_txt">생년월일을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
@@ -510,7 +508,7 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td date">
-								<input type="tel" id="startDate" class="input datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<div class="input"><input type="tel" id="startDate" class="datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
 							<div class="td time">00시</div>
 						</div>
@@ -523,7 +521,7 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<input type="tel" id="endDate" class="input datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<div class="input"><input type="tel" id="endDate" class="datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
 							<div class="td time">24시</div>
 						</div>
@@ -536,11 +534,15 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w50">
-								<input type="tel" id="date1" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<div class="input"><input type="tel" id="date1" class="datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
-							<div class="td w20"><input type="tel" class="input" maxlength="2" title="시간의 시 입력"></div>
+							<div class="td w20">
+								<div class="input"><input type="tel" maxlength="2" title="시간의 시 입력"></div>
+							</div>
 							<div class="td ut">시</div>
-							<div class="td w20"><input type="tel" class="input" maxlength="2" title="시간의 분 입력"></div>
+							<div class="td w20">
+								<div class="input"><input type="tel" maxlength="2" title="시간의 분 입력"></div>
+							</div>
 							<div class="td ut">분</div>
 						</div>
 					</div>
@@ -551,9 +553,11 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w70">
-								<input type="tel" id="date2" class="input datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력">
+								<div class="input"><input type="tel" id="date2" class="datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
-							<div class="td w25"><input type="tel" class="input" maxlength="2" title="시간 입력"></div>
+							<div class="td w25">
+								<div class="input"><input type="tel" maxlength="2" title="시간 입력"></div>
+							</div>
 							<div class="td ut t2">시</div>
 						</div>
 					</div>
@@ -565,9 +569,13 @@
 					<label for="jumin1" class="fm_lb">주민등록번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="tel" id="jumin1" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="jumin1" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
+							</div>
 							<div class="td dash">-</div>
-							<div class="td"><input type="password" id="jumin2" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리  입력" placeholder="(뒤7자리)"></div>
+							<div class="td">
+								<div class="input"><input type="password" id="jumin2" maxlength="7" title="주민등록번호 뒤7자리  입력" placeholder="(뒤7자리)"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">주민등록번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -576,9 +584,13 @@
 					<label for="jumin3" class="fm_lb">주민등록번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="tel" id="jumin3" class="input" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="jumin3" maxlength="6" title="주민등록번호 앞6자리 입력" placeholder="주민번호(앞6자리)"></div>
+							</div>
 							<div class="td dash">-</div>
-							<div class="td w_60"><input type="tel" id="jumin4" class="input t_center no_del" maxlength="7" title="주민등록번호 뒤7자리 중 첫번째자리 입력" placeholder="1자리"></div>
+							<div class="td w_60">
+								<div class="input"><input type="tel" id="jumin4" class="t_center no_del" maxlength="7" title="주민등록번호 뒤7자리 중 첫번째자리 입력" placeholder="1자리"></div>
+							</div>
 							<div class="td w_100 pl0">●●●●●●</div>
 						</div>
 					</div>
@@ -588,7 +600,9 @@
 					<label for="juminBirth" class="fm_lb">주민번호 생년월일</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="tel" id="juminBirth" class="input" maxlength="6" title="주민번호 생년월일 8자리 입력" placeholder="예)19901225"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="juminBirth" maxlength="6" title="주민번호 생년월일 8자리 입력" placeholder="예)19901225"></div>
+							</div>
 							<div class="td w40">
 								<ul class="btn_toggle ty2 grid col3">
 									<li>
@@ -612,8 +626,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w20">
-								<div class="sel_wrap">
-									<select class="select" id="phoneNum1_1" title="휴대폰번호 식별번호 선택">
+								<div class="select">
+									<select id="phoneNum1_1" title="휴대폰번호 식별번호 선택">
 										<option value="010" selected="selected">010</option>
 										<option value="012">012</option>
 										<option value="013">013</option>
@@ -621,7 +635,9 @@
 								</div>
 							</div>
 							<div class="td dash">-</div>
-							<div class="td"><input type="tel" id="phoneNum1_2" class="input" maxlength="8" title="휴대폰번호 나머지 7~8자리 입력" placeholder="숫자만 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="phoneNum1_2" maxlength="8" title="휴대폰번호 나머지 7~8자리 입력" placeholder="숫자만 입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">휴대폰번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -631,8 +647,8 @@
 					<div class="fm_cont phone inp_btn"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
 							<div class="td w20">
-								<div class="sel_wrap">
-									<select class="select" id="phoneNum2_1" title="연락처 식별번호 선택">
+								<div class="select">
+									<select id="phoneNum2_1" title="연락처 식별번호 선택">
 										<option value="010" selected="selected">010</option>
 										<option value="012">012</option>
 										<option value="013">013</option>
@@ -640,7 +656,9 @@
 								</div>
 							</div>
 							<div class="td dash">-</div>
-							<div class="td"><input type="tel" id="phoneNum2_2" class="input" title="연락처 나머지 7~8자리 숫자만 입력" placeholder="숫자만 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="phoneNum2_2" title="연락처 나머지 7~8자리 숫자만 입력" placeholder="숫자만 입력"></div>
+							</div>
 							<div class="td btn w_100">
 								<a href="#" class="button line block h32">인증번호 발송</a>
 								<!-- <a href="#" class="button line block h32">인증번호 재발송</a> -->
@@ -654,7 +672,7 @@
 					<div class="fm_cont phone inp_btn"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
 							<div class="td">
-								<input type="tel" id="phoneNum2_3" class="input" title="인증번호 숫자만 입력" placeholder="숫자만 입력">
+								<div class="input"><input type="tel" id="phoneNum2_3" title="인증번호 숫자만 입력" placeholder="숫자만 입력"></div>
 							</div>
 							<div class="td w_50 t_right">
 								<span class="fc_blue fz_11">01:45</span>
@@ -673,11 +691,13 @@
 					<label for="mail1" class="fm_lb">이메일</label>
 					<div class="fm_cont email_form"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
-							<div class="td w40"><input type="text" id="mail1" class="input" title="이메일 아이디 입력"></div>
+							<div class="td w40">
+								<div class="input"><input type="text" id="mail1" title="이메일 아이디 입력"></div>
+							</div>
 							<div class="td dash t2">@</div>
 							<div class="td w60 email_sel">
-								<div class="sel_wrap">
-									<select class="select" title="이메일 도메인 선택">
+								<div class="select">
+									<select title="이메일 도메인 선택">
 										<option value="" selected="selected">이메일계정선택</option>
 										<option value="naver.com">naver.com</option>
 										<option value="hanmail.net">hanmail.net</option>
@@ -700,7 +720,7 @@
 								</div>
 							</div>
 							<div class="td w60 email_inp" style="display:none;">
-								<input type="text" class="input" title="이메일 도메인 직접입력" placeholder="직접입력">
+								<div class="input"><input type="text" title="이메일 도메인 직접입력" placeholder="직접입력"></div>
 								<a href="#" class="btn_sel"><span class="blind">이메일 도메인 직접입력 취소</span></a>
 							</div>
 						</div>
@@ -729,13 +749,21 @@
 					<label for="cardNum1" class="fm_lb">카드번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td w25"><input type="tel" id="cardNum1" class="input no_del t_center" maxlength="4" title="카드번호 첫번째 4자리 입력"></div>
+							<div class="td w25">
+								<div class="input"><input type="tel" id="cardNum1" class="no_del t_center" maxlength="4" title="카드번호 첫번째 4자리 입력"></div>
+							</div>
 							<div class="td dash">-</div>
-							<div class="td w25"><input type="password" id="cardNum2" class="input no_del t_center" maxlength="4" title="카드번호 두번째 4자리 입력"></div>
+							<div class="td w25">
+								<div class="input"><input type="password" id="cardNum2" class="no_del t_center" maxlength="4" title="카드번호 두번째 4자리 입력"></div>
+							</div>
 							<div class="td dash">-</div>
-							<div class="td w25"><input type="tel" id="cardNum3" class="input no_del t_center" maxlength="4" title="카드번호 세번째 4자리 입력"></div>
+							<div class="td w25">
+								<div class="input"><input type="tel" id="cardNum3" class="no_del t_center" maxlength="4" title="카드번호 세번째 4자리 입력"></div>
+							</div>
 							<div class="td dash">-</div>
-							<div class="td w25"><input type="password" id="cardNum4" class="input no_del t_center" maxlength="4" title="카드번호 네번째 4자리 입력"></div>
+							<div class="td w25">
+								<div class="input"><input type="password" id="cardNum4" class="no_del t_center" maxlength="4" title="카드번호 네번째 4자리 입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">카드번호를 정확하게 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -744,9 +772,13 @@
 					<label for="validity1" class="fm_lb">유효기간</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="tel" id="validity1" class="input" maxlength="2" placeholder="월2자리" title="유효기간 월2자리 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="validity1" maxlength="2" placeholder="월2자리" title="유효기간 월2자리 입력"></div>
+							</div>
 							<div class="td dash">/</div>
-							<div class="td"><input type="tel" id="validity2" class="input" maxlength="4" placeholder="년4자리" title="유효기간 년4자리 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="validity2" maxlength="4" placeholder="년4자리" title="유효기간 년4자리 입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">유효기간을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -756,8 +788,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="validity3" title="월2자리 선택">
+								<div class="select">
+									<select id="validity3" title="월2자리 선택">
 										<option value="">월 2자리</option>
 										<option value="01">01</option>
 										<option value="02">02</option>
@@ -768,8 +800,8 @@
 							</div>
 							<div class="td dash">/</div>
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="validity4" title="년4자리 선택">
+								<div class="select">
+									<select id="validity4" title="년4자리 선택">
 										<option value="">년 4자리</option>
 										<option value="2020">2020</option>
 										<option value="2019">2019</option>
@@ -786,7 +818,9 @@
 					<label for="cardPW" class="fm_lb">카드 비밀번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="password" id="cardPW" class="input" placeholder="앞 2자리" title="카드 비밀번호 앞 2자리 입력"></div>
+							<div class="td">
+								<div class="input"><input type="password" id="cardPW" placeholder="앞 2자리" title="카드 비밀번호 앞 2자리 입력"></div>
+							</div>
 							<div class="td">●●</div>
 						</div>
 					</div>
@@ -795,8 +829,8 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="installmentPeriod" class="fm_lb">할부기간</label>
 					<div class="fm_cont">
-						<div class="sel_wrap">
-							<select class="select" id="installmentPeriod" title="할부기간 선택">
+						<div class="select">
+							<select id="installmentPeriod" title="할부기간 선택">
 								<option value="" selected="selected">할부기간 선택</option>
 								<option value="01">01</option>
 								<option value="02">02</option>
@@ -817,8 +851,8 @@
 						<div class="fm_cont">
 							<div class="tbl">
 								<div class="td">
-									<div class="sel_wrap">
-										<select class="select" id="bankChkSel1" title="출금 계좌 선택">
+									<div class="select">
+										<select id="bankChkSel1" title="출금 계좌 선택">
 											<option value="" selected>계좌선택</option>
 											<option value="1">KB국민은행 / 7137********</option>
 											<option value="2">카카오뱅크 / 2852002****</option>
@@ -838,8 +872,8 @@
 						<div class="fm_cont">
 							<div class="tbl">
 								<div class="td w_120">
-									<div class="sel_wrap">
-										<select class="select" id="bankChkSel2" title="은행 선택">
+									<div class="select">
+										<select id="bankChkSel2" title="은행 선택">
 											<option value="">은행선택</option>
 											<option value="1">국민은행</option>
 											<option value="2">우리은행</option>
@@ -847,7 +881,9 @@
 										</select>
 									</div>
 								</div>
-								<div class="td"><input type="tel" id="frm2" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+								<div class="td">
+									<div class="input"><input type="tel" id="frm2" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+								</div>
 								<div class="td w_90">
 									<a href="#" class="button line h32 block btn_inp_change">계좌선택</a>
 								</div>
@@ -861,8 +897,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w_120">
-								<div class="sel_wrap">
-									<select class="select" id="frm1" title="은행 선택">
+								<div class="select">
+									<select id="frm1" title="은행 선택">
 										<option value="">은행선택</option>
 										<option value="038">강원은행</option>
 										<option value="039">경남은행</option>
@@ -892,7 +928,9 @@
 									</select>
 								</div>
 							</div>
-							<span class="td"><input type="tel" id="frm2_1" class="input" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></span>
+							<div class="td">
+								<div class="input"><input type="tel" id="frm2_1" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">계좌번호를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -904,7 +942,7 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<input type="tel" id="inpPrice" class="input t_right">
+								<div class="input"><input type="tel" id="inpPrice" class="t_right"></div>
 							</div>
 							<div class="td ut t2">만원</div>
 						</div>
@@ -920,10 +958,16 @@
 							<div class="td w_70">
 								<a href="#" class="button line h32 block" onclick="daumPostcode('postcode','baseAddress','detailAddress')">주소찾기</a>
 							</div>
-							<div class="td"><input type="tel" id="address2" class="input" maxlength="6" title="우편번호 입력" placeholder="우편번호" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="address2" maxlength="6" title="우편번호 입력" placeholder="우편번호" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
+							</div>
 						</div>
-						<div class="mt5"><input type="text" class="input" title="기본주소 입력" placeholder="기본주소" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
-						<div class="mt5"><input type="text" class="input" title="상세주소 입력" placeholder="상세주소"></div>
+						<div class="mt5">
+							<div class="input"><input type="text" title="기본주소 입력" placeholder="기본주소" readonly onclick="daumPostcode('postcode','baseAddress','detailAddress')"></div>
+						</div>
+						<div class="mt5">
+							<div class="input"><input type="text" title="상세주소 입력" placeholder="상세주소"></div>
+						</div>
 					</div>
 					<div class="error_txt">주소를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 				</div>
@@ -945,9 +989,7 @@
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
 					<label for="inpName2" class="fm_lb">이름</label>
 					<div class="fm_cont">
-						<div class="inp_wrap">
-							<input type="text" id="inpName2" class="input" placeholder="이름입력">
-						</div>
+						<div class="input"><input type="text" id="inpName2" placeholder="이름입력"></div>
 					</div>
 					<div class="error_txt">이름을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					<div class="tbl mt10 mb10">
@@ -963,22 +1005,26 @@
 					<div class="fm_lb"><label for="inpName3">이름</label> / <label for="inpAge">나이</label></div>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td"><input type="text" id="inpName3" class="input" title="이름" placeholder="이름"></div>
+							<div class="td">
+								<div class="input"><input type="text" id="inpName3" title="이름" placeholder="이름"></div>
+							</div>
 							<div class="td sp" aria-hidden="true"></div>
 							<div class="td ut">약</div>
-							<div class="td w20"><input type="tel" id="inpAge" class="input" title="나이입력"></div>
+							<div class="td w20">
+								<div class="input"><input type="tel" id="inpAge" title="나이입력"></div>
+							</div>
 							<div class="td ut">세</div>
 						</div>
 						<div class="error_txt">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
 				</div>
 				<div class="form_item inp"><!-- 에러날때 error 클래스 -->
-					<label for="sel_wrap" class="fm_lb">구비서류</label>
+					<label for="select" class="fm_lb">구비서류</label>
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" title="구비서류 선택">
+								<div class="select">
+									<select title="구비서류 선택">
 										<option value="">선택</option>
 										<option value="1">서류1</option>
 										<option value="2">서류2</option>
@@ -1000,8 +1046,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="local1" title="지역 시/도 선택">
+								<div class="select">
+									<select id="local1" title="지역 시/도 선택">
 										<option value="">시/도</option>
 										<option value="01">서울</option>
 										<option value="02">부산</option>
@@ -1010,8 +1056,8 @@
 								</div>
 							</div>
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" title="지역 시/군 선택">
+								<div class="select">
+									<select title="지역 시/군 선택">
 										<option value="">시/군</option>
 										<option value="01">강남</option>
 										<option value="02">강서</option>
@@ -1082,8 +1128,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w35">
-								<div class="sel_wrap">
-									<select class="select" id="inpJob1" title="직업 분류 선택">
+								<div class="select">
+									<select id="inpJob1" title="직업 분류 선택">
 										<option value="" selected="selected">선택</option>
 										<option value="1">무직/일용직</option>
 										<option value="2">회사원</option>
@@ -1103,7 +1149,9 @@
 									</select>
 								</div>
 							</div>
-							<div class="td"><input type="text" id="inpJob2" class="input" title="직업 상세정보" placeholder="직업 상세입력"></div>
+							<div class="td">
+								<div class="input"><input type="text" id="inpJob2" title="직업 상세정보" placeholder="직업 상세입력"></div>
+							</div>
 						</div>
 					</div>
 					<div class="error_txt">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
@@ -1115,8 +1163,8 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td w30">
-								<div class="sel_wrap">
-									<select class="select" id="inpCompany1">
+								<div class="select">
+									<select id="inpCompany1">
 										<option value="">선택하세요</option>
 										<option value="1">손해보험</option>
 										<option value="2">생명보험</option>
@@ -1124,8 +1172,8 @@
 								</div>
 							</div>
 							<div class="td">
-								<div class="sel_wrap">
-									<select class="select" id="inpCompany2">
+								<div class="select">
+									<select id="inpCompany2">
 										<option value="">선택하세요</option>
 										<option value="1">회사1</option>
 										<option value="2">회사2</option>
@@ -1151,9 +1199,13 @@
 					<label class="sizePyeong">건물면적</label>
 					<div class="fm_cont"><!-- 에러날때 error 클래스 -->
 						<div class="tbl">
-							<div class="td price"><input type="tel" id="sizePyeong" class="input" title="건물면적 평으로 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="sizePyeong" class="t_right" title="건물면적 평으로 입력"></div>
+							</div>
 							<div class="td ut">평</div>
-							<div class="td price"><input type="tel" id="sizeMeter" class="input" title="건물면적 제곱미터로 입력"></div>
+							<div class="td">
+								<div class="input"><input type="tel" id="sizeMeter" class="t_right" title="건물면적 제곱미터로 입력"></div>
+							</div>
 							<div class="td ut">㎡</div>
 							<div class="td w_70">
 								<a href="#" class="button line h32 block layer_select_open">선택</a>
@@ -1179,15 +1231,15 @@
 				<h3 class="gd__h1">검색</h3>
 				<div class="form_item search_box">
 					<div>
-						<input type="search" placeholder="검색어를 입력해주세요." title="검색어 입력" class="input">
+						<div class="input"><input type="search" placeholder="검색어를 입력해주세요." title="검색어 입력"></div>
 						<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
 					</div>
 				</div>
 				<div class="form_item search_box">
 					<div>
 						<div>
-							<div class="sel_wrap">
-								<select class="select" title="선택">
+							<div class="select">
+								<select title="선택">
 									<option value="">선택</option>
 									<option value="1">가나다라마가</option>
 									<option value="2">가나다라마 가나다 라마</option>
@@ -1204,8 +1256,8 @@
 						<div>
 							<div class="tbl">
 								<div class="td">
-									<div class="sel_wrap">
-										<select class="select" title="년도 선택">
+									<div>
+										<select title="년도 선택">
 											<option value="2018">2018</option>
 											<option value="2017">2017</option>
 											<option value="2016">2016</option>
@@ -1228,8 +1280,8 @@
 									</div>
 								</div>
 								<div class="td">
-									<div class="sel_wrap">
-										<select class="select" title="분기 선택">
+									<div>
+										<select title="분기 선택">
 											<option value="4">4분기</option>
 											<option value="3">3분기</option>
 											<option value="2">2분기</option>

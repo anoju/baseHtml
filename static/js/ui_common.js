@@ -745,7 +745,7 @@ var Layer = {
 							$html += '<div class="form_item no_line">';
 								$html += '<label for="inpPrompt" class="fm_lb" role="alert" aria-live="assertive"></label>';
 								$html += '<div class="fm_cont">';
-									$html += '<input type="text" id="inpPrompt" class="input" placeholder="입력해주세요.">';
+									$html += '<div class="input"><input type="text" id="inpPrompt" placeholder="입력해주세요."></div>';
 								$html += '</div>';
 							$html += '</div>';
 							}else{
@@ -805,7 +805,7 @@ var Layer = {
 			$inpVal = '';
 		$actionBtn.on('click',function(){
 			$result = true;
-			$inpVal = $('#'+$popId).find('.input').val();
+			$inpVal = $('#'+$popId).find('.input input').val();
 			if(type === 'prompt'){
 				if(!!option.action)option.action($result,$inpVal);
 				if(!!option.callback)option.callback($result,$inpVal);
@@ -956,13 +956,6 @@ var Layer = {
 	},
 	selectUI:function(){
 		//셀렉트 팝업버튼 포커스
-		$(document).on('focusin','a.select_btn',function(){
-			$(this).prev('select').addClass('focus');
-		});
-		$(document).on('focusout','a.select_btn',function(){
-			$(this).prev('select').removeClass('focus');
-		});
-
 		$(document).on('click','.ui-select-open',function(e){
 			e.preventDefault();
 			var $select = $(this).siblings('select');
@@ -1416,17 +1409,25 @@ var winPopCenter = {
 //토스트팝업
 var toastBox = function(txt){
 	var $delay = 3000,
-		$speed = 500,
+		$speed = 300,
 		$className = '.toast_box';
 
 	var $boxHtml = '<div class="'+$className.substring(1)+'">';
 		$boxHtml += '<div class="txt">'+txt+'</div>';
 		$boxHtml += '</div>';
+	$('#contents').before($boxHtml);
 
-	$('#container').prepend($boxHtml);
+	/*var $toast = $($className).last(),
+		$height = $toast.outerHeight();
+	$toast.css({'height':0});
 
-	var $height = $($className).outerHeight();
-	$($className).stop(true,false).removeAttr('style').css({'height':0}).animate({'height':$height},$speed).delay($delay).animate({'height':0},$speed);
+	setTimeout(function(){
+		var $headH = $('#header').outerHeight();
+		if($headH > 50)$toast.css({'top':$headH});
+		$toast.animate({'height':$height},$speed).delay($delay).animate({'height':0},$speed);
+	},100);*/
+	var $toast = $($className).last();
+	$toast.addRemoveClass('on', 0, $delay);
 };
 
 //버튼 관련
@@ -1993,16 +1994,16 @@ var formUI = {
 		});
 
 		//페이지 로딩 후 검색박스에 입력값이 있으면 X 버튼 추가
-		$('.search_box .input').each(function(){
+		$('.search_box .input input').each(function(){
 			if($(this).val() != '')$(this).after('<a href="#" class="inp_del" role="button">입력내용삭제</a>');
 		});
 
 		//이메일 입력영역
 		$('.email_form').each(function(){
 			var $this = $(this),
-				$inp = $this.find('.email_inp .input'),
+				$inp = $this.find('.email_inp .input input'),
 				$inpVal = $inp.val(),
-				$sel = $this.find('.email_sel select'),
+				$sel = $this.find('.email_sel .select select'),
 				$selVal = $sel.val();
 			if($inpVal != '' && ($selVal == '' || $selVal == 'etc')){
 				$this.emailForm();
@@ -2011,7 +2012,7 @@ var formUI = {
 		});
 	},
 	select:function(){
-		var $select = $('.sel_wrap');
+		var $select = $('.select');
 		if($select.length){
 			$select.each(function(){
 				var $this = $(this);
@@ -2022,9 +2023,9 @@ var formUI = {
 						$title = $sel.attr('title');
 					if($title != undefined)$title = '선택';
 					var $btnTitle = '팝업으로 '+$title,
-						$btnHtml = '<a href="#'+$selId+'" class="select ui-select-open" title="'+$btnTitle+'"><span class="blind">현재 선택한 항목은</span><span class="val"></span><span class="blind">입니다.</span></a>';
+						$btnHtml = '<a href="#'+$selId+'" class="btn_select ui-select-open" title="'+$btnTitle+'"><span class="val"></span></a>';
 					
-					if(!$this.find('a.select').length){
+					if(!$this.find('.btn_select').length){
 						$sel.hide();
 						$this.append($btnHtml);
 						var $forLbl = $('label[for="'+$selId+'"]');
@@ -2034,12 +2035,9 @@ var formUI = {
 						}
 					}
 					var $selectTxt = $sel.find(':selected').text();
-					$this.find('a.select .val').text($selectTxt);
+					$this.find('.btn_select .val').text($selectTxt);
 					if($val == ''){
-						$this.find('a.select').addClass('off');
-						$this.find('a.select .val').attr('aria-hidden',true).next().text('없습니다.');
-					}else{
-						$this.find('a.select .val').removeAttr('aria-hidden').next().text('입니다.');
+						$this.find('.btn_select').addClass('off');
 					}
 				}
 			});
@@ -2073,25 +2071,13 @@ var formUI = {
 		});
 
 		//input[type=date]
-		$(document).on('change','.input.date+.input[type=date]',function(){
+		$(document).on('change','.input input.date+input[type=date]',function(){
 			var $val = $(this).val();
 			if($val.indexOf('-') < 0){
 				$val = new Date($val).toISOString().split('T')[0];
 			}
 			$val = $val.split('-').join('.');
-			$(this).prev('.input.date').val($val).change().focus();
-		});
-	},
-	textarea:function(){
-		//textarea
-		$(document).on('focusin','textarea',function(){
-			if(!$(this).closest('.form_item').length){
-				$(this).closest('.textarea').addClass('hover');
-			}
-		}).on('focusout','textarea',function(){
-			if(!$(this).closest('.form_item').length){
-				$(this).closest('.textarea').removeClass('hover');
-			}
+			$(this).prev('input.date').val($val).change().focus();
 		});
 	},
 	removeError:function(){
@@ -2105,7 +2091,7 @@ var formUI = {
 	},
 	delBtn:function(){
 		//input 삭제버튼
-		$(document).on('keyup focus','.input, textarea',function(){
+		$(document).on('keyup focus','.input input, textarea',function(){
 			var $this = $(this), $val = $this.val();
 			if($this.prop('readonly') || $this.prop('disabled') || $this.hasClass('no_del') || $this.hasClass('datepicker') || $this.hasClass('time')){
 				return false;
@@ -2132,7 +2118,7 @@ var formUI = {
 	//검색박스
 		var $wrap = '.search_box_wrap',
 			$contClass = '.search_box_cont',
-			$inpClass = '.search_box .input';
+			$inpClass = '.search_box .input input';
 
 		// listShow 조건용 이벤트 변경
 		$($wrap).find($inpClass).on('keyup focus',function(e){
@@ -2400,7 +2386,7 @@ var formUI = {
 		//이메일 직접입력
 		$(document).on('change', '.email_form .email_sel select', function(){
 			var $closest = $(this).closest('.email_form'),
-				$inp = $closest.find('.email_inp .input');
+				$inp = $closest.find('.email_inp .input input');
 			if($(this).find(':selected').text() == '직접입력'){
 				$closest.emailForm();
 				$inp.val('').focus();
@@ -2416,7 +2402,7 @@ var formUI = {
 			//$emlSel.change().focus();
 			$emlSel.next('.ui-select-open').focus().click();
 		});
-		$(document).on('keyup', '.email_form .email_inp .input', function(e){
+		$(document).on('keyup', '.email_form .email_inp .input input', function(e){
 			var $keyCode = (e.keyCode?e.keyCode:e.which),
 				$closest = $(this).closest('.email_form'),
 				$emlSel = $closest.find('.email_sel select'),
@@ -2453,13 +2439,20 @@ var formUI = {
 			}
 		});
 	},
-	focusChk:function(elements){
-		var $inpEls= $(elements);
+	focus:function(){
+		var $inpEls= $('input:not(:checkbox):not(:radio):not(:hidden),select, textarea, .btn_select');
 		$inpEls.focusin(function(e){
 			var $this = $(this);
 			$('html').addClass('inp_focus');
+
+			if($this.closest('.form_item').length)$this.closest('.form_item').addClass('focus');
+			if($this.is('input') && $this.closest('.input').length)$this.closest('.input').addClass('focus');
+			if($this.is('select') && $this.closest('.select').length)$this.closest('.select').addClass('focus');
+			if($this.hasClass('btn_select') && $this.closest('.select').length)$this.closest('.select').addClass('focus');
+			if($this.is('textarea') && $this.closest('.textarea').length)$this.closest('.textarea').addClass('focus');
 			
 			//포커스 요소 가려지면 스크롤
+			/*
 			if(isAppChk('Android')){ //안드로이드앱 체크
 				setTimeout(function(){
 					var $top = $this.offsetParent().offset().top,
@@ -2479,9 +2472,15 @@ var formUI = {
 						$wrap.scrollTop($scrollTop+$gap+20);
 					}
 				},500);
-			}
+			}*/
 		}).focusout(function(){
+			var $this = $(this);
 			$('html').removeClass('inp_focus');
+			if($this.closest('.form_item').length)$this.closest('.form_item').removeClass('focus');
+			if($this.is('input') && $this.closest('.input').length)$this.closest('.input').removeClass('focus');
+			if($this.is('select') && $this.closest('.select').length)$this.closest('.select').removeClass('focus');
+			if($this.hasClass('btn_select') && $this.closest('.select').length)$this.closest('.select').removeClass('focus');
+			if($this.is('textarea') && $this.closest('.textarea').length)$this.closest('.textarea').removeClass('focus');
 		});
 	},
 	init:function(){
@@ -2489,7 +2488,6 @@ var formUI = {
 		
 		formUI.select();
 		formUI.input();
-		formUI.textarea();
 		//formUI.removeError();
 		formUI.delBtn();
 		formUI.search();
@@ -2498,9 +2496,7 @@ var formUI = {
 		sclCalendar.init();	//body에 스크롤 달력
 		formUI.textCount();
 		formUI.etc();
-		
-		var $focusEl = 'input:not(:checkbox):not(:radio):not(:hidden),select, textarea';
-		formUI.focusChk($focusEl);
+		formUI.focus();
 	}
 };
 $.fn.errorTxt = function(text){
@@ -2578,7 +2574,7 @@ var sclCalendar = {
 				if($type == 'full')$btnTxt = '날짜 및 시간 선택';
 				if($type == 'time')$btnTxt = '시간 선택';
 				if(!$this.closest('.scl_calrender').length)$this.wrap('<div class="scl_calrender"><div class="scl_cal_btn"></div></div>');
-				if(!$this.siblings('.select').length)$this.after('<a href="#'+$thisId+'" class="select ui-date-open" role="button"><span class="blind">'+$btnTxt+'</span></a>');
+				if(!$this.siblings('.btn_select').length)$this.after('<a href="#'+$thisId+'" class="btn_select ui-date-open" role="button"><span class="blind">'+$btnTxt+'</span></a>');
 				var $wrap = $this.closest('.scl_calrender'),
 					$calendar = $wrap.find('.scl_cal_wrap');
 				if(!$calendar.length){
@@ -3781,7 +3777,7 @@ var totalSearchUI = function(){
 	var $wrap = $('.total_search'),
 		$searchWrap = '.search_list_wrap',
 		$contClass = '.search_list_cont',
-		$inpClass = '.search_box .input',
+		$inpClass = '.search_box .input input',
 		$closeClass = '.btn_search_list_close';
 
 	var listShow = function(target){
