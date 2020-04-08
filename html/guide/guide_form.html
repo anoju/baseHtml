@@ -66,12 +66,12 @@
 					<input type="checkbox" id="chk4" disabled checked><i aria-hidden="true"></i>
 					<label for="chk4" class="lbl">체크박스 disabled checked</label>
 				</span>
-				<div class="form_item line chk">
+				<!-- <div class="form_item line chk">
 					<span class="checkbox">
 						<input type="checkbox" id="chk1_1"><i aria-hidden="true"></i>
 						<label for="chk1_1" class="lbl">체크박스</label>
 					</span>
-				</div>
+				</div> -->
 
 				<h3 class="gd__h2">radio</h3>
 				<h4 class="gd__h3">일반</h4>
@@ -94,12 +94,12 @@
 					<input type="radio" id="rdo4" name="rdo3" disabled checked><i aria-hidden="true"></i>
 					<label for="rdo4" class="lbl">라디오 disabled checked</label>
 				</span>
-				<div class="form_item line chk">
+				<!-- <div class="form_item line chk">
 					<span class="radio">
 						<input type="radio" id="rdo1_1" name="rdo1_1"><i aria-hidden="true"></i>
 						<label for="rdo1_1" class="lbl">라디오</label>
 					</span>
-				</div>
+				</div> -->
 
 				<h2 class="gd__h1">토글 라디오</h2>
 				<h3 class="gd__h2">기본</h3>
@@ -317,23 +317,44 @@
 				<div id="etcTogCont" class="tab_rdo_panel">라디오 선택시 무조건 노출영역</div>
 				
 				<h2 class="gd__h1">이용약관 체크박스</h2>
-				<h3 class="gd__h2">agree_item</h3>
-				<div class="form_item chk agree">
-					<div class="checkbox agree_all">
-						<input type="checkbox" id="agree"><i aria-hidden="true"></i>
-						<label for="agree" class="lbl">전체 동의</label>
-						<!-- <a href="#" class="agree_link"><span class="blind">전체약관 확인하기</span></a> -->
-					</div>
-					<div class="form_child agree_child">
-						<div class="checkbox">
-							<input type="checkbox" id="agree1_1"><i aria-hidden="true"></i>
-							<label for="agree1_1" class="lbl">무슨 무슨 약관1</label>
-							<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
+				<h3 class="gd__h2">agree_list</h3>
+				<div class="agree_list">
+					<div class="form_item line chk">
+						<div class="checkbox agree_all">
+							<input type="checkbox" id="agree"><i aria-hidden="true"></i>
+							<label for="agree" class="lbl">무슨 무슨 전체약관1</label>
+							<a href="#" class="agree_link toggle open"><span class="blind">약관목록 확인하기</span></a>
 						</div>
-						<div class="checkbox">
-							<input type="checkbox" id="agree1_2" checked><i aria-hidden="true"></i>
-							<label for="agree1_2" class="lbl">무슨 무슨 약관2</label>
-							<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
+						<div class="form_child agree_child">
+							<div class="checkbox">
+								<input type="checkbox" id="agree1_1"><i aria-hidden="true"></i>
+								<label for="agree1_1" class="lbl">무슨 무슨 약관1</label>
+								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="agree1_2"><i aria-hidden="true"></i>
+								<label for="agree1_2" class="lbl">무슨 무슨 약관2</label>
+								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="form_item line chk">
+						<div class="checkbox agree_all">
+							<input type="checkbox" id="agree2"><i aria-hidden="true"></i>
+							<label for="agree2" class="lbl">무슨 무슨 전체약관2</label>
+							<a href="#" class="agree_link toggle open"><span class="blind">약관목록 확인하기</span></a>
+						</div>
+						<div class="form_child agree_child">
+							<div class="checkbox">
+								<input type="checkbox" id="agree2_1"><i aria-hidden="true"></i>
+								<label for="agree2_1" class="lbl">무슨 무슨 약관1</label>
+								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="agree2_2"><i aria-hidden="true"></i>
+								<label for="agree2_2" class="lbl">무슨 무슨 약관2</label>
+								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
+							</div>
 						</div>
 					</div>
 				</div>

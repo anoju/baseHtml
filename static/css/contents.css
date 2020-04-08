@@ -49,16 +49,16 @@
 .form_item.inp .select select,
 .form_item.inp .btn_select{border-width:0;}
 .form_item.inp .textarea{border-width:0;padding:0;}*/
-.form_item.line{margin-left:-20px;margin-right:-20px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;padding:19px;}
+.form_item.line{margin-left:-20px;margin-right:-20px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;padding:20px;}
 .form_item.chk{padding:0;}
 .form_item.chk>.checkbox,
 .form_item.chk>.radio{display:block;}
 .form_item.chk>.checkbox>input,
 .form_item.chk>.checkbox>i,
 .form_item.chk>.radio>input,
-.form_item.chk>.radio>i{left:19px;top:19px;}
+.form_item.chk>.radio>i{left:20px;top:20px;}
 .form_item.chk>.checkbox>.lbl,
-.form_item.chk>.radio>.lbl{padding:19px 19px 19px 49px;margin-left:0;}
+.form_item.chk>.radio>.lbl{padding:20px 20px 20px 50px;margin-left:0;}
 
 .form_item{position:relative;margin-top:35px;}
 .form_item .fm_lb{display:block;font-weight:500;font-size:1.4rem;cursor:default;}
@@ -86,18 +86,22 @@
 .form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:30px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:19px auto;overflow:hidden;}
 .form_item .unit{display:block;position:absolute;right:0;top:0;color:#111;line-height:40px;}
 .form_item .unit:first-child{left:0;right:auto;}
-.form_child{padding:20px 0;border-top:1px solid #ddd;}
+.form_child{padding:20px;border-top:1px solid #ddd;}
 
 /*약관*/
-.form_item.agree .checkbox{padding-right:28px;}
-.form_item.agree .checkbox>.agree_link{display:block;position:absolute;top:0;right:0;width:28px;height:100%;z-index:2;}
-.form_item.agree .checkbox>.agree_link:after{content:'';display:block;width:8px;height:12px;position:absolute;left:50%;top:50%;margin:-6px 0 0 -4px;background:url(../images/common/agree_item_arr.png) no-repeat left top;background-size:7px auto}
-.form_item.agree .checkbox>input:checked+i+.lbl+.agree_link:after{background-position:left bottom;}
+.agree_list .form_item+.form_item{margin-top:0;border-top:0 none;}
+.agree_list .form_item .checkbox{padding-right:50px;}
+.agree_list .form_item .checkbox>.agree_link{display:block;position:absolute;top:0;right:20px;width:30px;height:100%;overflow:hidden;z-index:2;}
+.agree_list .form_item .checkbox>.agree_link:after{content:'';display:block;width:100%;height:100%;position:absolute;left:0;top:0;background:url(../images/common/ico_agree_arr.png) no-repeat right center;background-size:5px auto;}
+.agree_list .form_item .checkbox>.agree_link.toggle:after{background-image:url(../images/common/ico_toggle.png);background-size:12px auto;-webkit-transform:rotate3d(1,0,0,0deg);transform:rotate3d(1,0,0,0deg);-webkit-transition:0.3s;transition:0.3s;}
+.agree_list .form_item .checkbox>.agree_link.toggle.open:after{-webkit-transform:rotate3d(1,0,0,180deg);transform:rotate3d(1,0,0,180deg);}
+.form_child.agree_child>.checkbox{padding-right:30px;}
 .form_child.agree_child>.checkbox+.checkbox{margin-top:13px;}
 .form_child.agree_child>.checkbox>.lbl{font-size:1.3rem;}
 .form_child.agree_child>.checkbox>i{border-color:transparent !important;background:none !important;}
 .form_child.agree_child>.checkbox>i:before{border-color:#bbbbbb;}
 .form_child.agree_child>.checkbox>input:checked+i:before{border-color:#046fd9;}
+.form_child.agree_child>.checkbox>.agree_link{right:0;}
 
 /*검색*/
 .form_item.search_box{padding-top:15px;padding-bottom:15px;}

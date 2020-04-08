@@ -2858,14 +2858,14 @@ var sclCalendar = {
 			if($type == 'time')$todayDate = autoTimeFormet($nowDateOnlyTime.toString(),sclCalendar.timeMark);
 			if($this.hasClass('on')){
 				$wrap.removeClass('expend');
-				Body.unlock();
+				//Body.unlock();
 				$wrap.find('.scl_cal_wrap').stop(true,false).slideUp(200);
 				$this.removeClass('on');
 			}else{
 				$wrap.addClass('expend');
 				$wrap.find('.scl_cal_wrap').stop(true,false).slideDown(200,function(){
 					accordion.scroll($this,this,function(){
-						Body.lock();
+						//Body.lock();
 					});
 				});
 				$this.addClass('on');
@@ -2903,6 +2903,7 @@ var sclCalendar = {
 				$active = '';
 			if($type == undefined)$type = 'date';
 			$(this).addClass('active').attr('title','현재선택').siblings().removeClass('active').removeAttr('title');
+			scrollUI.center(this,100,'vertical');
 			$group.each(function(){
 				$active = $(this).find('.active .val');
 				$valAry.push($active.text());
@@ -2979,11 +2980,13 @@ $.fn.highlightTxt = function(keyword){
 
 //이용약관 UI
 var agreeItemUI = function(){
-	var $agreeChk = '.checkbox>input';
-	var $agreeTitChk = '.agree_all .checkbox>input';
+	var $agreelist = '.agree_list',
+		$agreeChk = '.checkbox>input',
+		$agreeTitChk = '.agree_all .checkbox>input',
+		$toggleBtn = '.agree_link.toggle';
 
 	//하위 약관동의
-	$(document).on('change',$agreeChk,function(){
+	$(document).on('change',$agreelist+' '+$agreeChk,function(){
 		var $closest = $(this).closest('.checkbox'),
 			$wrap = $(this).closest('.form_child'),
 			$wrapChk = $wrap.find('>'+$agreeChk).length,
@@ -3014,7 +3017,7 @@ var agreeItemUI = function(){
 	});
 
 	//전체동의
-	$(document).on('change',$agreeTitChk,function(){
+	$(document).on('change',$agreelist+' '+$agreeTitChk,function(){
 		var $closest = $(this).closest('.agree_all'),
 			$list = $closest.next('.agree_child');
 		if(!$closest.next('.agree_child').length){
@@ -3024,6 +3027,23 @@ var agreeItemUI = function(){
 			$list.find('>'+$agreeChk).prop('checked',true);
 		}else{
 			$list.find('>'+$agreeChk).prop('checked',false);
+		}
+	});
+
+	//토글버튼
+	$(document).on('click',$agreelist+' '+$toggleBtn,function(e){
+		e.preventDefault();
+		var $this = $(this),
+			$closest = $this.closest('.form_item'),
+			$child = $closest.find('.agree_child');
+		if($this.hasClass('open')){
+			$this.removeClass('open');
+			$child.stop(true,false).slideUp(200);
+		}else{
+			$this.addClass('open');
+			$child.stop(true,false).slideDown(200,function(){
+				accordion.scroll($this,this);
+			});
 		}
 	});
 };
@@ -3330,7 +3350,7 @@ var tblUI = {
 							$sclIfno = $this.next('.tbl_scroll_ifno');
 						}
 						if($sclIfno.length){
-							$sclIfno.find('.vertical').css('height',($height-10));
+							$sclIfno.find('.vertical').css('height',$height);
 							$sclIfno.find('.vertical').show();
 							$sclIfno.find('.horizon').show();
 							if($changeDirection == '좌우'){
