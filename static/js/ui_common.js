@@ -742,7 +742,7 @@ var Layer = {
 					$html += '<div class="'+Layer.contClass+'">';
 						$html += '<div class="'+Layer.innerClass+'">';
 							if(type === 'prompt'){
-							$html += '<div class="form_item no_line">';
+							$html += '<div class="form_item">';
 								$html += '<label for="inpPrompt" class="fm_lb" role="alert" aria-live="assertive"></label>';
 								$html += '<div class="fm_cont">';
 									$html += '<div class="input"><input type="text" id="inpPrompt" placeholder="입력해주세요."></div>';
@@ -2082,7 +2082,7 @@ var formUI = {
 	},
 	removeError:function(){
 		//error 클래스 삭제
-		$(document).on('change','.form_item input, .form_item select, .form_item textarea',function(){
+		$(document).on('change','.form_itemut, .form_item select, .form_item textarea',function(){
 			var $closest = $(this).closest('.form_item');
 			if($closest.hasClass('error')){
 				$closest.removeClass('error');

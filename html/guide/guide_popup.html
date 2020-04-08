@@ -97,7 +97,7 @@
 					<li><a href="#" class="button" onclick="Loading.open();$(this).parent().next().find('a').css('z-index',10000)">Loading.open();</a></li>
 					<li><a href="#" class="button gray" onclick="Loading.close();$(this).removeAttr('style');">Loading.close();</a></li>
 				</ul>
-				<div class="form_item inp mt20">
+				<div class="form_item mt20">
 					<label for="bank_nm" class="fm_lb">은행/계좌번호</label>
 					<div class="fm_cont">
 						<div class="tbl">
@@ -110,8 +110,8 @@
 								<div class="input"><input type="tel" id="frm2_1" title="계좌번호 숫자만 입력" placeholder="숫자만 입력"></div>
 							</div>
 						</div>
+						<div class="error_txt">계좌번호를 입력해주세요.</div>
 					</div>
-					<div class="error_txt" style="display:none">계좌번호를 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
 				</div>
 
 				<div id="box" class="mt20">
@@ -123,9 +123,9 @@
 				<div class="btn_wrap fixed">
 					<div>
 						<div class="flex">
-							<a href="#" id="btnAlert" class="button h60">얼럿</a>
-							<a href="#" id="btnConfirm" class="button h60 gray">컨펌</a>
-							<a href="#" id="btnPrompt" class="button h60 black">입력</a>
+							<a href="#" id="btnAlert" class="button h48">얼럿</a>
+							<a href="#" id="btnConfirm" class="button h48 gray">컨펌</a>
+							<a href="#" id="btnPrompt" class="button h48 black">입력</a>
 						</div>
 					</div>
 				</div>
@@ -193,12 +193,12 @@
 					팝업 컨텐츠<br>
 					팝업 컨텐츠<br>
 					팝업 컨텐츠<br>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpName1" class="fm_lb">이름</label>
 						<div class="fm_cont">
 							<div class="input"><input type="text" id="inpName1" placeholder="이름입력"></div>
+							<div class="error_txt">이름을 입력해주세요.</div>
 						</div>
-						<div class="error_txt" style="display:none">이름을 입력해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
 					</div>
 					팝업 컨텐츠<br>
 					팝업 컨텐츠<br>
@@ -231,7 +231,7 @@
 			<div class="pop_btn btn_wrap fixed">
 				<div>
 					<div class="flex">
-						<a href="#" class="button h60 ui-pop-close">확인</a>
+						<a href="#" class="button h48 ui-pop-close">확인</a>
 					</div>
 				</div>
 			</div>
@@ -256,7 +256,7 @@
 			<div class="pop_btn btn_wrap fixed">
 				<div>
 					<div class="flex">
-						<a href="#" class="button h60" onclick="Layer.close('#modalDialog');">발급</a>
+						<a href="#" class="button h48" onclick="Layer.close('#modalDialog');">발급</a>
 					</div>
 				</div>
 			</div>
@@ -357,7 +357,7 @@
 			<div class="pop_btn btn_wrap fixed">
 				<div>
 					<div class="flex">
-						<a href="#" class="button h60" onclick="Layer.close('#bottomDialog2');">확인</a>
+						<a href="#" class="button h48" onclick="Layer.close('#bottomDialog2');">확인</a>
 					</div>
 				</div>
 			</div>

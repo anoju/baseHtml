@@ -324,8 +324,8 @@ body{background:#f1f1f1;}
 								<div class="list" title="기간을 선택해주세요" data-unit="년"></div>
 								<input type="hidden" id="slider1" title="선택한 기간">
 							</div>
+							<div class="error_txt">기간을 선택해주세요.</div>
 						</div>
-						<div class="error_txt" style="display:none">기간을 선택해주세요.</div><!-- 에러메세지: 긍정일때는 on클래스 추가 -->
 					</div>
 					<div class="txt_list">
 						<div class="guide_box">
@@ -361,7 +361,7 @@ body{background:#f1f1f1;}
 				<h1 class="gd__h1">달력</h1>
 				<div>
 					<h2 class="gd__h2">기본</h2>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate1" class="fm_lb">기간입력</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate1" class="datepicker" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
@@ -374,31 +374,31 @@ body{background:#f1f1f1;}
 					</div>
 
 					<h2 class="gd__h2">달력 선택제한(data-min,data-max 활용)</h2>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate2" class="fm_lb">오늘 이전 선택</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate2" class="datepicker" data-max="today" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 						</div>
 					</div>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate3" class="fm_lb">오늘 이후 선택</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate3" class="datepicker" data-min="today" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 						</div>
 					</div>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate4" class="fm_lb">-5일 이전 선택</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate4" class="datepicker" data-max="-5d" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 						</div>
 					</div>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate5" class="fm_lb">+3달 이후 선택</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate5" class="datepicker" data-min="+3m" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 						</div>
 					</div>
-					<div class="form_item inp">
+					<div class="form_item">
 						<label for="inpDate6" class="fm_lb">-2주 ~ +1년 사이 선택</label>
 						<div class="fm_cont">
 							<div class="input"><input type="tel" id="inpDate6" class="datepicker" data-min="-2w" data-max="+1y" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
@@ -504,7 +504,7 @@ body{background:#f1f1f1;}
 			</div>
 			<div class="pop_btn btn_wrap fixed">
 				<div class="flex">
-					<a href="#" class="button h60 ui-pop-close">확인</a>
+					<a href="#" class="button h48 ui-pop-close">확인</a>
 				</div>
 			</div>
 		</article>
@@ -533,7 +533,7 @@ body{background:#f1f1f1;}
 			</div>
 			<div class="pop_btn btn_wrap fixed">
 				<div class="flex">
-					<a href="#" class="button h60 ui-pop-close">확인</a>
+					<a href="#" class="button h48 ui-pop-close">확인</a>
 				</div>
 			</div>
 		</article>
@@ -561,7 +561,7 @@ body{background:#f1f1f1;}
 			</div>
 			<div class="pop_btn btn_wrap fixed">
 				<div class="flex">
-					<a href="#" class="button h60 ui-pop-close">확인</a>
+					<a href="#" class="button h48 ui-pop-close">확인</a>
 				</div>
 			</div>
 		</article>
