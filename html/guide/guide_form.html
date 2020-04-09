@@ -516,7 +516,7 @@
 							<div class="td date">
 								<div class="input"><input type="tel" id="startDate" class="datepicker" data-min="+1d" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
-							<div class="td time">00시</div>
+							<div class="td w_50 t_right"><strong class="fc_black">00시</strong></div>
 						</div>
 						<div class="error_txt">시작일자를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 						<div class="help_txt">변경시작일은 내일부터 선택 가능합니다.</div>
@@ -539,17 +539,21 @@
 					<label for="date1" class="fm_lb">기간</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td w50">
+							<div class="td">
 								<div class="input"><input type="tel" id="date1" class="datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
-							<div class="td w20">
-								<div class="input"><input type="tel" maxlength="2" title="시간의 시 입력"></div>
+							<div class="td w25">
+								<div class="input add_unit_1">
+									<input type="tel" maxlength="2" title="시간의 시 입력">
+									<div class="unit">시</div>
+								</div>
 							</div>
-							<div class="td ut">시</div>
-							<div class="td w20">
-								<div class="input"><input type="tel" maxlength="2" title="시간의 분 입력"></div>
+							<div class="td w25">
+								<div class="input add_unit_1">
+									<input type="tel" maxlength="2" title="시간의 분 입력">
+									<div class="unit">분</div>
+								</div>
 							</div>
-							<div class="td ut">분</div>
 						</div>
 						<div class="error_txt">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -558,13 +562,15 @@
 					<label for="date2" class="fm_lb">기간</label>
 					<div class="fm_cont">
 						<div class="tbl">
-							<div class="td w70">
+							<div class="td">
 								<div class="input"><input type="tel" id="date2" class="datepicker" data-max="today" maxlength="10" placeholder="YYYY.MM.DD" title="YYYY.MM.DD 형식으로 입력"></div>
 							</div>
 							<div class="td w25">
-								<div class="input"><input type="tel" maxlength="2" title="시간 입력"></div>
+								<div class="input add_unit_1">
+									<input type="tel" maxlength="2" title="시간 입력">
+									<div class="unit">시</div>
+								</div>
 							</div>
-							<div class="td ut ty2">시</div>
 						</div>
 						<div class="error_txt">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -821,9 +827,9 @@
 					</div>
 				</div>
 				<div class="form_item">
-					<label for="cvvNumber" class="fm_lb">CVV번호</label>
+					<label for="cvcNumber" class="fm_lb">CVC번호</label>
 					<div class="fm_cont">
-						<div class="input"><input type="tel" id="cvvNumber" maxlength="2" placeholder="CVV번호(카드 뒷면 2자리)" title="CVV번호 3자리 입력">
+						<div class="input"><input type="tel" id="cvcNumber" maxlength="2" placeholder="CVV번호(카드 뒷면 2자리)" title="CVV번호 3자리 입력">
 							<div class="tooltip_wrap">
 								<a href="#" class="tooltip_btn">자세한 내용 확인</a>
 								<div class="tooltip_cont">툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 툴팁내용 </div>
@@ -958,9 +964,9 @@
 				<div class="form_item">
 					<label for="inpPrice" class="fm_lb">금액 <i class="require"><span class="blind">필수입력항목</span></i></label>
 					<div class="fm_cont">
-						<div class="input add_unit">
-							<input type="tel" id="inpPrice" class="t_right">
-							<div class="unit ty2">만원</div>
+						<div class="input add_unit_2">
+							<input type="tel" id="inpPrice">
+							<div class="unit">만원</div>
 						</div>
 						<div class="error_txt">금액을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -997,7 +1003,7 @@
 							<div class="list" title="기간을 선택해주세요" data-unit="년"></div>
 							<input type="hidden" title="선택한 기간">
 						</div>
-						<div class="error_txt">대출기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
+						<div class="error_txt">기간을 선택해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
 				</div>
 
@@ -1025,11 +1031,13 @@
 								<div class="input"><input type="text" id="inpName3" title="이름" placeholder="이름"></div>
 							</div>
 							<div class="td sp" aria-hidden="true"></div>
-							<div class="td ut">약</div>
-							<div class="td w20">
-								<div class="input"><input type="tel" id="inpAge" title="나이입력"></div>
+							<div class="td w33">
+								<div class="input add_unit_1">
+									<div class="unit">약</div>
+									<input type="tel" id="inpAge" title="나이입력">
+									<div class="unit">세</div>
+								</div>
 							</div>
-							<div class="td ut">세</div>
 						</div>
 						<div class="error_txt">직업를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -1216,13 +1224,17 @@
 					<div class="fm_cont">
 						<div class="tbl">
 							<div class="td">
-								<div class="input"><input type="tel" id="sizePyeong" class="t_right" title="건물면적 평으로 입력"></div>
+								<div class="input add_unit_1">
+									<input type="tel" id="sizePyeong" class="t_right" title="건물면적 평으로 입력">
+									<div class="unit">평</div>
+								</div>
 							</div>
-							<div class="td ut">평</div>
 							<div class="td">
-								<div class="input"><input type="tel" id="sizeMeter" class="t_right" title="건물면적 제곱미터로 입력"></div>
+								<div class="input add_unit_1">
+									<input type="tel" id="sizeMeter" class="t_right" title="건물면적 제곱미터로 입력">
+									<div class="unit">㎡</div>
+								</div>
 							</div>
-							<div class="td ut">㎡</div>
 							<div class="td w_70">
 								<a href="#" class="button line h32 block layer_select_open">선택</a>
 							</div>
@@ -1328,8 +1340,8 @@
 							<li><a href="#" class="link" title="검색어 선택">NH 카드 4</a><a href="#" class="link_del">삭제</a></li>
 						</ul>
 						<div class="etc">
-							<div class="f_left"><a href="#">최근검색어 끄기</a></div>
-							<div class="f_right"><a href="#">전체삭제</a><a href="#" class="btn_search_close">닫기</a></div>
+							<div class="f_left"><a href="#" role="button">최근검색어 끄기</a></div>
+							<div class="f_right"><a href="#" role="button">전체삭제</a><a href="#" class="btn_search_close" role="button">닫기</a></div>
 						</div>
 					</div>
 					<!-- 연관검색어 -->

@@ -8,7 +8,7 @@
  * Copyright (c) 2016 Daniel Eden
  */
 [data-animation ^= 'fadeIn']{opacity:0;}
-.isApp.ios [data-animation ^= 'fadeIn']{opacity:1;} /* 아이폰앱에서 실행안되니 보이게 */
+/*.isApp.ios [data-animation ^= 'fadeIn']{opacity:1;}*/ /* 아이폰앱에서 실행안되니 보이게 */
 .animated[data-animation ^= 'fadeIn']{opacity:1;}
 .animated {
   -webkit-animation-duration: 1s;

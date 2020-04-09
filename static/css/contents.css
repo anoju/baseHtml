@@ -62,6 +62,7 @@
 
 .form_item{position:relative;margin-top:35px;}
 .form_item .fm_lb{display:block;font-weight:500;font-size:1.4rem;cursor:default;}
+.form_item .fm_lb .tooltip_wrap{vertical-align:1px;}
 .form_item .fm_lb + .fm_val,
 .form_item .fm_lb + .fm_cont{margin-top:8px;}
 .form_item .fm_val{display:block;height:44px;line-height:43px;font-size:1.8rem;color:#111;border-bottom:1px solid #ddd;}
@@ -71,7 +72,7 @@
 .form_item .tbl{table-layout:fixed;}
 .form_item .td{position:relative;}
 .form_item .td+.td{padding-left:10px;}
-.form_item .td.time{width:50px;font-size:18px;font-weight:500;color:#111;text-align:right}
+.form_item .td.time{width:50px;font-size:1.5rem;font-weight:500;color:#111;text-align:right}
 .form_item .td.dash{width:20px;text-align:center;color:#111;white-space:nowrap;}
 .form_item .td.dash.ty2{width:30px;}
 .form_item .td.sp{width:10px;}
@@ -84,7 +85,7 @@
 .form_item .td.email_inp .input input{padding-right:60px;}
 .form_item .td.email_inp .inp_del{right:30px;}
 .form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:30px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:19px auto;overflow:hidden;}
-.form_item .unit{display:block;position:absolute;right:0;top:0;color:#111;line-height:40px;}
+.form_item .unit{display:block;position:absolute;right:0;top:0;color:#111;line-height:44px;}
 .form_item .unit:first-child{left:0;right:auto;}
 
 /*약관*/
@@ -136,19 +137,19 @@
 /*파일첨부*/
 .inp_file{position:relative;}
 .inp_file input[type=file]{position:absolute;width:1px;height:1px;margin:-1px;border:0;overflow:hidden;padding:0;clip:rect(0,0,0,0);-webkit-appearance:none}
-.inp_file label{display:block;position:relative;padding:12px;font-size:1.5rem;line-height:26px;text-align:center;background-color:#eee;border-radius:8px}
+.inp_file label{display:block;position:relative;padding:9px 10px;font-size:1.5rem;line-height:26px;text-align:center;background-color:#eee;border-radius:4px}
 .inp_file .bt_ic_add{vertical-align:-3px;margin-right:10px;}
 .inp_file.img label{padding:0;height:150px;overflow:hidden;}
 .inp_file.img label span{position:absolute;left:0;top:50%;width:100%;text-align:center;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
 .inp_file.img label img{max-width:100%;width:auto;max-height:100%;height:auto;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
 .ie9 .img.inp_file label img{width:100%;height:100%;}
-.file_item{position:relative;margin-top:10px;border:1px solid #ddd;border-radius:8px;padding:13px 44px 13px 24px;font-size:1.5rem;word-break:break-all;}
+.file_item{position:relative;margin-top:6px;border:1px solid #ddd;border-radius:4px;padding:10px 45px 10px 20px;font-size:1.5rem;word-break:break-all;}
 .file_item strong,
-.file_item .strong{display:block;color:#111;}
-.file_item .item_del{position:absolute;top:50%;right:9px;padding:0;width:40px;height:40px;margin-top:-20px;background:url(../images/common/inp_del.png) no-repeat 50% 50%;background-size:20px 20px}
+.file_item .strong{display:block;color:#111;font-weight:500;}
+.file_item .item_del{position:absolute;top:50%;right:4px;padding:0;width:40px;height:40px;margin-top:-20px;background:url(../images/common/inp_del.png) no-repeat 50% 50%;background-size:20px 20px}
 
 
 /**/
 .sel_item_wrap{margin-top:15px;font-size:0;}
-.sel_item{position:relative;display:inline-block;margin:5px 7px 5px 0;border:1px solid #d4d4d4;padding:8px 44px 8px 18px;border-radius:20px;vertical-align:top;font-size:1.5rem;}
-.sel_item .del{position:absolute;top:50%;right:14px;display:inline-block;width:20px;height:20px;margin-top:-10px;vertical-align:middle;background:url(../images/common/inp_del.png);font-size:3px;color:transparent;background-size:contain;}
+.sel_item{position:relative;display:inline-block;margin:3px 6px 3px 0;border:1px solid #d4d4d4;padding:6px 35px 6px 10px;border-radius:20px;vertical-align:top;font-size:1.3rem;}
+.sel_item .del{position:absolute;top:50%;right:5px;display:inline-block;width:20px;height:20px;margin-top:-10px;vertical-align:middle;background:url(../images/common/inp_del.png);font-size:3px;color:transparent;background-size:contain;}
