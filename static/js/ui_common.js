@@ -2165,44 +2165,8 @@ var formUI = {
 		});
 	},
 	search:function(){
-		//검색박스
-		var $wrap = '.search_box_wrap',
-			$contClass = '.search_box_cont',
-			$inpClass = '.search_box .input input';
-
-		// listShow 조건용 이벤트 변경
-		$($wrap).find($inpClass).on('keyup focus',function(e){
-			var $val = $(this).val(),
-				$closest = $(this).closest($wrap),
-				$cont = $closest.find($contClass);
-			if($val != ''){
-				$cont.show();
-			}else{
-				$cont.hide();
-			}
-		});
-
-		$(document).on('touchend',function(e){
-			$($contClass).hide();
-		}).on('touchend',$wrap,function(e){
-			e.stopPropagation();
-		});
-
-		$(document).on('click','.search_box_cont a.link',function(e){
-			e.preventDefault();
-			var $text = $(this).text();
-			$(this).closest($wrap).find($inpClass).val($text);
-			$($contClass).hide();
-		});
-		$(document).on('blur','.search_box_cont .link',function(e){
-			if($(this).closest('li').is(':last-child')){
-				$(this).closest('.search_box_cont').hide();
-			}
-		});
-	},
-	totalSearch:function(){
 		//통합검색
-		var $wrap = '.total_search',
+		var $totalWrap = '.total_search',
 			$searchWrap = '.search_wrap',
 			$contClass = '.search_cont',
 			$inpClass = '.search_box .input input',
@@ -2219,20 +2183,21 @@ var formUI = {
 			}
 
 			if($target != ''){
-				$closest.find($contClass).removeAttr('style');
+				$($contClass).removeAttr('style');
 				$target.show();
 			}
 		};
 
 		$($searchWrap).find($closeClass).on('click',function(e){
-			$($contClass).hide();
+			$($contClass).removeAttr('style');
+			$(this).closest($searchWrap).find('.btn_search').focus();
 		});
 		$($searchWrap).find($inpClass).on('keyup focus click',function(e){
 			listShow(this);
 		});
 
-		$($wrap).on('touchmove',function(e){
-			$($wrap).find($inpClass).blur();
+		$($totalWrap).on('touchmove',function(e){
+			$($totalWrap).find($inpClass).blur();
 		}).on('touchmove','.search_box',function(e){
 			e.stopPropagation();
 		});
@@ -2621,7 +2586,6 @@ var formUI = {
 		formUI.delBtn();
 		//formUI.removeError();
 		formUI.search();
-		formUI.totalSearch();
 		formUI.agree();
 		formUI.etc();
 

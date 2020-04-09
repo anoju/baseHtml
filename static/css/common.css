@@ -178,6 +178,7 @@ common
 .empty_place *{color:transparent !important;}
 .button .empty_place,
 [class^=ico_] .empty_place{background:none;}
+.t_keyword{color:#ffb81c;}
 
 /*****************************************************************
 Layout
