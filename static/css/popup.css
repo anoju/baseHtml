@@ -71,6 +71,7 @@ html.iPhoneX.isApp .popup:not(.modal) .pop_cont .in_touch_scl{height:calc(100vh 
 .popup.full .pop_close.last_focus{right:12px;background-image:url(../images/common/head_close.png);background-size:14px auto;}
 .popup.bottom{padding-top:50vh;}
 .popup.bottom .pop_wrap{position:fixed;left:0;bottom:0;border-radius:10px 10px 0 0;max-height:calc(50vh);}
+.popup.bottom .pop_cont{padding:50px 0 0;}
 .popup.modal{padding:20px;}
 .popup.modal .pop_wrap{width:100%;max-width:1200px;margin:30px auto 0;top:50%;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
 .popup.modal.show .pop_wrap{opacity:1;margin-top:0;}
@@ -85,7 +86,7 @@ html.iPhoneX.isApp .popup:not(.modal) .pop_cont .in_touch_scl{height:calc(100vh 
 .popup.alert .form_item .input .dv{overflow:hidden;}
 
 .layer_select_wrap{position:relative;z-index:101;}
-.layer_select{display:none;position:absolute;top:0;left:0;width:100%;max-height:187px;background:#fff;border:1px solid #d4d4d4;border-radius:8px;box-shadow:0 3px 5px rgba(0,0,0,0.07);overflow-x:hidden;overflow-y:auto;}
+.layer_select{display:none;position:absolute;top:0;left:0;width:100%;max-height:187px;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 3px 5px rgba(0,0,0,0.07);overflow-x:hidden;overflow-y:auto;}
 .layer_select ul{padding:11px 14px;}
 .layer_select .option{display:block;padding:9px 11px;color:#252525;font-size:1.5rem;border-radius:5px;}
 .layer_select .option:active{background:#f1f1f1;}
@@ -133,11 +134,12 @@ html.iPhoneX .total_search.is_floating .pop_close.last_focus{bottom:calc(constan
 
 /*select_item*/
 .select_item{position:relative;}
-.select_item>a{display:block;padding:5px 10px;min-height:50px;line-height:50px;text-align:center;word-break:break-all;}
+.select_item>a{display:block;padding:5px 10px;min-height:40px;line-height:40px;text-align:center;word-break:break-all;border:1px solid #ddd;border-radius:4px;}
 .select_item>a>span{display:inline-block;line-height:1.2;}
-.select_item.selected>a{color:#00ffff;background:#046fd9;}
-.select_item_wrap{margin:-20px 0;}
-.select_item_wrap>li{display:inline-block;vertical-align:top;width:100%;}
+.select_item.selected>a{color:#fff;background:#306edf;border-color:#306edf;}
+/*.select_item_wrap{margin:-20px 0;}*/
+.select_item_wrap{padding:17px;}
+.select_item_wrap>li{display:inline-block;vertical-align:top;width:100%;padding:3px;}
 .select_item_wrap.col2>li{width:50%;}
 .select_item_wrap.col3>li{width:33.33%;}
 .tab_panel>.select_item_wrap{margin-top:0;}
@@ -146,6 +148,6 @@ html.iPhoneX .total_search.is_floating .pop_close.last_focus{bottom:calc(constan
 .select_item_wrap.bank .select_item>a{position:relative;display:block;padding:10px 0 0;height:70px;margin:-1px 0 0 -1px;background:#fff;border:1px solid #d4d4d4;text-align:center;line-height:1.2;color:#666;}
 .select_item_wrap.bank>li:nth-child(3n+1) .select_item>a{margin-left:0;border-left-color:transparent;}
 .select_item_wrap.bank>li:nth-child(3n) .select_item>a{border-right-color:transparent;}
-.select_item_wrap.bank .select_item.selected>a{border-color:#046fd9 !important;color:#046fd9;z-index:1;}
+.select_item_wrap.bank .select_item.selected>a{border-color:#306edf !important;color:#306edf;z-index:1;}
 .select_item_wrap.bank .select_item>a span{position:relative;display:flex;min-height:26px;font-size:1.3rem;align-items:center;justify-content:center;}
 .select_item_wrap.bank [class*=bk_]{display:block;width:30px;height:20px;margin:0 auto 3px;background:#ddd;}

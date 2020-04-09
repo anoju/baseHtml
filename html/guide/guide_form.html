@@ -66,12 +66,12 @@
 					<input type="checkbox" id="chk4" disabled checked><i aria-hidden="true"></i>
 					<label for="chk4" class="lbl">체크박스 disabled checked</label>
 				</span>
-				<!-- <div class="form_item line chk">
+				<div class="chk_item">
 					<span class="checkbox">
 						<input type="checkbox" id="chk1_1"><i aria-hidden="true"></i>
 						<label for="chk1_1" class="lbl">체크박스</label>
 					</span>
-				</div> -->
+				</div>
 
 				<h3 class="gd__h2">radio</h3>
 				<h4 class="gd__h3">일반</h4>
@@ -94,12 +94,12 @@
 					<input type="radio" id="rdo4" name="rdo3" disabled checked><i aria-hidden="true"></i>
 					<label for="rdo4" class="lbl">라디오 disabled checked</label>
 				</span>
-				<!-- <div class="form_item line chk">
+				<div class="chk_item">
 					<span class="radio">
 						<input type="radio" id="rdo1_1" name="rdo1_1"><i aria-hidden="true"></i>
 						<label for="rdo1_1" class="lbl">라디오</label>
 					</span>
-				</div> -->
+				</div>
 
 				<h2 class="gd__h1">토글 라디오</h2>
 				<h3 class="gd__h2">기본</h3>
@@ -317,43 +317,43 @@
 				<div id="etcTogCont" class="tab_rdo_panel">라디오 선택시 무조건 노출영역</div>
 				
 				<h2 class="gd__h1">이용약관 체크박스</h2>
-				<h3 class="gd__h2">agree_list</h3>
-				<div class="agree_list">
-					<div class="form_item line chk">
-						<div class="checkbox agree_all">
+				<h3 class="gd__h2">chk_list</h3>
+				<div class="chk_list">
+					<div class="chk_item">
+						<div class="checkbox">
 							<input type="checkbox" id="agree"><i aria-hidden="true"></i>
 							<label for="agree" class="lbl">무슨 무슨 전체약관1</label>
-							<a href="#" class="agree_link toggle open"><span class="blind">약관목록 확인하기</span></a>
+							<a href="#" class="chk_link toggle open"><span class="blind">약관목록 확인하기</span></a>
 						</div>
-						<div class="form_child agree_child">
+						<div class="chk_child">
 							<div class="checkbox">
 								<input type="checkbox" id="agree1_1"><i aria-hidden="true"></i>
 								<label for="agree1_1" class="lbl">무슨 무슨 약관1</label>
-								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
+								<a href="#" class="chk_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
 							</div>
 							<div class="checkbox">
 								<input type="checkbox" id="agree1_2"><i aria-hidden="true"></i>
 								<label for="agree1_2" class="lbl">무슨 무슨 약관2</label>
-								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
+								<a href="#" class="chk_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
 							</div>
 						</div>
 					</div>
-					<div class="form_item line chk">
-						<div class="checkbox agree_all">
+					<div class="chk_item">
+						<div class="checkbox">
 							<input type="checkbox" id="agree2"><i aria-hidden="true"></i>
 							<label for="agree2" class="lbl">무슨 무슨 전체약관2</label>
-							<a href="#" class="agree_link toggle open"><span class="blind">약관목록 확인하기</span></a>
+							<a href="#" class="chk_link toggle open"><span class="blind">약관목록 확인하기</span></a>
 						</div>
-						<div class="form_child agree_child">
+						<div class="chk_child agree_child">
 							<div class="checkbox">
 								<input type="checkbox" id="agree2_1"><i aria-hidden="true"></i>
 								<label for="agree2_1" class="lbl">무슨 무슨 약관1</label>
-								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
+								<a href="#" class="chk_link"><span class="blind">무슨 무슨 약관1 확인하기</span></a>
 							</div>
 							<div class="checkbox">
 								<input type="checkbox" id="agree2_2"><i aria-hidden="true"></i>
 								<label for="agree2_2" class="lbl">무슨 무슨 약관2</label>
-								<a href="#" class="agree_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
+								<a href="#" class="chk_link"><span class="blind">무슨 무슨 약관2 확인하기</span></a>
 							</div>
 						</div>
 					</div>
@@ -437,8 +437,8 @@
 					<label for="textarea" class="fm_lb">textaresa</label>
 					<div class="fm_cont">
 						<div class="textarea">
-							<textarea id="textarea" maxlength="300"></textarea>
-							<div class="byte"><strong>0</strong>/300</div>
+							<textarea id="textarea" maxlength="30" data-text-count="true"></textarea>
+							<div class="byte"><strong >0</strong>/30</div>
 						</div>
 						<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -447,8 +447,8 @@
 					<label for="textarea2" class="fm_lb">textaresa[readonly] - 읽기전용</label>
 					<div class="fm_cont">
 						<div class="textarea">
-							<textarea id="textarea2" maxlength="300" readonly>읽기전용 + 입력된 내용</textarea>
-							<div class="byte"><strong>10</strong>/300</div>
+							<textarea id="textarea2" maxlength="300" data-text-count="txtCount2" readonly>읽기전용 + 입력된 내용</textarea>
+							<div class="byte"><strong id="txtCount2">0</strong>/300</div>
 						</div>
 						<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -457,8 +457,8 @@
 					<label for="textarea3" class="fm_lb">textaresa[disabled] - 비활성화</label>
 					<div class="fm_cont">
 						<div class="textarea">
-							<textarea id="textarea3" maxlength="300" disabled>비활성화 + 입력된 내용</textarea>
-							<div class="byte"><strong>10</strong>/300</div>
+							<textarea id="textarea3" maxlength="300" data-text-count="txtCount3" disabled>비활성화 + 입력된 내용</textarea>
+							<div class="byte"><strong id="txtCount3">0</strong>/300</div>
 						</div>
 						<div class="error_txt">내용을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -564,7 +564,7 @@
 							<div class="td w25">
 								<div class="input"><input type="tel" maxlength="2" title="시간 입력"></div>
 							</div>
-							<div class="td ut t2">시</div>
+							<div class="td ut ty2">시</div>
 						</div>
 						<div class="error_txt">기간를 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -700,7 +700,7 @@
 							<div class="td w40">
 								<div class="input"><input type="text" id="mail1" title="이메일 아이디 입력"></div>
 							</div>
-							<div class="td dash t2">@</div>
+							<div class="td dash ty2">@</div>
 							<div class="td w60 email_sel">
 								<div class="select">
 									<select title="이메일 도메인 선택">
@@ -958,11 +958,9 @@
 				<div class="form_item">
 					<label for="inpPrice" class="fm_lb">금액 <i class="require"><span class="blind">필수입력항목</span></i></label>
 					<div class="fm_cont">
-						<div class="tbl">
-							<div class="td">
-								<div class="input"><input type="tel" id="inpPrice" class="t_right"></div>
-							</div>
-							<div class="td ut t2">만원</div>
+						<div class="input add_unit">
+							<input type="tel" id="inpPrice" class="t_right">
+							<div class="unit ty2">만원</div>
 						</div>
 						<div class="error_txt">금액을 입력해주세요.</div><!-- 에러메세지 입력영역 -->
 					</div>
@@ -1184,7 +1182,7 @@
 								<div class="select">
 									<select id="inpCompany1">
 										<option value="">선택하세요</option>
-										<option value="1">손해보험</option>
+										<option value="1">카드</option>
 										<option value="2">생명보험</option>
 									</select>
 								</div>
@@ -1246,72 +1244,129 @@
 					</div>
 				</div>
 
-				<h3 class="gd__h1">검색</h3>
-				<div class="form_item search_box">
+				<h2 class="gd__h1">검색</h2>
+				<h3 class="gd__h2">단일 검색</h3>
+				<div class="form_item search_box full">
 					<div>
 						<div class="input"><input type="search" placeholder="검색어를 입력해주세요." title="검색어 입력"></div>
 						<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
 					</div>
 				</div>
-				<div class="form_item search_box">
+				<div class="form_item search_box full">
 					<div>
-						<div>
-							<div class="select">
-								<select title="선택">
-									<option value="">선택</option>
-									<option value="1">가나다라마가</option>
-									<option value="2">가나다라마 가나다 라마</option>
-									<option value="3">가나다</option>
-									<option value="4">가나다라</option>
-								</select>
-							</div>
+						<div class="select">
+							<select title="선택">
+								<option value="">선택</option>
+								<option value="1">가나다라마가</option>
+								<option value="2">가나다라마 가나다 라마</option>
+								<option value="3">가나다</option>
+								<option value="4">가나다라</option>
+							</select>
 						</div>
 						<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
 					</div>
 				</div>
-				<div class="form_item search_box">
+				<div class="form_item search_box full">
 					<div>
-						<div>
-							<div class="tbl">
-								<div class="td">
-									<div>
-										<select title="년도 선택">
-											<option value="2018">2018</option>
-											<option value="2017">2017</option>
-											<option value="2016">2016</option>
-											<option value="2015">2015</option>
-											<option value="2014">2014</option>
-											<option value="2013">2013</option>
-											<option value="2012">2012</option>
-											<option value="2011">2011</option>
-											<option value="2010">2010</option>
-											<option value="2009">2009</option>
-											<option value="2008">2008</option>
-											<option value="2007">2007</option>
-											<option value="2006">2006</option>
-											<option value="2005">2005</option>
-											<option value="2004">2004</option>
-											<option value="2003">2003</option>
-											<option value="2002">2002</option>
-											<option value="2001">2001</option>
-										</select>
-									</div>
+						<div class="tbl">
+							<div class="td">
+								<div class="select">
+									<select title="년도 선택">
+										<option value="2018">2018</option>
+										<option value="2017">2017</option>
+										<option value="2016">2016</option>
+										<option value="2015">2015</option>
+										<option value="2014">2014</option>
+										<option value="2013">2013</option>
+										<option value="2012">2012</option>
+										<option value="2011">2011</option>
+										<option value="2010">2010</option>
+										<option value="2009">2009</option>
+										<option value="2008">2008</option>
+										<option value="2007">2007</option>
+										<option value="2006">2006</option>
+										<option value="2005">2005</option>
+										<option value="2004">2004</option>
+										<option value="2003">2003</option>
+										<option value="2002">2002</option>
+										<option value="2001">2001</option>
+									</select>
 								</div>
-								<div class="td">
-									<div>
-										<select title="분기 선택">
-											<option value="4">4분기</option>
-											<option value="3">3분기</option>
-											<option value="2">2분기</option>
-											<option value="1">1분기</option>
-										</select>
-									</div>
+							</div>
+							<div class="td">
+								<div class="select">
+									<select title="분기 선택">
+										<option value="4">4분기</option>
+										<option value="3">3분기</option>
+										<option value="2">2분기</option>
+										<option value="1">1분기</option>
+									</select>
 								</div>
 							</div>
 						</div>
 						<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
 					</div>
 				</div>
+				<h3 class="gd__h2">연관 검색</h3>
+				<div class="search_wrap">
+					<div class="form_item search_box full">
+						<div>
+							<div class="input"><input type="search" placeholder="검색어를 입력해주세요." title="검색어 입력"></div>
+							<button type="button" class="btn_search"><span class="blind">검색하기</span></button>
+						</div>
+					</div>
+					<!-- 최근검색어 -->
+					<div class="search_cont recent">
+						<h3 class="blind">최근검색어 목록</h3>
+						<ul class="list">
+							<li><div class="link">최근 검색어가 없습니다.</div></li>
+							<li><a href="#" class="link" title="검색어 선택">NH</a><a href="#" class="link_del">삭제</a></li>
+							<li><a href="#" class="link" title="검색어 선택">NH 카드</a><a href="#" class="link_del">삭제</a></li>
+							<li><a href="#" class="link" title="검색어 선택">NH 카드 1</a><a href="#" class="link_del">삭제</a></li>
+							<li><a href="#" class="link" title="검색어 선택">NH 카드 2</a><a href="#" class="link_del">삭제</a></li>
+							<li><a href="#" class="link" title="검색어 선택">NH 카드 3</a><a href="#" class="link_del">삭제</a></li>
+							<li><a href="#" class="link" title="검색어 선택">NH 카드 4</a><a href="#" class="link_del">삭제</a></li>
+						</ul>
+						<div class="etc">
+							<div class="f_left"><a href="#">최근검색어 끄기</a></div>
+							<div class="f_right"><a href="#">전체삭제</a><a href="#" class="btn_search_close">닫기</a></div>
+						</div>
+					</div>
+					<!-- 연관검색어 -->
+					<div class="search_cont auto">
+						<h2 class="blind">연관검색어 목록</h2>
+						<ul class="list">
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 어떻게 받을 수 있나요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 이율은 얼마나 되나요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 한도는 얼마인가요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택"><span class="t_keyword">대출</span>한도조회</a></li>
+							<li><a href="#" class="link" title="검색어 선택"><span class="t_keyword">대출</span>상환</a></li>
+						</ul>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="search_wrap">
+					<div class="form_item search_box">
+						<div class="input"><input type="search" placeholder="검색어를 입력해주세요." title="검색어 입력"></div>
+					</div>
+					<!-- 연관검색어 -->
+					<div class="search_cont auto">
+						<h2 class="blind">연관검색어 목록</h2>
+						<ul class="list">
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 어떻게 받을 수 있나요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 이율은 얼마나 되나요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택">보험계약<span class="t_keyword">대출</span>은 한도는 얼마인가요?</a></li>
+							<li><a href="#" class="link" title="검색어 선택"><span class="t_keyword">대출</span>한도조회</a></li>
+							<li><a href="#" class="link" title="검색어 선택"><span class="t_keyword">대출</span>상환</a></li>
+						</ul>
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 			</div>
 		</section>
 	</div>
