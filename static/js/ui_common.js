@@ -845,14 +845,17 @@ var Layer = {
 			$opVal = '',
 			$popHtml = '',
 			$isBank = false,
+			$isCard = false,
 			$isFullPop = false;
 
 		if(!$title){
 			$title = '선택';
 		}else if($title.indexOf('은행선택') >= 0 || $title.indexOf('은행 선택') >= 0){
 			$isBank = true;
+		}else if($title.indexOf('카드선택') >= 0 || $title.indexOf('카드 선택') >= 0){
+			$isCard = true;
 		}
-		if($isBank)$isFullPop = true;
+		//if($isBank)$isFullPop = true;
 		$popHtml += '<div id="'+$popId+'" class="popup '+($isFullPop?'full':'bottom')+' '+Layer.selectClass+'" role="dialog" aria-hidden="true">';
 			$popHtml += '<div class="'+Layer.wrapClass+'">';
 				$popHtml += '<div class="'+Layer.headClass+'">';
@@ -874,6 +877,8 @@ var Layer = {
 					$popHtml += '<ul class="select_item_wrap';
 					if($isBank){
 						$popHtml += ' bank';
+					}else if($isCard){
+						$popHtml += ' card';
 					}else{
 						if(!!col)$popHtml += ' col'+col;
 					}
@@ -890,7 +895,16 @@ var Layer = {
 							$popHtml += '<div class="select_item'+($targetVal == $opVal ? ' selected' : '')+'">';
 								$popHtml += '<a href="#" class="ui-pop-select-btn" role="button" data-value="'+$opVal+'">';
 									if($isBank)$popHtml += '<i class="bk_'+$opVal+'" aria-hidden="true"></i>';
-									$popHtml += '<span>'+$opTxt+'</span>';
+									if($isCard){
+										if($opTxt.length > 20){
+											$popHtml += '<strong class="tit">'+$opTxt.substr(20,$opTxt.lastIndexOf('(')-20)+'</strong>';
+											$popHtml += '<div class="sub"><span>'+$opTxt.substr(0,19)+'</span><span>'+$opTxt.substr($opTxt.lastIndexOf('(')+1,$opTxt.lastIndexOf(')')-$opTxt.lastIndexOf('(')-1)+'</span></div>';
+										}else{
+											$popHtml += '<strong class="tit">'+$opTxt+'</strong>';
+										}
+									}else{
+										$popHtml += '<span>'+$opTxt+'</span>';
+									}
 								$popHtml += '</a>';
 							$popHtml += '</div>';
 							$popHtml += '</li>';
@@ -938,6 +952,10 @@ var Layer = {
 			e.preventDefault();
 			var $btnVal = $(this).data('value'),
 				$btnTxt = $(this).text();
+			if($(this).find('.tit').length){
+				$btnTxt = $(this).find('.tit').text();
+				if($(this).find('.sub').length)$btnTxt = $btnTxt+' '+$(this).find('.sub').children().first().text();
+			}
 			$(this).parent().addClass('selected').closest('li').siblings().find('.selected').removeClass('selected');
 			$target.val($btnVal).change();
 			$target.siblings('.ui-select-open').removeClass('off').find('.val').text($btnTxt).removeAttr('aria-hidden').next().text('입니다.');
@@ -2048,7 +2066,7 @@ var formUI = {
 						$selId = $sel.attr('id'),
 						$val = $sel.val(),
 						$title = $sel.attr('title');
-					if($title != undefined)$title = '선택';
+					if($title == undefined)$title = '선택';
 					var $btnTitle = '팝업으로 '+$title,
 						$btnHtml = '<a href="#'+$selId+'" class="btn_select ui-select-open" title="'+$btnTitle+'"><span class="val"></span></a>';
 
@@ -2062,6 +2080,9 @@ var formUI = {
 						}
 					}
 					var $selectTxt = $sel.find(':selected').text();
+					if(($title == '카드선택' || $title == '카드 선택') && $selectTxt.length > 20){
+						$selectTxt = $selectTxt.substr(20,$selectTxt.lastIndexOf('(')-20)+' '+$selectTxt.substr(0,19);
+					}
 					$this.find('.btn_select .val').text($selectTxt);
 					if($val == ''){
 						$this.find('.btn_select').addClass('off');
