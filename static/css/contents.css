@@ -31,7 +31,7 @@
 .help_txt:before{content:'';position:absolute;top:9px;left:0;width:3px;height:3px;background-color:#7f8898;border-radius:100%}
 .help_txt+.help_txt{margin-top:15px;}
 .error_txt{display:none;padding-left:20px;color:#fd775c;background:url(../images/common/ico_error_txt.png) no-repeat left 3px;background-size:14px auto;}
-.error_txt.on{color:#046fd9;background-image:url(../images/common/ico_error_txt_on.png);}
+.error_txt.on{color:#306edf;background-image:url(../images/common/ico_error_txt_on.png);}
 
 .chk_item{margin-left:-20px;margin-right:-20px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;}
 .chk_item>.checkbox,
@@ -84,7 +84,7 @@
 .chk_list .chk_child>.checkbox>.lbl{font-size:1.3rem;}
 .chk_list .chk_child>.checkbox>i{border-color:transparent !important;background:none !important;}
 .chk_list .chk_child>.checkbox>i:before{border-color:#bbbbbb;}
-.chk_list .chk_child>.checkbox>input:checked+i:before{border-color:#046fd9;}
+.chk_list .chk_child>.checkbox>input:checked+i:before{border-color:#306edf;}
 .chk_list .chk_child>.checkbox>.chk_link{right:0;}
 
 /*검색*/
