@@ -75,7 +75,7 @@ html.iPhoneX.isApp .popup:not(.modal) .pop_cont .in_touch_scl{height:calc(100vh 
 .popup.modal{padding:20px;}
 .popup.modal .pop_wrap{width:100%;max-width:1200px;margin:30px auto 0;top:50%;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
 .popup.modal.show .pop_wrap{opacity:1;margin-top:0;}
-.popup.modal .btn_wrap.fixed>div{position:absolute;}
+.popup.modal .btn_wrap.bottom_fixed>div{position:absolute;}
 
 .popup.alert .pop_wrap{width:280px;}
 .popup.alert .pop_head{position:relative;border-bottom:1px solid #ddd;text-align:center;}

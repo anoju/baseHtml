@@ -33,61 +33,81 @@
 <script src="../../static/js/jquery-ui-1.12.1.min.js"></script>
 <script src="../../static/js/ui_plugins.js"></script>
 <script src="../../static/js/ui_common.js"></script>
-<script>
-	$(function(){
-		$('#btnAlert').click(function(){
-			Layer.alert('얼럿창입니다.',function(){
-				console.log('얼럿 확인');
-			});
-			/*Layer.alert({
-				content:'얼럿창입니다.',
-				callback: function(){
-					console.log('얼럿 확인');
-				}
-			});*/
-		});
-		$('#btnConfirm').click(function(){
-			Layer.confirm('컨펌창입니다.',function(e){
-				if(e){
-					console.log('컨펌 확인');
-				}else{
-					console.log('컨펌 취소');
-				}
-			});
-		});
-		$('#btnPrompt').click(function(){
-			Layer.prompt('계좌번호를 입력해주세요.',function(e,val){
-				if(e){
-					console.log('prompt 확인');
-					$('#frm2_1').val(val);
-				}else{
-					console.log('prompt 취소');
-				}
-			});
-		});
-		
-
-		var msg = '신청하신 보험계약대출 300만원이 정상적으로 접수되었습니다.<br>3분 이내에 신청하신 계좌로 대출금이 지급됩니다.'
-		toastBox(msg);
-
-		//오늘하루 그만보기
-		//todayPop.init();
-
-		Loading.box('#box');
-	});
-</script>
 </head>
 <body>
 <div id="wrap">
 	<div data-include-html="../include/top.html"></div>
 	<div data-include-html="../include/gnb.html"></div>
-	<div id="container">
+	<div id="container" class="full">
 		<div id="contents">
-			<div data-include-html="inc_guide_navi.html"></div>
-			
+			<div class="page_wrap">
+				<div class="page" data-ythreshold="10" style="background-color:#eee;">
+					<div class="tbl">
+						<div class="td">
+							<h2>1페이지</h2>
+						</div>
+					</div>
+				</div>
+				<div class="page" data-ythreshold="10">
+					<div class="tbl">
+						<div class="td">
+							<h2>2페이지</h2>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div data-include-html="../include/footer.html"></div>
+	<script>
+		$(function(){
+			/*
+			$("#test").swipe( {
+				//Generic swipe handler for all directions
+				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+					$(this).text("You swiped " + direction );  
+				},
+				//Default is 75px, set to 0 for demo so any distance triggers swipe
+				threshold:0
+			});
+			*/
+			var scrollMove = function(val,speed){
+				var $scrollTop = '';
+				if(speed == undefined)speed = 300;
+				if($.isNumeric(val)){
+					$scrollTop = val;
+				}else{
+					$scrollTop = $(val).offset().top;
+				}
+				$('html,body').stop(true,false).animate({'scrollTop':$scrollTop},speed);
+			}
+			$('.page').swipe({
+				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+					console.log(direction)
+					if(direction == 'down'){
+						if($(this).prev('.page').length){
+							if($(window).scrollTop() == $(this).offset().top){
+								scrollMove($(this).next('.page'));
+							}else{
+								scrollMove(this);
+							}
+						}else{
+							scrollMove(0);
+						}
+					}
+					if(direction == 'up'){
+						if($(this).next('.page').length){
+							
+							scrollMove($(this).next('.page'));
+						}else{
+							scrollMove('#footer');
+						}
+					}
+				},
+				threshold:10
+			});
+		});
+	</script>
 </div>
 </body>
 </html>
