@@ -7,6 +7,7 @@ import
 @import url('./animate.css');
 @import url('./datepicker.css');
 @import url('./swiper.min.css');
+@import url('./materialize.customer.css');
 @import url('./popup.css');
 
 /* ==========================================================================
@@ -1033,5 +1034,12 @@ html.mobile .tbl_scroll::-webkit-scrollbar{display:none;}
 /* page */
 #container.full #contents{padding:0;}
 .page_wrap{position:relative;}
-.page_wrap .page{height:100vh;}
-.page_wrap .page>.tbl>.td{height:100vh;vertical-align:middle;text-align:center;}
+.page_wrap .page{position:relative;height:100vh;}
+.page_wrap .page>.parallax-container{position:absolute;top:0;left:0;width:100%;height:100vh;}
+.page_wrap .page>.parallax-container>.parallax{z-index:auto;}
+.page_wrap .page>.tbl{position:relative;}
+.page_wrap .page>.tbl>.td{height:100vh;vertical-align:middle;text-align:center;color:#fff;text-shadow:0 0 5px rgba(0,0,0,0.4);}
+.page_navi{position:fixed;right:20px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
+.page_navi li+li{margin-top:10px;}
+.page_navi a{display:inline-block;color:#fff;text-shadow:0 0 5px rgba(0,0,0,0.4);}
+.page_navi a.active{border-bottom:1px solid #fff;font-weight:bold;}

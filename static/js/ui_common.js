@@ -18,6 +18,7 @@ $(function(){
 	listUI.init();
 
 	scrollItem.init();
+	materialUI.init();
 
 	$(window).scroll();
 	$(window).resize();
@@ -1543,7 +1544,8 @@ var buttonUI ={
 				}
 				if($this.closest('.fixed').length){
 					var $scrollTop = $this.closest('.fixed').offset().top - $('#header').outerHeight();
-					$('html,body').stop(true,false).animate({'scrollTop':$scrollTop},100);
+					//$('html,body').stop(true,false).animate({'scrollTop':$scrollTop},100);
+					scrollUI.move($scrollTop);
 				}
 
 				if($target == undefined){
@@ -1851,6 +1853,16 @@ var scrollUI = {
 		}else{
 			return false;
 		}
+	},
+	move: function(val,speed){
+		var $top = 0;
+		if(speed == undefined)speed = 300;
+		if($.isNumeric(val)){
+			$top = val;
+		}else{
+			if($(val).length)$top = $(val).offset().top;
+		}
+		$('html,body').stop(true,false).animate({'scrollTop':$top},speed);
 	},
 	center: function(el, speed, direction){
 		var $parent = $(el).parent();
@@ -3428,6 +3440,75 @@ var swiperUI = {
 	}
 };
 
+var materialUI = {
+	carousel:function(element){
+		if($(element).length){
+			$(element).each(function(i){
+				var $this = $(this),
+					$class= 'ui-carousel-'+i,
+					isFull = false;
+				if($this.hasClass('full')){
+					isFull = true;
+					$this.addClass('carousel-slider');
+					$this.css('height',$this.children().first().outerHeight());
+				}
+				$this.addClass($class);
+				$this.carousel({
+					fullWidth: isFull,
+					indicators: true,
+					onCycleTo:function(e){
+						$(e).attr('ariat-hidden',false).removeAttr('tabindex').find(':focusable').removeAttr('tabindex');
+						$(e).siblings('.carousel-item').attr({
+							'ariat-hidden':true,
+							'tabindex':'-1'
+						}).find(':focusable').attr({
+							'tabindex':'-1'
+						});
+						if($(e).closest('.mt_carousel').hasClass('full')){
+							setTimeout(function(){
+								$(e).closest('.mt_carousel').css('height',$(e).outerHeight()+22);
+							},50);
+						}
+					}
+				});
+			});
+		}
+	},
+	datepicker:function(element){
+		if($(element).length){
+			$(element).datepicker({
+				//autoClose: true,
+				showMonthAfterYear: true,
+				showDaysInNextAndPreviousMonths: true,
+				format: 'yyyy.mm.dd'
+			});
+		}
+	},
+	timepicker:function(element){
+		if($(element).length){
+			$(element).timepicker({
+				//autoClose: true,
+				twelveHour:false
+			});
+		}
+	},
+	etc:function(){
+		if($('.scrollspy').length){
+			$('.scrollspy').scrollSpy({
+				scrollOffset:1
+			});
+		}
+		if($('.materialboxed').length)$('.materialboxed').materialbox();
+		if($('.parallax').length)$('.parallax').parallax();
+		if($('.mt_slider').length)$('.mt_slider').mtSlider();
+	},
+	init:function(){
+		materialUI.carousel('.mt_carousel');
+		materialUI.datepicker('.mt_datepicker');
+		materialUI.timepicker('.mt_timeicker');
+		materialUI.etc();
+	}
+};
 //오늘하루그만보기 팝업
 var todayPop ={
 	Arry : [],

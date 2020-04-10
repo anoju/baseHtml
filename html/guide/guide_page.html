@@ -32,6 +32,7 @@
 <script src="../../static/js/jquery-3.3.1.min.js"></script>
 <script src="../../static/js/jquery-ui-1.12.1.min.js"></script>
 <script src="../../static/js/ui_plugins.js"></script>
+<script src="../../static/js/materialize.custom.js"></script>
 <script src="../../static/js/ui_common.js"></script>
 </head>
 <body>
@@ -41,20 +42,32 @@
 	<div id="container" class="full">
 		<div id="contents">
 			<div class="page_wrap">
-				<div class="page" data-ythreshold="10" style="background-color:#eee;">
+				<div id="page1" class="page scrollspy">
+					<div class="parallax-container">
+						<div class="parallax"><img src="../../static/images/temp/parallax1.jpg"></div>
+					</div>
 					<div class="tbl">
 						<div class="td">
 							<h2>1페이지</h2>
 						</div>
 					</div>
 				</div>
-				<div class="page" data-ythreshold="10">
+				<div id="page2" class="page scrollspy">
+					<div class="parallax-container">
+						<div class="parallax"><img src="../../static/images/temp/parallax1.jpg"></div>
+					</div>
 					<div class="tbl">
 						<div class="td">
 							<h2>2페이지</h2>
 						</div>
 					</div>
 				</div>
+				<aside class="page_navi">
+					<ul>
+						<li><a href="#page1">1페이지</a></li>
+						<li><a href="#page2">2페이지</a></li>
+					</ul>
+				</aside>
 			</div>
 		</div>
 	</div>
@@ -71,36 +84,25 @@
 				threshold:0
 			});
 			*/
-			var scrollMove = function(val,speed){
-				var $scrollTop = '';
-				if(speed == undefined)speed = 300;
-				if($.isNumeric(val)){
-					$scrollTop = val;
-				}else{
-					$scrollTop = $(val).offset().top;
-				}
-				$('html,body').stop(true,false).animate({'scrollTop':$scrollTop},speed);
-			}
 			$('.page').swipe({
 				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 					console.log(direction)
 					if(direction == 'down'){
 						if($(this).prev('.page').length){
 							if($(window).scrollTop() == $(this).offset().top){
-								scrollMove($(this).next('.page'));
+								scrollUI.move($(this).next('.page'));
 							}else{
-								scrollMove(this);
+								scrollUI.move(this);
 							}
 						}else{
-							scrollMove(0);
+							scrollUI.move(0);
 						}
 					}
 					if(direction == 'up'){
 						if($(this).next('.page').length){
-							
-							scrollMove($(this).next('.page'));
+							scrollUI.move($(this).next('.page'));
 						}else{
-							scrollMove('#footer');
+							scrollUI.move('#footer');
 						}
 					}
 				},
