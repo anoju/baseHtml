@@ -596,7 +596,7 @@ div.tit_h4 .tit{font-size:1.4rem;color:#111}
 .input.error:after{background:#fd775c !important;}
 .form_item.error .input input,
 .input.error input{border-color:#fd775c !important;}
-.input.ty2 input{border-width:1px;padding-left:24px;padding-right:44px;}
+.input.ty2 input{border-width:1px;padding-left:19px;padding-right:44px;}
 .input.ty2 input:focus{border-color:#306edf;}
 .input.ty2 .inp_del{right:14px;}
 .input.ty2:after{display:none;}
@@ -614,12 +614,13 @@ div.tit_h4 .tit{font-size:1.4rem;color:#111}
 
 .select{display:inline-block;position:relative;width:100%;}
 .select select,
-.btn_select{width:100%;height:44px;line-height:44px;padding:0 15px 0 0;border-width:0 0 1px 0;border-style:solid;border-color:#ddd;font-size:1.5rem;font-weight:500;color:#111;vertical-align:middle;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-transition:border 0.3s;transition:border 0.3s;-webkit-appearance:none;border-radius:0;}
-.select select{background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:12px auto;}
-.btn_select{display:inline-block;}
+.btn_select{position:relative;width:100%;line-height:33px;padding:5px 15px 5px 0;border-width:0 0 1px 0;border-style:solid;border-color:#ddd;font-size:1.5rem;font-weight:500;color:#111;vertical-align:middle;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-transition:border 0.3s;transition:border 0.3s;-webkit-appearance:none;border-radius:0;}
+.select select{height:44px;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:12px auto;}
+.btn_select{display:inline-block;min-height:44px;}
 .btn_select:after{content:'';display:block;position:absolute;right:0;top:50%;width:19px;height:6px;margin-top:-3px;background:url(../images/common/ico_sel_arrow.png) no-repeat right center;background-size:12px auto;-webkit-transform:rotate3d(1,0,0,0deg);transform:rotate3d(1,0,0,0deg);-webkit-transition:0.3s;transition:0.3s;}
 .btn_select.on:after{-webkit-transform:rotate3d(1,0,0,180deg);transform:rotate3d(1,0,0,180deg);}
 .btn_select .val{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.btn_select .val .sub{display:block;color:#858585;line-height:1.2;font-size:1.1rem;}
 /*.select select:focus,
 .btn_select:focus{border-color:#111;}*/
 .select:after{content:'';display:block;position:absolute;left:0;bottom:0;width:0;height:1px;background:#306edf;-webkit-transition:0.3s;transition:0.3s;}
@@ -630,7 +631,7 @@ div.tit_h4 .tit{font-size:1.4rem;color:#111}
 .select select:disabled,
 .select select.disabled{color:#858585;background-image:url(../images/common/ico_sel_arrow_off.png);border-color:#eee;}
 .select select:disabled+.btn_select,
-.btn_select.disabled{color:#858585;background-image:none;border-color:#eee;}
+.btn_select.disabled{color:#858585;background-image:none;border-color:#eee;z-index:1;}
 .select select:disabled+.btn_select:after,
 .btn_select.disabled:after{background-image:url(../images/common/ico_sel_arrow_off.png);}
 .form_item.error .select:after,
@@ -641,14 +642,17 @@ div.tit_h4 .tit{font-size:1.4rem;color:#111}
 .select.error .btn_select{border-color:#fd775c !important;}
 
 /*.textarea*/
-.textarea{border:1px solid #ddd;padding:15px 15px 0;-webkit-transition:border 0.3s;transition:border 0.3s;}
-.textarea.focus{border-color:#306edf;}
-.textarea.disabled{border-color:#eee;}
-.textarea textarea{display:block;border:0 none;padding:0 25px 0 0;font-size:1.5rem;line-height:1.3;width:100%;height:3.9em;resize:none;-webkit-appearance:none;border-radius:0;background:none;outline:none;}
+.textarea{padding:16px 16px 1px;-webkit-transition:border 0.3s;transition:border 0.3s;}
+.textarea .line{display:block;position:absolute;top:0;left:0;right:0;bottom:0;border:1px solid #ddd;}
+.textarea.focus .line{border-color:#306edf;}
+/* .textarea.disabled{border-color:#eee;} */
+.textarea textarea{position:relative;display:block;border:0 none;padding:0 25px 0 0;font-size:1.5rem;line-height:1.3;width:100%;height:3.9em;resize:none;-webkit-appearance:none;border-radius:0;background:none;outline:none;z-index:1;}
 .textarea textarea:disabled{color:#858585;}
+.textarea textarea:disabled+.line{border-color:#eee;}
+.textarea textarea:disabled+.line+.byte{color:#858585;}
 .textarea.large textarea{height:6.5em;}
 .textarea .inp_del{top:15px;right:15px;margin-top:0;}
-.textarea .byte{text-align:right;color:#666;font-size:1.3rem;line-height:1.3;padding:7px 0 12px;}
+.textarea .byte{text-align:right;color:#111;font-size:1.3rem;line-height:1.3;padding:7px 0 12px;}
 .form_item.error .textarea,
 .textarea.error{border-color:#fd775c !important;}
 

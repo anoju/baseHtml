@@ -5291,7 +5291,7 @@ $jscomp.polyfill = function (e, r, p, m) {
   M.Datepicker = Datepicker;
 
   if (M.jQueryLoaded) {
-    M.initializeJqueryWrapper(Datepicker, 'datepicker', 'M_Datepicker');
+    M.initializeJqueryWrapper(Datepicker, 'mtDatepicker', 'M_Datepicker');
   }
 })(cash);
 ;(function ($) {

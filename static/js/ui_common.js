@@ -897,8 +897,8 @@ var Layer = {
 									if($isBank)$popHtml += '<i class="bk_'+$opVal+'" aria-hidden="true"></i>';
 									if($isCard){
 										if($opTxt.length > 20){
-											$popHtml += '<strong class="tit">'+$opTxt.substr(20,$opTxt.lastIndexOf('(')-20)+'</strong>';
-											$popHtml += '<div class="sub"><span>'+$opTxt.substr(0,19)+'</span><span>'+$opTxt.substr($opTxt.lastIndexOf('(')+1,$opTxt.lastIndexOf(')')-$opTxt.lastIndexOf('(')-1)+'</span></div>';
+											$popHtml += '<strong class="tit">'+$opTxt.substring(20,$opTxt.lastIndexOf('('))+'</strong>';
+											$popHtml += '<div class="sub"><span>'+$opTxt.substring(0,19)+'</span><span>'+$opTxt.substring($opTxt.lastIndexOf('(')+1,$opTxt.lastIndexOf(')'))+'</span></div>';
 										}else{
 											$popHtml += '<strong class="tit">'+$opTxt+'</strong>';
 										}
@@ -952,54 +952,51 @@ var Layer = {
 			e.preventDefault();
 			var $btnVal = $(this).data('value'),
 				$btnTxt = $(this).text();
-			if($(this).find('.tit').length){
-				$btnTxt = $(this).find('.tit').text();
-				if($(this).find('.sub').length)$btnTxt = $btnTxt+' '+$(this).find('.sub').children().first().text();
-			}
 			$(this).parent().addClass('selected').closest('li').siblings().find('.selected').removeClass('selected');
 			$target.val($btnVal).change();
-			$target.siblings('.ui-select-open').removeClass('off').find('.val').text($btnTxt).removeAttr('aria-hidden').next().text('입니다.');
 			Layer.close('#'+$popId);
 		});
 	},
+	isSelectOpen: false,
 	selectUI:function(){
-		//셀렉트 팝업버튼 포커스
+		//셀렉트 팝업
 		$(document).on('click','.ui-select-open',function(e){
 			e.preventDefault();
-			var $select = $(this).siblings('select');
-			var $txtLengthArry = [];
-			if($select.prop('disabled')) return false;
-			if($select.find('option').length < 1) return false;
-			$select.find('option').each(function(){
-				var $optVal = $(this).val(),
-					$optTxt = $(this).text();
-				if($optVal != ''){
-					$txtLengthArry.push($optTxt.length);
+			if(Layer.isSelectOpen == false){
+				Layer.isSelectOpen = true;
+				var $select = $(this).siblings('select');
+				var $txtLengthArry = [];
+				if($select.prop('disabled')) return false;
+				if($select.find('option').length < 1) return false;
+				$select.find('option').each(function(){
+					var $optVal = $(this).val(),
+						$optTxt = $(this).text();
+					if($optVal != ''){
+						$txtLengthArry.push($optTxt.length);
+					}
+				});
+				var $maxTxtLength = Math.max.apply(null, $txtLengthArry);
+				//글자수 체크
+				if($maxTxtLength <= 6){
+					Layer.select($select,3);
+				}else if($maxTxtLength <= 10){
+					Layer.select($select,2);
+				}else{
+					Layer.select($select);
 				}
-			});
-			var $maxTxtLength = Math.max.apply(null, $txtLengthArry);
-			//글자수 체크
-			if($maxTxtLength <= 6){
-				Layer.select($select,3);
-			}else if($maxTxtLength <= 10){
-				Layer.select($select,2);
-			}else{
-				Layer.select($select);
-			}
 
-			var $pop = $select.data('popup'),
-				$currentTarget = $(e.currentTarget);
-			Layer.open($pop,function(){
-				$($pop).data('returnFocus',$currentTarget);
-			});
+				var $pop = $select.data('popup'),
+					$currentTarget = $(e.currentTarget);
+				Layer.open($pop,function(){
+					$($pop).data('returnFocus',$currentTarget);
+				});
+			}
 		});
 		$(document).on('click','.ui-select-lbl',function(e){
 			e.preventDefault();
 			var $tar = $(this).is('a') ? $(this).attr('href') : '#'+$(this).attr('for');
 			$($tar).next('.ui-select-open').focus().click();
 		});
-
-
 		//건물면적
 		var layerSelectClose = function(target,isInp){
 			var $closest = $(target).closest('.form_item'),
@@ -1173,6 +1170,7 @@ var Layer = {
 
 		//select팝업
 		if($(tar).hasClass(Layer.selectClass)){
+			Layer.isSelectOpen = false;
 			setTimeout(function(){
 				$(tar).remove();
 			},$closeDelay);
@@ -2060,33 +2058,38 @@ var formUI = {
 		var $select = $('.select');
 		if($select.length){
 			$select.each(function(){
-				var $this = $(this);
-				if(!$this.is('select')){
-					var $sel = $this.find('select'),
-						$selId = $sel.attr('id'),
-						$val = $sel.val(),
-						$title = $sel.attr('title');
-					if($title == undefined)$title = '선택';
-					var $btnTitle = '팝업으로 '+$title,
-						$btnHtml = '<a href="#'+$selId+'" class="btn_select ui-select-open" title="'+$btnTitle+'"><span class="val"></span></a>';
+				var $this = $(this),
+					$sel = $this.find('select'),
+					$selId = $sel.attr('id'),
+					$title = $sel.attr('title');
+				if($title == undefined)$title = '선택';
+				var $btnTitle = '팝업으로 '+$title,
+					$btnHtml = '<a href="#'+$selId+'" class="btn_select ui-select-open" title="'+$btnTitle+'"><span class="val"></span></a>';
 
-					if(!$this.find('.btn_select').length){
-						$sel.hide();
-						$this.append($btnHtml);
-						var $forLbl = $('label[for="'+$selId+'"]');
-						if($forLbl.length){
-							$forLbl.addClass('ui-select-lbl').attr('title',$btnTitle);
-							//$forLbl.replaceWith('<a href="#'+$selId+'" class="'+$forLbl.attr('class')+' ui-select-lbl" title="'+$btnTitle+'">'+$forLbl.html()+'</a>');
+				if(!$this.find('.btn_select').length){
+					$sel.hide();
+					$this.append($btnHtml);
+					var $forLbl = $('label[for="'+$selId+'"]');
+					if($forLbl.length){
+						$forLbl.addClass('ui-select-lbl').attr('title',$btnTitle);
+						//$forLbl.replaceWith('<a href="#'+$selId+'" class="'+$forLbl.attr('class')+' ui-select-lbl" title="'+$btnTitle+'">'+$forLbl.html()+'</a>');
+					}
+
+					$sel.change(function(){
+						var $val = $(this).val(),
+							$selectTxt = $(this).find(':selected').text();
+						if(($title == '카드선택' || $title == '카드 선택') && $selectTxt.length > 20){
+							$selectTxt = $selectTxt.substring(20,$selectTxt.lastIndexOf('(')) +'<span class="sub">'+ $selectTxt.substring(0,19) +'</span>';
 						}
-					}
-					var $selectTxt = $sel.find(':selected').text();
-					if(($title == '카드선택' || $title == '카드 선택') && $selectTxt.length > 20){
-						$selectTxt = $selectTxt.substr(20,$selectTxt.lastIndexOf('(')-20)+' '+$selectTxt.substr(0,19);
-					}
-					$this.find('.btn_select .val').text($selectTxt);
-					if($val == ''){
-						$this.find('.btn_select').addClass('off');
-					}
+						//console.log($selectTxt)
+						$this.find('.btn_select .val').html($selectTxt);
+						if($val == ''){
+							$this.find('.btn_select').addClass('off');
+						}else{
+							$this.find('.btn_select').removeClass('off');
+						}
+					});
+					$sel.change();
 				}
 			});
 		}
@@ -2306,14 +2309,25 @@ var formUI = {
 		});
 	},
 	etc:function(){
-		//계좌 직접입력
+		//계좌,카드 직접입력
 		$(document).on('click','.form_item .bank_wrap .btn_inp_change',function(){
 			var $closest = $(this).closest('.bank_wrap'),
 				$lbl = $closest.closest('.form_item').children('label'),
 				$selectId = $closest.siblings('.bank_wrap').find('select').attr('id');
 
 			$closest.hide().siblings('.bank_wrap').show().find(':focusable').first().focus();
-			$lbl.attr('for',$selectId);
+			if($lbl.length)$lbl.attr('for',$selectId);
+		});
+		$(document).on('change','.form_item .bank_wrap .select select',function(){
+			var $val = $(this).val(),
+				$closest = $(this).closest('.bank_wrap'),
+				$lbl = $closest.closest('.form_item').children('label'),
+				$selectId = $closest.siblings('.bank_wrap').find('select').attr('id');
+			if($val == 'manual'){
+				$closest.hide().siblings('.bank_wrap').show().find(':focusable').first().focus();
+				$(this).val('').change();
+				if($lbl.length)$lbl.attr('for',$selectId);
+			}
 		});
 
 		//이메일 직접입력
@@ -3497,7 +3511,7 @@ var materialUI = {
 	},
 	datepicker:function(element){
 		if($(element).length){
-			$(element).datepicker({
+			$(element).mtDatepicker({
 				//autoClose: true,
 				showMonthAfterYear: true,
 				showDaysInNextAndPreviousMonths: true,
