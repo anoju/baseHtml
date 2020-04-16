@@ -70,8 +70,6 @@ var htmlnclude = function(){
 						if(document.title.indexOf(' | ')>0){
 							var $docTit = document.title.split(' | ').shift();
 							common.title($docTit);
-						}else{
-							common.title();
 						}
 					}
 
