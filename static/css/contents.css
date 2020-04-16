@@ -63,11 +63,9 @@
 .form_item .td.ut{padding-left:5px;text-align:right;white-space:nowrap;width:20px;color:#111;}
 .form_item .td.ut.ty2{width:35px;}
 .form_item .td.swt{text-align:right;width:70px;vertical-align:middle;}
-.form_item .td.email_sel,
-.form_item .td.email_inp{padding-left:0;}
 .form_item .td.email_inp .input input{padding-right:60px;}
-.form_item .td.email_inp .inp_del{right:30px;}
-.form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:30px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:19px auto;overflow:hidden;}
+.form_item .td.email_inp .inp_del{right:20px;}
+.form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:20px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:12px auto;overflow:hidden;}
 .form_item .unit{display:block;position:absolute;right:0;top:0;color:#111;line-height:44px;}
 .form_item .unit:first-child{left:0;right:auto;}
 

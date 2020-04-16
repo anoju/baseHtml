@@ -67,6 +67,12 @@ var htmlnclude = function(){
 					if($htmlFile == 'top.html'){
 						common.fixed('#header');
 						common.header();
+						if(document.title.indexOf(' | ')>0){
+							var $docTit = document.title.split(' | ').shift();
+							common.title($docTit);
+						}else{
+							common.title();
+						}
 					}
 
 					if($htmlFile == 'footer.html'){
@@ -579,31 +585,56 @@ var common = {
 			});
 		}
 	},
+	title:function(str){
+		if(str != undefined && str != ''){
+			var $title = document.title;
+			if($title.indexOf(' | ')<0)document.title = str+' | '+$title;
+			if($('#header').length){
+				$('#header h1').html(str);
+			}
+		}
+		/*else{
+			str = '<a href="#">농협카드</a>';
+			if($('#header').length){
+				$('#header .btn_back').remove();
+				$('#header h1').addClass('logo').html(str);
+			}
+		}*/
+	},
 	fixed:function(target){
 		//고정(fixed)
 		var $target = $(target);
 		if($target.length){
-			$target.each(function(){
-				var $thisH = $(this).outerHeight(),
-					$childH = $(this).children().outerHeight();
-				$(this).data('height',$thisH);
-				if($thisH < $childH)$(this).css('height',$childH);
+			$(window).resize(function(){
+				$target.each(function(){
+					var $isFixed = false;
+					if($(this).hasClass('fixed'))$isFixed = true;
+					$(this).removeAttr('style');
+					if($isFixed)$(this).removeClass('fixed');
+					var $thisH = $(this).outerHeight(),
+						$childH = $(this).children().outerHeight();
+					if($thisH < $childH){
+						$(this).css('height',$childH);
+					}
+					if($isFixed)$(this).addClass('fixed');
+				});
 			});
+			
 			$(window).on('scroll',function(){
 				if($('html').hasClass('lock'))return false;
 				var $scrollTop = $(this).scrollTop();
 				$target.each(function(){
-					var $thisH = $(this).data('height'),
-						$thisH2 = $(this).outerHeight();
 					if($(this).closest('.popup').length) return;
-					var $top = Math.max(0,$(this).offset().top+($thisH2-$thisH));
-					if($target.attr('id') != 'header')$top = $top-$thisH2;
+					var $top = Math.max(0,$(this).offset().top);
+					if($target.attr('id') != 'header')$top = $top-50;
 					if($scrollTop > $top){
 						if(!$(this).hasClass('fixed')){
 							$(this).addClass('fixed');
 						}
 					}else{
-						$(this).removeClass('fixed');
+						if($(this).hasClass('fixed')){
+							$(this).removeClass('fixed');
+						}
 					}
 				});
 			});
@@ -1189,13 +1220,15 @@ var Layer = {
 		}
 	},
 	position:function(tar){
-		if(!$(tar).hasClass('show'))return false;
+		var isWinPop = false;
+		if($(tar).hasClass('win'))isWinPop = true;	//win클래스로 윈도우팝업인지 체크
+		if(!$(tar).hasClass('show') && isWinPop == false)return false;
 		if($(tar).data('popPosition') == true)return false;
 		$(tar).data('popPosition',true);
 		var $head = $(tar).find('.'+Layer.headClass),
 			$tit = $head.find('h1'),
 			$content = $(tar).find('.'+Layer.contClass);
-
+		
 		$(window).resize(function(){
 			$head.removeAttr('style').removeClass('shadow');
 			$content.removeAttr('tabindex style');
@@ -1204,34 +1237,44 @@ var Layer = {
 			var $headH = $head.outerHeight(),
 				$titH = $tit.outerHeight();
 			if(30 < $titH && $headH < $titH && !$head.hasClass('blind')){
-				var $cabH = $titH-$headH;
-				$head.css('height','+='+$cabH);
-				$(tar).find('.'+Layer.contClass).css('padding-top','+='+$cabH);
+				$head.css('height',$titH);
+				var $padTop = parseInt($content.css('padding-top'));
+				$content.css('padding-top',$titH+($padTop-$headH));
 			}
+			
+			if(!isWinPop){	//레이어팝업
+				//컨텐츠 스크롤이 필요할때
+				var $height = $(tar).height(),
+					$popHeight = $(tar).find('.pop_wrap').outerHeight();
+				if(!$(tar).hasClass('full'))$content.css('max-height',$height);
 
-			//컨텐츠 스크롤이 필요할때
-			var $height = $(tar).height(),
-				$popHeight = $(tar).find('.pop_wrap').outerHeight();
-			if(!$(tar).hasClass('full'))$content.css('max-height',$height);
+				//팝업 헤더 shadow
+				addShadow($content);
+			}else{ //윈도우팝업
+				addShadow(window);
+			}
+		});
 
-			//팝업 헤더 shadow
-			var $contScrollTop = $content.scrollTop();
+		//shadow 넣기
+		var addShadow = function(el){
+			var $contScrollTop = $(el).scrollTop();
 			if($contScrollTop > 50){
 				$head.addClass('shadow');
 			}else{
 				$head.removeClass('shadow');
 			}
-		});
+		};
 
 		//팝업 헤더 shadow
-		$content.scroll(function(){
-			var $contScrollTop = $(this).scrollTop();
-			if($contScrollTop > 50){
-				$head.addClass('shadow');
-			}else{
-				$head.removeClass('shadow');
-			}
-		});
+		if(!isWinPop){	//레이어팝업
+			$content.scroll(function(){
+				addShadow(this);
+			});
+		}else{ //윈도우팝업
+			$(window).scroll(function(){
+				addShadow(this);
+			});
+		}
 	},
 	focusMove:function(tar){
 		if(!$(tar).hasClass('show'))return false;
@@ -1315,9 +1358,13 @@ var Layer = {
 		//닫기
 		$(document).on('click', '.ui-pop-close',function(e){
 			e.preventDefault();
-			if(!$('#wrap').length && !$('.popup').length && $('.pop_wrap').length==1){
+			if($(this).closest('.pop_wrap').hasClass('win')){
 				//윈도우팝업
-				window.close();
+				if(window.history.length == 1){
+					window.close();
+				}else{
+					history.back();
+				}
 			}else{
 				//레이어팝업
 				var $pop = $(this).attr('href');
@@ -1329,17 +1376,10 @@ var Layer = {
 		Layer.keyEvt();
 		Layer.selectUI();
 
-		$(window).scroll(function(){
-			var $head = $('body>.pop_wrap>.pop_head');	//윈도우 팝업인지 체크
-			if($head.length){
-				var $scrollTop = $(this).scrollTop();
-				if($scrollTop > 50){
-					$head.addClass('shadow');
-				}else{
-					$head.removeClass('shadow');
-				}
-			}
-		});
+		//윈도우팝업
+		if($('.pop_wrap.win').length){
+			Layer.position('.pop_wrap.win');
+		}
 
 		//윈도우팝업 열기버튼
 		$(document).on('click','.btn_winpop',function(e){
