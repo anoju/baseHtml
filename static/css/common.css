@@ -438,8 +438,10 @@ html.iPhoneX .add_fixed_btn .floating_btn{bottom:calc(constant(safe-area-inset-b
 #btnTop:after{top:17px;left:15px;width:16px;height:19px;background:url(../images/common/btnTop.png) no-repeat center top;background-size:contain;}
 
 #floatingMenu{z-index:110;}
-/* #floatingMenu .bg{position:fixed;left:500%;top:0;width:100%;height:100%;opacity:0;background:rgba(0,0,0,.7);-webkit-transition:left 0s 0.3s, opacity 0.3s;transition:left 0s 0.3s, opacity 0.3s;} */
+
 #floatingMenu .bg{position:fixed;left:0;top:0;width:100%;height:100%;opacity:1;background:rgba(0,0,0,.7);-webkit-transition:0.45s;transition:0.45s;-webkit-clip-path:circle(0 at calc(100% - 44px) calc(100% - 44px));clip-path:circle(0 at calc(100% - 44px) calc(100% - 44px));}
+html.ie #floatingMenu .bg,
+html.edge #floatingMenu .bg{position:fixed;left:500%;top:0;width:100%;height:100%;opacity:0;background:rgba(0,0,0,.7);-webkit-transition:left 0s 0.3s, opacity 0.3s;transition:left 0s 0.3s, opacity 0.3s;}
 #floatingMenu.is_fixed_btn .bg,
 #floatingMenu.top_on .bg{-webkit-clip-path:circle(0 at calc(100% - 44px) calc(100% - 104px));clip-path:circle(0 at calc(100% - 44px) calc(100% - 104px));}
 #floatingMenu.is_fixed_btn.top_on .bg{-webkit-clip-path:circle(0 at calc(100% - 44px) calc(100% - 104px));clip-path:circle(0 at calc(100% - 44px) calc(100% - 164px));}
@@ -449,8 +451,9 @@ html.iPhoneX .add_fixed_btn .floating_btn{bottom:calc(constant(safe-area-inset-b
 #floatingMenu ul li+li{margin-top:-48px;}
 #floatingMenu .btn .txt{color:#fff;right:0;opacity:0;transition:0.3s 0.3s;}
 #floatingMenu.show{margin-bottom:0;}
-/* #floatingMenu.show .bg{left:0;opacity:1;-webkit-transition-delay:0s;transition-delay:0s;} */
 #floatingMenu.show .bg{-webkit-transition-delay:0s;transition-delay:0s;z-index:0;-webkit-clip-path:circle(100% at 50% 50%) !important;clip-path:circle(100% at 50% 50%) !important;}
+html.ie #floatingMenu.show .bg,
+html.edge #floatingMenu.show .bg{left:0;opacity:1;-webkit-transition-delay:0s;transition-delay:0s;}
 #floatingMenu.show ul{bottom:60px;width:auto;height:auto;border-radius:0;overflow:visible;-webkit-transform:scale(1);transform:scale(1);}
 #floatingMenu.show ul li{opacity:1;}
 #floatingMenu.show ul li+li{margin-top:12px;}
