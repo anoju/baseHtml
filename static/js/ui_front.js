@@ -6,8 +6,8 @@
 var _isDevice = "W"; /** 개발에서 받아와야하는 값: A-모바일앱, W-웹 **/
 
 $(function(){
-	htmlnclude();
 	common.isApp();
+	htmlnclude();
 	deviceCheck();
 	common.init();
 	Layer.init();
@@ -70,6 +70,8 @@ var htmlnclude = function(){
 						if(document.title.indexOf(' | ')>0){
 							var $docTit = document.title.split(' | ').shift();
 							common.title($docTit);
+						}else{
+							common.title();
 						}
 					}
 
@@ -1888,6 +1890,126 @@ var tooltip = {
 	}
 };
 
+//공유하기
+//카카오톡 공유하기 -  https://developers.kakao.com/ 에서 키값 발급 필요
+//<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+var share = {
+	kakaoKey:'5ea7c35c641087250a63564a3d2842d1',
+	kakaoInit: false,
+	copy:function($link){
+		if($link == '' || $link == undefined)$link = location.href;
+		if(isPC.ie8()||isPC.ie9()){	//구형 ie
+			window.clipboardData.setData("Text", $link);
+			if(window.clipboardData.getData("Text") == ''){
+				Layer.alert('복사되지않았습니다.<br>클립보드를 허용해주세요.');
+			}else{
+				Layer.alert('주소가 복사되었습니다.<br>원하는곳에 붙여넣으세요.');
+			}
+		}else{
+			var t = $('<div class="blind"><textarea class="clipbordTxt blind"></textarea></div>');
+			$(event.target).after(t);
+			$('.clipbordTxt').val($link);
+			$('.clipbordTxt').select();
+			document.execCommand('Copy');
+			$('.clipbordTxt').parent().remove();
+			Layer.alert('주소가 복사되었습니다.<br>원하는곳에 붙여넣으세요.');
+		}
+	},
+	sns:function($snsType,$title,$image,$description,$link){
+		if($title == '' || $title == undefined)$title = $('meta[property="og:title"]').attr("content");
+		if($image == '' || $image == undefined)$image = $('meta[property="og:image"]').attr("content");
+		if($description == '' || $description == undefined)$description = $('meta[property="og:description"]').attr("content");
+		if($link == '' || $link == undefined)$link = location.href;
+		var $protocol = location.protocol,
+			$width = 500,
+			$href = '',
+			$url = encodeURIComponent($link);
+			
+		switch ($snsType) {
+			case 'facebook':
+				$href = '//www.facebook.com/sharer/sharer.php?u=' + $url;
+				break;
+			case 'twitter':
+				$href = '//twitter.com/intent/tweet?url=' + $url + ' text=' + $title;
+				break;
+			case 'naver_blog':
+				$href = '//blog.naver.com/openapi/share?url=' + $url + ' title=' + $title;
+				break;
+			case 'naver_band':
+				$href = '//band.us/plugin/share?body=' + encodeURIComponent($title +'\n'+$description +'\n')+ $url;
+				break;
+			case 'google_plus':
+				$href = '//plus.google.com/share?url=' + $url;
+				$width = 400;
+				break;
+			case 'pinterest':
+				$href = '//pinterest.com/pin/create/button/?url=' + $url + ' description=' + $title + ' media=' + $image;
+				break;
+			case 'kakao_story':
+				$href = '//story.kakao.com/share?url=' + $url;
+				break;
+			case 'kakao_talk':
+				var kakaoSend = function(){
+					Kakao.Link.sendDefault({
+						objectType: 'feed',
+						content: {
+							title: $title,
+							imageUrl: $image,
+							description: $description,
+							link: {
+								mobileWebUrl: $href,
+								webUrl: $href
+							}
+						},
+						buttons: [{
+							title: '웹으로 보기',
+							link: {
+								mobileWebUrl: $href,
+								webUrl: $href
+							}
+						}]
+					});
+				};
+
+				if(share.kakaoKey != ''){
+					if(share.kakaoInit == false){
+						share.kakaoInit = true;
+						loadScript('//developers.kakao.com/sdk/js/kakao.min.js',function(){
+							Kakao.init(share.kakaoKey);
+							kakaoSend();
+						});
+					}else{
+						kakaoSend();
+					}
+				}else{
+					Layer.alert('카카오톡 공유하기 API의 key값를 등록해주세요.');
+				}
+				break;
+		}
+		//'kakao_talk' !== $snsType && window.open($protocol + $href, $snsType + 'sns_share', 'scrollbars=1,width=' + $width + ',height=500,menubar=0,resizable=0');
+		if($snsType !== 'kakao_talk')window.open($protocol + $href, $snsType + 'sns_share', 'scrollbars=1,width=' + $width + ',height=500,menubar=0,resizable=0');
+	}
+};
+var loadScript = function(url, callback){
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	if(script.readyState){  //IE
+		script.onreadystatechange = function(){
+			if (script.readyState == "loaded" ||
+					script.readyState == "complete"){
+				script.onreadystatechange = null;
+				callback();
+			}
+		};
+	} else {  //Others
+		script.onload = function(){
+			callback();
+		};
+	}
+	script.src = url;
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+
 //스크롤 관련
 var scrollUI = {
 	inCheck:function(target){
@@ -2171,7 +2293,7 @@ var formUI = {
 	},
 	delBtn:function(){
 		//input 삭제버튼
-		$(document).on('keyup focus','.input input, textarea',function(){
+		$(document).on('keyup focus','.input input, .textarea textarea',function(){
 			var $this = $(this), $val = $this.val();
 			if($this.prop('readonly') || $this.prop('disabled') || $this.hasClass('no_del') || $this.hasClass('datepicker') || $this.hasClass('time')){
 				return false;

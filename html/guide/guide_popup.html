@@ -88,21 +88,26 @@
 		<div id="contents">
 			<div data-include-html="inc_guide_navi.html"></div>
 			<div class="section">
-				<ul class="grid col2 mt20">
-					<li><a href="#" class="button h44" onclick="Layer.open('#fullDialog')">풀팝업</a></li>
-					<li><a href="#" class="button h44 gray" onclick="Layer.open('#modalDialog')">모달팝업</a></li>
-				</ul>
-				<ul class="grid col2 mt20">
-					<li><a href="#" class="button h44" onclick="Layer.open('#bottomDialog1')">하단팝업(짧음)</a></li>
-					<li><a href="#" class="button h44 gray" onclick="Layer.open('#bottomDialog2')">하단팝업(길때)</a></li>
-				</ul>
-				<ul class="grid col1 mt20">
-					<li><a href="win_pop.html" class="button h44" target="_blank">팝업페이지</a></li>
-				</ul>
-				<ul class="grid col2 mt20">
-					<li><a href="#" class="button h44" onclick="Loading.open();$(this).parent().next().find('a').css('z-index',10000)">Loading.open();</a></li>
-					<li><a href="#" class="button h44 gray" onclick="Loading.close();$(this).removeAttr('style');">Loading.close();</a></li>
-				</ul>
+				<h2 class="gd__h1">팝업</h2>
+				<h3 class="gd__h2">레이어</h3>
+				<div class="btn_wrap mt20">
+					<div class="flex">
+						<a href="#" class="button h48" onclick="Layer.open('#fullDialog')">풀팝업</a>
+						<a href="#" class="button h48 gray" onclick="Layer.open('#modalDialog')">모달팝업</a>
+					</div>
+				</div>
+				<div class="btn_wrap mt20">
+					<div class="flex">
+						<a href="#" class="button h48" onclick="Layer.open('#bottomDialog1')">하단팝업(짧음)</a>
+						<a href="#" class="button h48 gray" onclick="Layer.open('#bottomDialog2')">하단팝업(길때)</a>
+					</div>
+				</div>
+				<div class="btn_wrap mt20">
+					<div class="flex">
+						<a href="win_pop.html" class="button h48" target="_blank">팝업페이지</a>
+					</div>
+				</div>
+				<h3 class="gd__h2">select</h3>
 				<div class="form_item mt20">
 					<label for="bank_nm" class="fm_lb">은행/계좌번호</label>
 					<div class="fm_cont">
@@ -144,8 +149,13 @@
 						<div class="error_txt">카드를 선택해주세요.</div>
 					</div>
 				</div>
-
-
+				<h2 class="gd__h1">로딩</h2>
+				<div class="btn_wrap mt20">
+					<div class="flex">
+						<a href="#" class="button h48" onclick="Loading.open();$(this).next().css('z-index',10000)">Loading.open();</a>
+						<a href="#" class="button h48 gray" onclick="Loading.close();$(this).removeAttr('style');">Loading.close();</a>
+					</div>
+				</div>
 				<div id="box" class="mt20">
 					<!-- <div class="loading_box">
 						<div class="tl"><div><div class="ld_lg" aria-hidden="true"><div class="lg_d"></div><div class="lg_b"></div></div><div class="blind">화면을 불러오는중입니다.</div></div></div>
