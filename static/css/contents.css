@@ -18,10 +18,6 @@
 .gd__box{margin:20px auto;display:flex;width:150px;height:150px;background:#eee;align-items:center;justify-content:center;-webkit-transition:background 1s 0.5s;transition:background 1s 0.5s;}
 .gd__box.on{background:#d00;color:#fff;}
 
-/*약관*/
-
-
-
 /*form*/
 .require{display:inline-block;line-height:1;}
 .require:after{content:'*';color:#ff6612;}
