@@ -1557,7 +1557,6 @@ var buttonUI ={
 	},
 	tab:function(){
 		var $tab = $('.ui-tab'),
-			$tabLine = $('.tab_line'),
 			$onText = '현재선택';
 
 		if($('html').attr('lang') == 'en')$onText = 'Activation Menu';
@@ -1679,15 +1678,17 @@ var buttonUI ={
 				}
 			});
 		}
-		if($tabLine.length){
-			$(window).resize(function(){
+		$(window).resize(function(){
+			var $tabLine = $('.tab_line');
+			if($tabLine.length){
 				$tabLine.each(function(e){
+					console.log('aaa')
 					var $closest = $(this).parent(),
 						$active = $closest.find('.active').find('a');
 					tabOnLine($active,$closest);
 				});
-			});
-		}
+			}
+		});
 		if($('.tab_nav').not('.ui-tab').length){
 			$('.tab_nav').not('.ui-tab').each(function(){
 				$(this).find('.tab.active > a').attr('title',$onText);
