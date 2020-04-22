@@ -1682,7 +1682,6 @@ var buttonUI ={
 			var $tabLine = $('.tab_line');
 			if($tabLine.length){
 				$tabLine.each(function(e){
-					console.log('aaa')
 					var $closest = $(this).parent(),
 						$active = $closest.find('.active').find('a');
 					tabOnLine($active,$closest);
