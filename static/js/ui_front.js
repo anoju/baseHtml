@@ -625,9 +625,11 @@ var common = {
 				var $scrollTop = $(this).scrollTop();
 				$target.each(function(){
 					if($(this).closest('.popup').length) return;
-					var $top = Math.max(0,$(this).offset().top);
-					if($target.attr('id') != 'header')$top = $top-50;
-					if($scrollTop > $top){
+					var $offsetTop = Math.max(0,$(this).offset().top),
+						$dataTop = $(this).data('top');
+					if($dataTop == undefined)$dataTop = 0;
+					if($dataTop != 0)$offsetTop = $offsetTop - $dataTop;
+					if($scrollTop > $offsetTop){
 						if(!$(this).hasClass('fixed')){
 							$(this).addClass('fixed');
 						}
@@ -718,12 +720,7 @@ var common = {
 		common.skipNavi();
 
 		common.fixed('#header');
-		if($('.tab_nav_wrap.add_fixed').length){
-			$('.tab_nav_wrap.add_fixed').each(function(){
-				//if(!$(this).closest('.popup').length)
-				common.fixed(this);
-			});
-		}
+		if($('.tab_nav_wrap.add_fixed').length)common.fixed('.tab_nav_wrap.add_fixed');
 	}
 };
 
@@ -1560,6 +1557,7 @@ var buttonUI ={
 	},
 	tab:function(){
 		var $tab = $('.ui-tab'),
+			$tabLine = $('.tab_line'),
 			$onText = '현재선택';
 
 		if($('html').attr('lang') == 'en')$onText = 'Activation Menu';
@@ -1586,10 +1584,6 @@ var buttonUI ={
 				$target = $closest.data('target'),
 				$winScrollTop = $(window).scrollTop();
 
-			if($line.length){
-				tabOnLine($this,$closest);
-			}
-
 			if($($href).length){
 				if($isFirst == true){
 					$closest.data('isFirst', false) ;
@@ -1600,7 +1594,6 @@ var buttonUI ={
 				}
 				if($this.closest('.fixed').length){
 					var $scrollTop = $this.closest('.fixed').offset().top - $('#header').outerHeight();
-					//$('html,body').stop(true,false).animate({'scrollTop':$scrollTop},100);
 					scrollUI.move($scrollTop);
 				}
 
@@ -1632,12 +1625,17 @@ var buttonUI ={
 			}else{
 				console.error('대상 지정 오류! href값에 해당 id값을 넣어 주세요~');
 			}
+			
 			var $arr = $closest.children('.arr');
 			if($arr.length){
 				var $liLength = $closest.find('>ul>li').length,
 					$liWidth = 100/$liLength,
 					$arrLeft = ($liWidth*$idx)+($liWidth/2);
 				$arr.css('left',$arrLeft+'%');
+			}
+
+			if($line.length){
+				$(window).resize();	
 			}
 		});
 
@@ -1679,6 +1677,15 @@ var buttonUI ={
 				if(isHash == true){
 					isHashClk.trigger('click');
 				}
+			});
+		}
+		if($tabLine.length){
+			$(window).resize(function(){
+				$tabLine.each(function(e){
+					var $closest = $(this).parent(),
+						$active = $closest.find('.active').find('a');
+					tabOnLine($active,$closest);
+				});
 			});
 		}
 		if($('.tab_nav').not('.ui-tab').length){
@@ -1995,8 +2002,7 @@ var loadScript = function(url, callback){
 	script.type = "text/javascript";
 	if(script.readyState){  //IE
 		script.onreadystatechange = function(){
-			if (script.readyState == "loaded" ||
-					script.readyState == "complete"){
+			if (script.readyState == "loaded" || script.readyState == "complete"){
 				script.onreadystatechange = null;
 				callback();
 			}
@@ -2008,7 +2014,7 @@ var loadScript = function(url, callback){
 	}
 	script.src = url;
 	document.getElementsByTagName("head")[0].appendChild(script);
-}
+};
 
 //스크롤 관련
 var scrollUI = {
