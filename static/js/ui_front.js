@@ -1177,7 +1177,7 @@ var Layer = {
 
 		//포커스
 		var $returnFocus = $(tar).data('returnFocus');
-		$returnFocus.removeClass(Layer.focusClass);
+		$returnFocus.removeClass(Layer.focusClass).focus();
 
 		//닫기
 		$(tar).removeClass('show');
