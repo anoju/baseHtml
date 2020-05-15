@@ -1078,7 +1078,7 @@ var Layer = {
 		}
 
 		//열릴때 플루팅 버튼
-		if($('.floating_btn').is(':visible') && $(tar).hasClass('t3')){
+		if($('.floating_btn').is(':visible')){
 			$('.floating_btn').hide();
 			if($('.floating_btn').hasClass('is_fixed_btn'))$(tar).addClass('is_fixed_btn');
 		}
@@ -1212,7 +1212,7 @@ var Layer = {
 		}
 
 		//닫힐때 플루팅 버튼
-		if(!$('.floating_btn').is(':visible') && $(tar).hasClass('t3')){
+		if(!$('.floating_btn').is(':visible')){
 			$('.floating_btn').removeAttr('style');
 		}
 	},
@@ -1633,9 +1633,9 @@ var buttonUI ={
 				$arr.css('left',$arrLeft+'%');
 			}
 
-			if($line.length){
+			//if($line.length){
 				$(window).resize();	
-			}
+			//}
 		});
 
 		var $hash = location.hash;
