@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
 
-<meta name="title" content="농협카드 모바일">
-<meta name="description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
-<meta property="og:title" content="농협카드 모바일">
+<meta name="title" content="모바일">
+<meta name="description" content="사이트 설명글 넣어주세요.">
+<meta property="og:title" content="모바일">
 <meta property="og:url" content="https://card.nonghyup.com">
-<!-- <meta property="og:image" content="https://card.nonghyup.com/static/images/logo_1200x1200.png"> -->
-<meta property="og:image" content="http://localhost:8080/static/images/logo_1200x1200.png">
-<meta property="og:description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
+<!-- <meta property="og:image" content="https://card.nonghyup.com/content/mo/images/logo_1200x1200.png"> -->
+<meta property="og:image" content="http://localhost:8080/content/mo/images/logo_1200x1200.png">
+<meta property="og:description" content="사이트 설명글 넣어주세요.">
 <meta name="format-detection" content="telephone=no">
 
-<title>농협카드 모바일</title>
-<meta name="apple-mobile-web-app-title" content="농협카드 모바일">
+<title>모바일</title>
+<meta name="apple-mobile-web-app-title" content="모바일">
 <link rel="apple-touch-startup-image" href="../../static/images/icons/touch-icon-iphone-retina.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -32,8 +32,12 @@
 <script src="../../static/js/jquery-3.3.1.min.js"></script>
 <script src="../../static/js/jquery-ui-1.12.1.min.js"></script>
 <script src="../../static/js/ui_plugins.js"></script>
-<script src="../../static/js/materialize.custom.js"></script>
-<script src="../../static/js/ui_common.js"></script>
+<script src="../../static/js/ui_front.js"></script>
+<script>
+	$(function(){
+		common.title('텍스트 가이드');
+	});
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -44,6 +48,11 @@
 			<div data-include-html="inc_guide_navi.html"></div>
 			<div class="section">
 				<h2 class="gd__h1">text</h2>
+				<h2 class="gd__h2">font-family</h2>
+				<div class="fz_20 fc_black">가나다라마바사아자차카타파하 - NotoSans<br>
+					ABCDEFGHIJKLMNOPQRSTUVWXYZ - Roboto<br>
+					abcdefghijklmnopqrstuvwxyz - Roboto<br>
+					1234567890 - Roboto</div>
 				<h2 class="gd__h2">color</h2>
 				<div>기본:#333</div>
 				<div class="fc_blue">fc_blue:#306edf</div>
@@ -72,13 +81,12 @@
 				<div><strong class="fw_normal">fw_normal</strong></div>
 				<div class="fw_100">fw_100</div>
 				<div class="fw_300">fw_300</div>
-				<div class="fw_350">fw_350</div>
 				<div class="fw_400">fw_400</div>
 				<div class="fw_500">fw_500</div>
 				<div class="fw_700">fw_700</div>
 				<div class="fw_900">fw_900</div>
 
-				<h2 class="gd__h2">float, align</h2>
+				<h2 class="gd__h2">float</h2>
 				<div class="f_left">f_left</div>
 				<div class="f_right">f_right</div>
 				<div class="clear">clear</div>

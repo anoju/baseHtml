@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
 
-<meta name="title" content="농협카드 모바일">
-<meta name="description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
-<meta property="og:title" content="농협카드 모바일">
+<meta name="title" content="모바일">
+<meta name="description" content="사이트 설명글 넣어주세요.">
+<meta property="og:title" content="모바일">
 <meta property="og:url" content="https://card.nonghyup.com">
-<!-- <meta property="og:image" content="https://card.nonghyup.com/static/images/logo_1200x1200.png"> -->
-<meta property="og:image" content="http://localhost:8080/static/images/logo_1200x1200.png">
-<meta property="og:description" content="인터넷서비스, 카드발급상담, NH올원카드, 금융서비스, 포인트, 할인혜택 등 안내">
+<!-- <meta property="og:image" content="https://card.nonghyup.com/content/mo/images/logo_1200x1200.png"> -->
+<meta property="og:image" content="http://localhost:8080/content/mo/images/logo_1200x1200.png">
+<meta property="og:description" content="사이트 설명글 넣어주세요.">
 <meta name="format-detection" content="telephone=no">
 
-<title>농협카드 모바일</title>
-<meta name="apple-mobile-web-app-title" content="농협카드 모바일">
+<title>모바일</title>
+<meta name="apple-mobile-web-app-title" content="모바일">
 <link rel="apple-touch-startup-image" href="../../static/images/icons/touch-icon-iphone-retina.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -32,8 +32,12 @@
 <script src="../../static/js/jquery-3.3.1.min.js"></script>
 <script src="../../static/js/jquery-ui-1.12.1.min.js"></script>
 <script src="../../static/js/ui_plugins.js"></script>
-<script src="../../static/js/materialize.custom.js"></script>
-<script src="../../static/js/ui_common.js"></script>
+<script src="../../static/js/ui_front.js"></script>
+<script>
+	$(function(){
+		common.title('기타');
+	});
+</script>
 </head>
 <body>
 <article id="wrap">
@@ -44,12 +48,37 @@
 			<div data-include-html="inc_guide_navi.html"></div>
 			<div class="section">
 
+				<h2 class="gd__h1">공유하기</h2>
+				<div class="btn_wrap">
+					<div class="flex">
+						<div class="blind"><input type="text" class="copyUrl"></div>
+						<a href="#" class="button h48" onclick="share.copy();">주소복사</a>
+					</div>
+					<div class="flex mt10">
+						<a href="#" class="button h48" onclick="share.sns('facebook');">페이스북</a>
+						<a href="#" class="button h48 gray" onclick="share.sns('twitter');">트위터</a>
+					</div>
+					<div class="flex mt10">
+						<a href="#" class="button h48" onclick="share.sns('google_plus');">구글+</a>
+						<a href="#" class="button h48 gray" onclick="share.sns('pinterest');">pinterest</a>
+					</div>
+					<div class="flex mt10">
+						<a href="#" class="button h48" onclick="share.sns('naver_blog');">네이버블로그</a>
+						<a href="#" class="button h48 gray" onclick="share.sns('naver_band');">네이버밴드</a>
+					</div>
+					<div class="flex mt10">
+						<a href="#" class="button h48" onclick="share.sns('kakao_talk');">카카오톡</a>
+						<a href="#" class="button h48 gray" onclick="share.sns('kakao_story');">카카오스토리</a>
+					</div>
+				</div>
+
+				<h2 class="gd__h1">이메일 기능 확인</h2>
 				<div class="form_item">
 					<label for="mail1" class="fm_lb">이메일</label>
 					<div class="fm_cont email_form">
 						<div class="tbl">
 							<div class="td w40"><div class="input"><input type="text" id="mail1" title="이메일 아이디 입력"></div></div>
-							<div class="td dash t2">@</div>
+							<div class="td dash ty2">@</div>
 							<div class="td w60 email_sel">
 								<div class="select">
 									<select title="이메일 도메인 선택" id="mailSelect">

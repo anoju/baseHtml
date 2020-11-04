@@ -66,8 +66,10 @@ html.iPhoneX.isApp .popup:not(.modal) .pop_cont.after_btn:after{height:65px;}
 html.iPhoneX.isApp .popup:not(.modal) .pop_cont .in_touch_scl{height:calc(100vh - 150px);padding-bottom:80px;}
 .popup.full .pop_wrap{height:100%;-webkit-transition-timing-function:cubic-bezier(0.2,0.6,0,1);transition-timing-function:cubic-bezier(0.2,0.6,0,1);}
 .popup.full .pop_wrap .pop_cont{height:100%;}
-.popup.full .pop_head h1{font-size:1.8rem;text-align:center;padding-left:55px;}
+.popup.full .pop_head h1,
+.pop_wrap.win .pop_head h1{font-size:1.8rem;text-align:center;padding:12px 55px;line-height:26px;}
 .popup.full .pop_head .pop_close,
+.pop_wrap.win .pop_head .pop_close,
 .popup.full .pop_close.last_focus{right:12px;background-image:url(../images/common/head_close.png);background-size:14px auto;}
 .popup.bottom{/*padding-top:50vh;*/padding-top:100px;}
 .popup.bottom .pop_wrap{position:fixed;left:0;bottom:0;border-radius:10px 10px 0 0;/*max-height:calc(50vh);*/}

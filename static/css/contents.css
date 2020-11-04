@@ -18,10 +18,6 @@
 .gd__box{margin:20px auto;display:flex;width:150px;height:150px;background:#eee;align-items:center;justify-content:center;-webkit-transition:background 1s 0.5s;transition:background 1s 0.5s;}
 .gd__box.on{background:#d00;color:#fff;}
 
-/*약관*/
-
-
-
 /*form*/
 .require{display:inline-block;line-height:1;}
 .require:after{content:'*';color:#ff6612;}
@@ -31,7 +27,7 @@
 .help_txt:before{content:'';position:absolute;top:9px;left:0;width:3px;height:3px;background-color:#7f8898;border-radius:100%}
 .help_txt+.help_txt{margin-top:15px;}
 .error_txt{display:none;padding-left:20px;color:#fd775c;background:url(../images/common/ico_error_txt.png) no-repeat left 3px;background-size:14px auto;}
-.error_txt.on{color:#306edf;background-image:url(../images/common/ico_error_txt_on.png);}
+.error_txt.checked{color:#306edf;background-image:url(../images/common/ico_error_txt_on.png);}
 
 .chk_item{margin-left:-20px;margin-right:-20px;border:1px solid #dddddd;border-left-color:transparent;border-right-color:transparent;}
 .chk_item>.checkbox,
@@ -44,6 +40,7 @@
 .chk_item>.radio>.lbl{padding:20px 20px 20px 50px;margin-left:0;}
 
 .form_item{position:relative;margin-top:35px;}
+.section>.form_item:first-child{margin-top:0;}
 .form_item .fm_lb{display:block;font-weight:500;font-size:1.4rem;cursor:default;}
 .form_item .fm_lb .tooltip_wrap{vertical-align:1px;}
 .form_item .fm_lb + .fm_val,
@@ -63,11 +60,9 @@
 .form_item .td.ut{padding-left:5px;text-align:right;white-space:nowrap;width:20px;color:#111;}
 .form_item .td.ut.ty2{width:35px;}
 .form_item .td.swt{text-align:right;width:70px;vertical-align:middle;}
-.form_item .td.email_sel,
-.form_item .td.email_inp{padding-left:0;}
 .form_item .td.email_inp .input input{padding-right:60px;}
-.form_item .td.email_inp .inp_del{right:30px;}
-.form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:30px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:19px auto;overflow:hidden;}
+.form_item .td.email_inp .inp_del{right:20px;}
+.form_item .td.email_inp .btn_sel{display:block;position:absolute;right:0;top:0;width:20px;height:100%;font-size:3px;color:transparent;background:url(../images/common/ico_sel_arrow.png) 100% 50% no-repeat;background-size:12px auto;overflow:hidden;}
 .form_item .unit{display:block;position:absolute;right:0;top:0;color:#111;line-height:44px;}
 .form_item .unit:first-child{left:0;right:auto;}
 
