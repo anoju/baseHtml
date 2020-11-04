@@ -3488,7 +3488,7 @@ var materialUI = {
 					$this.css('height',$this.children().first().outerHeight());
 				}
 				$this.addClass($class);
-				$this.carousel({
+				$this.mtCarousel({
 					fullWidth: isFull,
 					indicators: true,
 					onCycleTo:function(e){
@@ -3521,7 +3521,7 @@ var materialUI = {
 	},
 	timepicker:function(element){
 		if($(element).length){
-			$(element).timepicker({
+			$(element).mtTimepicker({
 				//autoClose: true,
 				twelveHour:false
 			});

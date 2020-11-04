@@ -5928,7 +5928,7 @@ $jscomp.polyfill = function (e, r, p, m) {
   M.Timepicker = Timepicker;
 
   if (M.jQueryLoaded) {
-    M.initializeJqueryWrapper(Timepicker, 'timepicker', 'M_Timepicker');
+    M.initializeJqueryWrapper(Timepicker, 'mtTimepicker', 'M_Timepicker');
   }
 })(cash);
 ;(function ($) {
@@ -6717,6 +6717,6 @@ $jscomp.polyfill = function (e, r, p, m) {
   M.Carousel = Carousel;
 
   if (M.jQueryLoaded) {
-    M.initializeJqueryWrapper(Carousel, 'carousel', 'M_Carousel');
+    M.initializeJqueryWrapper(Carousel, 'mtCarousel', 'M_Carousel');
   }
 })(cash);
